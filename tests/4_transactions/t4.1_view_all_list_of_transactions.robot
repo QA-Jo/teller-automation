@@ -55,7 +55,7 @@ t4.1.2 Pagination in Viewing Transaction History
     [Documentation]    Verify pagination controls work correctly:
     ...                Next loads page 2, clicking page 3 loads page 3,
     ...                and Back returns to page 2.
-    [Tags]             transactions     smoke    mvp    type1
+    [Tags]             transactions     smoke    mvp    type1    pagination
     # Click Next arrow to go to page 2
     Click                      ${PAGINATION_NEXT}
     Wait For Elements State    css=li.ant-pagination-item-active:has-text("2")    visible

@@ -112,7 +112,7 @@ t1.1.4 Login Using Expired Temporary Password
     ...                with an expired temporary password.
     ...                Uses the magic value "${RTP_EXPIRED_MAGIC_PWD}" which the backend
     ...                always treats as an expired temporary password for any valid email.
-    [Tags]             reset-password    negative    temp-password    mvp    type1
+    [Tags]             reset-password    negative    temp-password    mvp    type1    expired
 
     Open Teller App
     Fill Text                   ${EMAIL_FIELD}       ${RTP_EXPIRED_USER_EMAIL}
@@ -123,7 +123,7 @@ t1.1.4 Login Using Expired Temporary Password
 t1.1.5 Verify That a User With an Expired Temporary Password Can Finalize Account Setup via Forgot Password
     [Documentation]    Verify that a user whose temporary password has expired can still
     ...                complete account setup by using the Forgot Password flow.
-    [Tags]             reset-password    password-reset    mvp    type1
+    [Tags]             reset-password    password-reset    mvp    type1    expired
 
     Open Teller App
     Click                       ${FORGOT_PASSWORD_LINK}
