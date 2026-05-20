@@ -14,7 +14,7 @@ set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "$0")" && pwd)"
 PAGES_URL="https://pvillados-nmblr.github.io/teller-automation"
-WORKTREE_PATH="/tmp/gh-pages-work-$$"
+WORKTREE_PATH="/tmp/gh-pages-work"
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -73,6 +73,11 @@ cleanup() {
 trap cleanup EXIT
 
 info "Setting up gh-pages worktree..."
+# Remove any stale worktree at the fixed path before adding
+if git worktree list | grep -q "$WORKTREE_PATH"; then
+  git worktree remove --force "$WORKTREE_PATH" 2>/dev/null || true
+fi
+rm -rf "$WORKTREE_PATH"
 git fetch origin gh-pages
 # Update local gh-pages to match remote before adding worktree
 git branch -f gh-pages origin/gh-pages 2>/dev/null || true

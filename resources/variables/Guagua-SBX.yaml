@@ -3,7 +3,7 @@
 # ============================================================
 
 BANK_NAME: "Rural Bank of San Antonio"
-BASE_URL: "https://alegre-dashboard.int.itg.higala.ph/rural-bank-san-antonio/login"
+BASE_URL: "https://alegre-dashboard.pub.sbx.higala.ph/guagua-rural-bank/login"
 
 # Teller Credentials
 TELLER_EMAIL: "pvillados@agsx.net"
@@ -23,12 +23,12 @@ TIMEOUT: "30s"
 # Auth — Reset Password via Temp Password (t1.1)
 # ============================================================
 
-RTP_NEW_USER_EMAIL: "pvillados+429@nmblr.ai" #needs to be changed every run
-RTP_TEMP_PASSWORD: "HoV1yiQR1KSf" #needs to be changed every run
-RTP_NEW_USER_EMAIL_2: "pvillados+apr24@agsx.net" #needs to be changed every run
-RTP_TEMP_PASSWORD_2: "EBj8wXGKj9yq" #needs to be changed every run
-RTP_MIXED_CASE_EMAIL: "Pvillados+429@NmBlR.aI" #needs to be changed every run
-RTP_MIXED_CASE_EMAIL_PASSWORD: "HoV1yiQR1KSf" #needs to be changed every run
+RTP_NEW_USER_EMAIL: "pvillados+430@agsx.net" #needs to be changed every run
+RTP_TEMP_PASSWORD: "PeqQNkbRJ0J9" #needs to be changed every run
+RTP_NEW_USER_EMAIL_2: "pvillados+431@agsx.net" #needs to be changed every run
+RTP_TEMP_PASSWORD_2: "adjoy9oC6SoK" #needs to be changed every run
+RTP_MIXED_CASE_EMAIL: "PvIlLaDoS+430@AgSx.NeT" #needs to be changed every run
+RTP_MIXED_CASE_EMAIL_PASSWORD: "PeqQNkbRJ0J9" #needs to be changed every run
 RTP_EXPIRED_USER_EMAIL: "pvillados+feb3@agsx.net"
 EXPIRED_TEMP_PASSWORD: "g9EUrGq0ttVQ"
 RTP_WRONG_CONFIRM_PASSWORD: "Password1234!"
@@ -48,54 +48,54 @@ CP_USER_PASSWORD: "Password123!"
 # Customer Data (t2.1, t2.2, t2.3)
 # ============================================================
 
-VALID_CUSTOMER_ID: "6176dc74e8fa46fa9fb67c11b2bd679c"
-VALID_CUSTOMER_NAME: "Peach Marie Villados"
-CUSTOMER_DATE_OF_BIRTH: "02 Sep 2003"
-CUSTOMER_CREATED_ON: "02 Sep 2025"
-T21_STATUS_CHANGE_CUSTOMER_NAME: "Warren Santosidad Giltendez"
+VALID_CUSTOMER_ID: "a9da01bcd70947de9c271039cd90646b"
+VALID_CUSTOMER_NAME: "Josephine Santos"
+CUSTOMER_DATE_OF_BIRTH: "06 Apr 2008"
+CUSTOMER_CREATED_ON: "06 Apr 2026"
+T21_STATUS_CHANGE_CUSTOMER_NAME: "Warren Test Guagua"
 T21_STATUS_CHANGE_REMARKS: "Automated test — status change verification"
-T22_STATUS_CHANGE_CUSTOMER_ID: "5ea5ca80c5194919afbd9ee470734e45"
-T22_STATUS_CHANGE_ACCOUNT_NO: "7710520772775364"
+T22_STATUS_CHANGE_CUSTOMER_ID: "c03140d65d5f475da49cda9a78e67ad4"
+T22_STATUS_CHANGE_ACCOUNT_NO: "7711092672859290"
 T22_STATUS_CHANGE_REMARKS: "Automated test — account status change verification"
 
 
 # Aliases used in t2.2 and t2.3
-CUSTOMER_ID: "6176dc74e8fa46fa9fb67c11b2bd679c"
-CUSTOMER_NAME: "Peach Marie Villados"
+CUSTOMER_ID: "a9da01bcd70947de9c271039cd90646b"
+CUSTOMER_NAME: "Josephine Santos"
 
 
 # ============================================================
 # Account Data (t2.2, t3.1)
 # ============================================================
 
-VALID_ACCOUNT_ID: "7710458152114857"
-VALID_ACCOUNT_NAME: "Peach Villados"
-ACCOUNT_CREATED_ON: "03 Jul 2025"
+VALID_ACCOUNT_ID: "7711047708401688"
+VALID_ACCOUNT_NAME: "Josephine Santos"
+ACCOUNT_CREATED_ON: "06 Apr 2026"
 
-VALID_ACCOUNT_NUMBER: "7710520772775364"
-EXPECTED_ACCOUNT_NAME: "Warren Santosidad Giltendez"
+VALID_ACCOUNT_NUMBER: "7711011229703085"
+EXPECTED_ACCOUNT_NAME: "Warren Test One"
 EXPECTED_BALANCE: "₱0.00"
-EXPECTED_CREATED_ON: "13 Mar 2026"
+EXPECTED_CREATED_ON: "06 Apr 2026"
 
 
 # ============================================================
 # Transaction Data — Customers & Accounts modules (t2.3, t3.2)
 # ============================================================
 
-VALID_TXN_ID: "2504dda272e34dc4bf908f02a01b6198"
+VALID_TXN_ID: "4e8ca62b1a9e43c7bdfcc129f14d57ae"
 TXN_TYPE: "Fund Transfer"
-TXN_AMOUNT: "1.00"
+TXN_AMOUNT: "550.00"
 TXN_SERVICE_FEE: "0.00"
-TXN_REMARKS: "DFSP sanity test transfer"
+TXN_REMARKS: "N/A"
 TXN_STATUS: "Success"
-TXN_DEBIT_ACCT_NAME: "Maria Dela Cruz Tanggol"
-TXN_CREDIT_ACCT_NAME: "Peach Marie Villados"
-TXN_DEBIT_ACCT_NO: "7710576005902459"
-TXN_CREDIT_ACCT_NO: "7710589946921181"
-TXN_CREATED_ON: "11 May 2026 16:23:10"
-TXN_UPDATED_ON: "11 May 2026 16:23:10"
-DATE_FROM: "2026-05-11"
-DATE_TO: "2026-05-12"
+TXN_DEBIT_ACCT_NAME: "Jocelyn Javier Amban"
+TXN_CREDIT_ACCT_NAME: "Josephine Santos"
+TXN_DEBIT_ACCT_NO: "7711031228974342"
+TXN_CREDIT_ACCT_NO: "7711047708401688"
+TXN_CREATED_ON: "07 Apr 2026 10:48:08"
+TXN_UPDATED_ON: "07 Apr 2026 10:48:08"
+DATE_FROM: "2026-04-06"
+DATE_TO: "2026-04-07"
 
 
 #to edit
@@ -105,22 +105,22 @@ DATE_TO: "2026-05-12"
 # Use RB to RB transaction data
 # ============================================================
 
-T4_VALID_TXN_ID: "5cc4f8f5ab50454fa4e2b5be3e48a3fc"
+T4_VALID_TXN_ID: "5c40d55c342744589c2de296a311871a"
 T4_TXN_TYPE: "External Transfer"
 T4_TXN_AMOUNT: "1.00"
 T4_TXN_SERVICE_FEE: "15.00"
-T4_TXN_REMARKS: "DFSP sanity test transfer"
+T4_TXN_REMARKS: "N/A"
 T4_TXN_STATUS: "Success"
-T4_TXN_INSTAPAY_REF: "816134"
-T4_TXN_DEBIT_ACCT_NAME: "Maria Dela Cruz Tanggol"
-T4_TXN_CREDIT_ACCT_NAME: "Paulo Navarro"
-T4_TXN_DEBIT_ACCT_NO: "7710576005902459"
-T4_TXN_CREDIT_ACCT_NO: "7710737754140432"
-T4_TXN_DEBIT_BANK_CODE: "RCBCPHMMXXX"
-T4_TXN_DEBIT_BANK_NAME: "Banco Abucay"
-T4_TXN_CREATED_ON: "22 Apr 2026 16:46:11"
-T4_DATE_FROM: "2026-04-23"
-T4_DATE_TO: "2026-04-24"
+T4_TXN_INSTAPAY_REF: "873322"
+T4_TXN_DEBIT_ACCT_NAME: "Jocelyn Javier Amban"
+T4_TXN_CREDIT_ACCT_NAME: "China"
+T4_TXN_DEBIT_ACCT_NO: "7711031228974342"
+T4_TXN_CREDIT_ACCT_NO: "101400001643"
+T4_TXN_CREDIT_BANK_CODE: "CHBKPHMMXXX"
+T4_TXN_CREDIT_BANK_NAME: "China Banking Corporation"
+T4_TXN_CREATED_ON: "12 May 2026 11:36:22"
+T4_DATE_FROM: "2026-04-20"
+T4_DATE_TO: "2026-04-22"
 
 
 # ============================================================

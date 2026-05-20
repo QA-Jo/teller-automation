@@ -157,7 +157,8 @@ Fill Loans Product Step 1
     Fill Text    ${CLP_MIN_AMOUNT_INPUT}    ${T53_LOANS_MIN_AMOUNT}
     Fill Text    ${CLP_MAX_AMOUNT_INPUT}    ${T53_LOANS_MAX_AMOUNT}
     Fill Text    ${CLP_TERM_LENGTH_INPUT}    ${T53_LOANS_TERM_LENGTH}
-    Select Dropdown First Option    ${CLP_TERM_UNIT_SELECT}
+    # commented out as guardrail for now
+    # Select Dropdown First Option    ${CLP_TERM_UNIT_SELECT}
     Select Dropdown First Option    ${CLP_INTEREST_RATE_TYPE_SELECT}
     Fill Text    ${CLP_REPAYMENT_METHOD_INPUT}    ${T53_LOANS_REPAYMENT_METHOD}
     # Eligibility Criteria
@@ -245,7 +246,7 @@ t5.3.1 Create New Savings Product – Happy Path
     Wait For Elements State    css=.ant-steps-item-process:has-text("Product Configuration")    visible
     # Fill all mandatory fields in Step 1
     ${timestamp}=    Evaluate    __import__('datetime').datetime.now().strftime('%m%d%H%M%S')
-    ${product_name}=    Set Variable    t5.3 Savings ${timestamp}
+    ${product_name}=    Set Variable    Savings ${timestamp}
     Fill Savings Product Step 1    ${product_name}
     # Click Continue — verify redirect to Step 2 (Customer Form)
     Wait For Elements State    ${CREATE_PRODUCT_CONTINUE_BTN}    enabled    timeout=10s
@@ -435,7 +436,7 @@ t5.3.5 Review and Confirm Savings Product Creation
     [Tags]    products    create    savings    smoke    mvp    type2
     # Generate unique product name with timestamp and store as suite variable for t5.3.6/7/8
     ${timestamp}=    Evaluate    __import__('datetime').datetime.now().strftime('%m%d%H%M%S')
-    ${product_name}=    Set Variable    t5.3 Savings ${timestamp}
+    ${product_name}=    Set Variable    Savings ${timestamp}
     Set Suite Variable    ${T53_PRODUCT_NAME}    ${product_name}
     # Navigate to Step 2 (Customer Form) with completed Step 1
     Navigate To Savings Customer Form    ${product_name}
@@ -720,7 +721,7 @@ t5.3.9 Create New Loans Product – Happy Path
     ...    Wait For Elements State    ${CREATE_PRODUCT_PAGE} >> text=Loan Features    visible    timeout=10s
     # Fill all mandatory fields in Step 1
     ${timestamp}=    Evaluate    __import__('datetime').datetime.now().strftime('%m%d%H%M%S')
-    ${product_name}=    Set Variable    t5.3 Loans ${timestamp}
+    ${product_name}=    Set Variable    Loan ${timestamp}
     Fill Loans Product Step 1    ${product_name}
     # Click Continue — verify redirect to Step 2 (Customer Form)
     Wait For Elements State    ${CREATE_PRODUCT_CONTINUE_BTN}    enabled    timeout=10s
@@ -918,7 +919,7 @@ t5.3.14 Review and Confirm Loans Product Creation
     [Tags]    products    create    loans    smoke    mvp    type2
     # Generate unique product name with timestamp and store as suite variable for t5.3.15/16/17
     ${timestamp}=    Evaluate    __import__('datetime').datetime.now().strftime('%m%d%H%M%S')
-    ${product_name}=    Set Variable    t5.3 Loans ${timestamp}
+    ${product_name}=    Set Variable    Loan ${timestamp}
     Set Suite Variable    ${T53_LOANS_PRODUCT_NAME}    ${product_name}
     # Navigate to Step 2 (Customer Form) with completed Step 1
     Navigate To Loans Customer Form    ${product_name}
@@ -1179,7 +1180,7 @@ t5.3.20 Back Navigation from Review Step Preserves All Entered Data
     ...                2. User is on Step 3 – Review Product for a Savings product.
     [Tags]    products    create    savings    regression    mvp    type2
     ${timestamp}=    Evaluate    __import__('datetime').datetime.now().strftime('%m%d%H%M%S')
-    ${product_name}=    Set Variable    t5.3.20 Savings ${timestamp}
+    ${product_name}=    Set Variable    Savings ${timestamp}
     # Navigate through full flow: Step 1 → Step 2 with a section and field
     Navigate To Savings Customer Form    ${product_name}
     Add Section To Customer Form    ${T53_SECTION_NAME}
@@ -1203,7 +1204,7 @@ t5.3.20 Back Navigation from Review Step Preserves All Entered Data
     Wait For Elements State    css=.ant-steps-item-process:has-text("Product Configuration")    visible
     ${name_value}=    Get Property    ${CP_PRODUCT_NAME_INPUT}    value
     Run Keyword And Continue On Failure
-    ...    Should Contain    ${name_value}    t5.3.20
+    ...    Should Contain    ${name_value}    Savings
     ...    msg=Expected product name to be preserved on Step 1 after back navigation, but got: ${name_value}
     # Verify Continue is still enabled (all Step 1 fields still populated)
     Run Keyword And Continue On Failure

@@ -6,7 +6,7 @@ BANK_NAME: "Rural Bank of San Antonio"
 BASE_URL: "https://alegre-dashboard.int.itg.higala.ph/rural-bank-san-antonio/login"
 
 # Teller Credentials
-TELLER_EMAIL: "pvillados@agsx.net"
+TELLER_EMAIL: "pvillados+u1@agsx.net"
 TELLER_PASSWORD: "Password123!"
 
 # Invalid Credentials (for negative test cases)
@@ -114,8 +114,8 @@ T4_TXN_DEBIT_ACCT_NAME: "Peach Villados"
 T4_TXN_CREDIT_ACCT_NAME: "Alexandra Leclerc"
 T4_TXN_DEBIT_ACCT_NO: "7710374359311354"
 T4_TXN_CREDIT_ACCT_NO: "7710527851369522"
-T4_TXN_DEBIT_BANK_CODE: "RCBCPHMMXXX"
-T4_TXN_DEBIT_BANK_NAME: "Banco Abucay"
+T4_TXN_CREDIT_BANK_CODE: "RCBCPHMMXXX"
+T4_TXN_CREDIT_BANK_NAME: "Banco Abucay"
 T4_TXN_CREATED_ON: "22 Apr 2026 16:46:11"
 T4_DATE_FROM: "2026-04-23"
 T4_DATE_TO: "2026-04-24"

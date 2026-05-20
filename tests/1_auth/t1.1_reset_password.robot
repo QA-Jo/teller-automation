@@ -56,7 +56,7 @@ Navigate To Reset Password Page
 Complete Reset Password Form
     [Documentation]    Fills the Reset Password form with the temporary and new passwords, then
     ...                submits it. Leaves the user on the OTP entry screen.
-    [Arguments]        ${temp_password}=${RTP_TEMP_PASSWORD_2}    ${new_password}=${TELLER_PASSWORD}
+    [Arguments]        ${temp_password}=${RTP_TEMP_PASSWORD}    ${new_password}=${TELLER_PASSWORD}
     Fill Text                   ${RTP_TEMP_PASSWORD_FIELD}       ${temp_password}
     Fill Text                   ${RTP_NEW_PASSWORD_FIELD}        ${new_password}
     Fill Text                   ${RTP_CONFIRM_PASSWORD_FIELD}    ${new_password}
@@ -82,8 +82,7 @@ t1.1.3 Verify System Treats Email as Case-Insensitive During Reset Password
     ...                temporary password and allows the user to complete the Reset Password flow.
     [Tags]             reset-password    smoke    password-reset    temp-password    mvp    type1
 
-    Navigate To Reset Password Page    email=${RTP_MIXED_CASE_EMAIL}
-    Complete Reset Password Form
+    Navigate To Reset Password Page    email=${RTP_MIXED_CASE_EMAIL}    temp_password=${RTP_MIXED_CASE_EMAIL_PASSWORD}
     # Enter RTP OTP And Continue
 
     # Wait For Elements State     ${RESET_SUCCESS_HEADING}    visible
@@ -113,7 +112,7 @@ t1.1.4 Login Using Expired Temporary Password
     ...                with an expired temporary password.
     ...                Uses the magic value "${RTP_EXPIRED_MAGIC_PWD}" which the backend
     ...                always treats as an expired temporary password for any valid email.
-    [Tags]             reset-password    negative    temp-password    mvp    type1
+    [Tags]             reset-password    negative    temp-password    mvp    type1    expired
 
     Open Teller App
     Fill Text                   ${EMAIL_FIELD}       ${RTP_EXPIRED_USER_EMAIL}
@@ -124,7 +123,7 @@ t1.1.4 Login Using Expired Temporary Password
 t1.1.5 Verify That a User With an Expired Temporary Password Can Finalize Account Setup via Forgot Password
     [Documentation]    Verify that a user whose temporary password has expired can still
     ...                complete account setup by using the Forgot Password flow.
-    [Tags]             reset-password    smoke    password-reset    mvp    type1
+    [Tags]             reset-password    password-reset    mvp    type1    expired
 
     Open Teller App
     Click                       ${FORGOT_PASSWORD_LINK}

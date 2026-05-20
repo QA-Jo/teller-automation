@@ -55,7 +55,7 @@ t4.1.2 Pagination in Viewing Transaction History
     [Documentation]    Verify pagination controls work correctly:
     ...                Next loads page 2, clicking page 3 loads page 3,
     ...                and Back returns to page 2.
-    [Tags]             transactions     smoke    mvp    type1
+    [Tags]             transactions     smoke    mvp    type1    pagination
     # Click Next arrow to go to page 2
     Click                      ${PAGINATION_NEXT}
     Wait For Elements State    css=li.ant-pagination-item-active:has-text("2")    visible
@@ -107,7 +107,7 @@ t4.1.5 Search Transaction by ID and View Details
     ...                the detail modal displays all expected field values accurately including
     ...                Instapay Reference Number and Bank Code/Name for External transactions,
     ...                and the modal closes cleanly returning to the filtered list.
-    [Tags]             transactions    smoke    mvp    type1
+    [Tags]             transactions    smoke    mvp    type1    external
     Fill Text                  ${TXN_SEARCH_FIELD}    ${T4_VALID_TXN_ID}
     Click                      ${TXN_SEARCH_BUTTON}
     Wait For Load Spinner To Disappear
@@ -161,14 +161,14 @@ t4.1.5 Search Transaction by ID and View Details
     Run Keyword And Continue On Failure
     ...    Should Be Equal As Strings    ${_credit_no}    ${T4_TXN_CREDIT_ACCT_NO}
     ...    msg=Credit Account Number mismatch: expected '${T4_TXN_CREDIT_ACCT_NO}' but got '${_credit_no}'
-    ${_debit_bank_code}=    Get Text    ${TXN_DETAIL_MODAL} >> :text-is("${T4_TXN_DEBIT_BANK_CODE}")
+    ${_debit_bank_code}=    Get Text    ${TXN_DETAIL_MODAL} >> :text-is("${T4_TXN_CREDIT_BANK_CODE}")
     Run Keyword And Continue On Failure
-    ...    Should Be Equal As Strings    ${_debit_bank_code}    ${T4_TXN_DEBIT_BANK_CODE}
-    ...    msg=Debit Bank Code mismatch: expected '${T4_TXN_DEBIT_BANK_CODE}' but got '${_debit_bank_code}'
-    ${_debit_bank_name}=    Get Text    ${TXN_DETAIL_MODAL} >> :text-is("${T4_TXN_DEBIT_BANK_NAME}")
+    ...    Should Be Equal As Strings    ${_debit_bank_code}    ${T4_TXN_CREDIT_BANK_CODE}
+    ...    msg=Debit Bank Code mismatch: expected '${T4_TXN_CREDIT_BANK_CODE}' but got '${_debit_bank_code}'
+    ${_debit_bank_name}=    Get Text    ${TXN_DETAIL_MODAL} >> :text-is("${T4_TXN_CREDIT_BANK_NAME}")
     Run Keyword And Continue On Failure
-    ...    Should Be Equal As Strings    ${_debit_bank_name}    ${T4_TXN_DEBIT_BANK_NAME}
-    ...    msg=Debit Bank Name mismatch: expected '${T4_TXN_DEBIT_BANK_NAME}' but got '${_debit_bank_name}'
+    ...    Should Be Equal As Strings    ${_debit_bank_name}    ${T4_TXN_CREDIT_BANK_NAME}
+    ...    msg=Debit Bank Name mismatch: expected '${T4_TXN_CREDIT_BANK_NAME}' but got '${_debit_bank_name}'
     ${_created_on}=         Get Text    ${TXN_DETAIL_MODAL} >> :text-is("${T4_TXN_CREATED_ON}")
     Run Keyword And Continue On Failure
     ...    Should Be Equal As Strings    ${_created_on}    ${T4_TXN_CREATED_ON}
@@ -309,26 +309,26 @@ t4.1.16 Filter Transactions by Status: Failed
     Wait For Elements State    ${TXN_TABLE}    visible
     Filter Txn Results Should Contain Only Status    Failed
 
-# t4.1.17 Verify Total Balance Calculation
-#     [Documentation]    Verify the Total Balance displayed on the Transactions page equals
-#     ...                the sum of all account balances from the Accounts module.
-#     [Tags]             transactions    smoke    mvp    skip    type1
-#     # Step 1: Get Total Balance value from Transactions page
-#     Wait For Elements State    ${TOTAL_BALANCE_CARD}    visible
-#     ${balance_text}=           Get Text    ${TOTAL_BALANCE_CARD}
-#     Should Contain             ${balance_text}    Total Balance
-#     Should Match Regexp        ${balance_text}    PHP\\s+[0-9,]+\\.[0-9]{2}
-#     ${total_str}=              Evaluate
-#     ...    '''${balance_text}'''.replace('Total Balance', '').replace(':', '').replace('PHP', '').replace(',', '').replace('\\n', ' ').strip()
-#     ${transactions_total}=     Convert To Number    ${total_str}
-#     # Step 2: Navigate to Accounts and sum all account balances across all pages
-#     Click                      ${SIDEBAR_ACCOUNTS}
-#     Wait For Load Spinner To Disappear
-#     Wait For Elements State    css=.ant-table-body table    visible
-#     ${accounts_sum}=           Sum All Account Balances
-#     # Step 3: Navigate back to Transactions and compare
-#     Navigate To Transactions
-#     ${txn_rounded}=            Evaluate    round(${transactions_total}, 2)
-#     ${acc_rounded}=            Evaluate    round(${accounts_sum}, 2)
-#     Should Be Equal As Numbers    ${txn_rounded}    ${acc_rounded}
-#     ...    msg=Total Balance on Transactions page (${txn_rounded}) does not match sum of account balances (${acc_rounded})
+t4.1.17 Verify Total Balance Calculation
+    [Documentation]    Verify the Total Balance displayed on the Transactions page equals
+    ...                the sum of all account balances from the Accounts module.
+    [Tags]             transactions    smoke    mvp    skip    type1
+    # Step 1: Get Total Balance value from Transactions page
+    Wait For Elements State    ${TOTAL_BALANCE_CARD}    visible
+    ${balance_text}=           Get Text    ${TOTAL_BALANCE_CARD}
+    Should Contain             ${balance_text}    Total Balance
+    Should Match Regexp        ${balance_text}    PHP\\s+[0-9,]+\\.[0-9]{2}
+    ${total_str}=              Evaluate
+    ...    '''${balance_text}'''.replace('Total Balance', '').replace(':', '').replace('PHP', '').replace(',', '').replace('\\n', ' ').strip()
+    ${transactions_total}=     Convert To Number    ${total_str}
+    # Step 2: Navigate to Accounts and sum all account balances across all pages
+    Click                      ${SIDEBAR_ACCOUNTS}
+    Wait For Load Spinner To Disappear
+    Wait For Elements State    css=.ant-table-body table    visible
+    ${accounts_sum}=           Sum All Account Balances
+    # Step 3: Navigate back to Transactions and compare
+    Navigate To Transactions
+    ${txn_rounded}=            Evaluate    round(${transactions_total}, 2)
+    ${acc_rounded}=            Evaluate    round(${accounts_sum}, 2)
+    Should Be Equal As Numbers    ${txn_rounded}    ${acc_rounded}
+    ...    msg=Total Balance on Transactions page (${txn_rounded}) does not match sum of account balances (${acc_rounded})

@@ -117,7 +117,8 @@ t2.4.3 See Specific Details of an Availed Savings Product
 
     Click                       ${PRODUCTS_AVAILED_TAB}
     Wait For Elements State     ${PRODUCTS_AVAILED_TABLE}    visible
-    Click                       ${PRODUCTS_AVAILED_TABLE} >> ${SEE_DETAILS_BTN} >> nth=0
+    Wait For Elements State     ${PRODUCTS_AVAILED_TABLE} >> css=tbody tr:has-text("${T24_AVAILED_SAVINGS_PRODUCT}") >> nth=0    visible
+    Click                       ${PRODUCTS_AVAILED_TABLE} >> css=tbody tr:has-text("${T24_AVAILED_SAVINGS_PRODUCT}") >> nth=0 >> ${SEE_DETAILS_BTN}
     Wait For Elements State     ${AVAILED_PRODUCT_DRAWER}    visible
 
     # Panel header displays the product ID (PROD_xxx format)

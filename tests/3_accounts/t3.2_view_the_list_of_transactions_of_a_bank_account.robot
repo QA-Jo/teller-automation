@@ -60,9 +60,9 @@ t3.2.2 Pagination in Viewing Transaction History
     [Documentation]    Verify pagination controls work correctly:
     ...                Next loads page 2, clicking page 3 loads page 3,
     ...                and Back returns to page 2. Skips if only one page exists.
-    [Tags]             accounts    transactions    smoke    mvp    type1
+    [Tags]             accounts    transactions    smoke    mvp    type1    pagination
     ${has_multiple_pages}=    Run Keyword And Return Status
-    ...    Wait For Elements State    css=.ant-pagination-next:not(.ant-pagination-disabled)    visible    timeout=3s
+    ...    Wait For Elements State    ${PAGINATION_NEXT}    enabled    timeout=3s
     IF    ${has_multiple_pages}
         # Click Next arrow to go to page 2
         Click                      ${PAGINATION_NEXT}
@@ -83,7 +83,7 @@ t3.2.2 Pagination in Viewing Transaction History
         END
     ELSE
         Log    Only one page of transactions — pagination navigation skipped
-        Wait For Elements State    css=.ant-pagination-next.ant-pagination-disabled    visible
+        Wait For Elements State    ${PAGINATION_NEXT}    disabled
     END
 
 t3.2.3 View Specific Transaction Details (via Accounts)

@@ -6,7 +6,7 @@ BANK_NAME: "Alegre"
 BASE_URL: "https://alegre-dashboard.pub.sbx.higala.ph/alegre/login"
 
 # Teller Credentials
-TELLER_EMAIL: "pvillados@agsx.net"
+TELLER_EMAIL: "pvillados+u1@agsx.net"
 TELLER_PASSWORD: "Password123!"
 
 # Invalid Credentials (for negative test cases)
@@ -23,12 +23,12 @@ TIMEOUT: "30s"
 # Auth — Reset Password via Temp Password (t1.1)
 # ============================================================
 
-RTP_NEW_USER_EMAIL: "pvillados+429@nmblr.ai" #needs to be changed every run
-RTP_TEMP_PASSWORD: "HoV1yiQR1KSf" #needs to be changed every run
-RTP_NEW_USER_EMAIL_2: "pvillados+apr24@agsx.net" #needs to be changed every run
-RTP_TEMP_PASSWORD_2: "EBj8wXGKj9yq" #needs to be changed every run
-RTP_MIXED_CASE_EMAIL: "Pvillados+429@NmBlR.aI" #needs to be changed every run
-RTP_MIXED_CASE_EMAIL_PASSWORD: "HoV1yiQR1KSf" #needs to be changed every run
+RTP_NEW_USER_EMAIL: "pvillados+430@agsx.net" #needs to be changed every run
+RTP_TEMP_PASSWORD: "izwJZ8YRQFsV" #needs to be changed every run
+RTP_NEW_USER_EMAIL_2: "pvillados+431@agsx.net" #needs to be changed every run
+RTP_TEMP_PASSWORD_2: "tgOMKR95E1W3" #needs to be changed every run
+RTP_MIXED_CASE_EMAIL: "PvIlLaDoS+430@AgSx.NeT" #needs to be changed every run
+RTP_MIXED_CASE_EMAIL_PASSWORD: "izwJZ8YRQFsV" #needs to be changed every run
 RTP_EXPIRED_USER_EMAIL: "pvillados+feb3@agsx.net"
 EXPIRED_TEMP_PASSWORD: "g9EUrGq0ttVQ"
 RTP_WRONG_CONFIRM_PASSWORD: "Password1234!"
@@ -38,7 +38,7 @@ RTP_WRONG_CONFIRM_PASSWORD: "Password1234!"
 # Auth — Test Suite Specific (t1.2, t1.3, t1.4)
 # ============================================================
 
-MIXED_CASE_EMAIL: "Pvillados@Agsx.Net"
+MIXED_CASE_EMAIL: "Pvillados+u1@Agsx.Net"
 FP_MIXED_CASE_EMAIL: "Pvillados+U1@Agsx.Net"
 CP_USER_EMAIL: "pvillados+u2@agsx.net"
 CP_USER_PASSWORD: "Password123!"
@@ -52,10 +52,10 @@ VALID_CUSTOMER_ID: "B96473f9cb444778b96f0f8467741f6a"
 VALID_CUSTOMER_NAME: "Peach Villados"
 CUSTOMER_DATE_OF_BIRTH: "11 Jul 1995"
 CUSTOMER_CREATED_ON: "24 Jul 2025"
-T21_STATUS_CHANGE_CUSTOMER_NAME: "Kelsey Ignacia Roma II"
+T21_STATUS_CHANGE_CUSTOMER_NAME: "Isabella Marie Dizon"
 T21_STATUS_CHANGE_REMARKS: "Automated test — status change verification"
-T22_STATUS_CHANGE_CUSTOMER_ID: "459f3e4ee47e48d8a4aef3bf47d3050c"
-T22_STATUS_CHANGE_ACCOUNT_NO: "7710325723800841"
+T22_STATUS_CHANGE_CUSTOMER_ID: "3a6c18df9dc74dc3a53e219434d2fd09"
+T22_STATUS_CHANGE_ACCOUNT_NO: "7710351996044630"
 T22_STATUS_CHANGE_REMARKS: "Automated test — account status change verification"
 
 
@@ -72,10 +72,10 @@ VALID_ACCOUNT_ID: "7710327656473864"
 VALID_ACCOUNT_NAME: "Peach Villados"
 ACCOUNT_CREATED_ON: "24 Jul 2025"
 
-VALID_ACCOUNT_NUMBER: "7710384534030742"
-EXPECTED_ACCOUNT_NAME: "Warren Giltendez"
-EXPECTED_BALANCE: "₱208,066.00"
-EXPECTED_CREATED_ON: "24 Jul 2025"
+VALID_ACCOUNT_NUMBER: "7710372583110089"
+EXPECTED_ACCOUNT_NAME: "Jane Reyes Smith"
+EXPECTED_BALANCE: "₱0.00"
+EXPECTED_CREATED_ON: "04 Aug 2025"
 
 
 # ============================================================
@@ -97,41 +97,41 @@ TXN_UPDATED_ON: "11 May 2026 17:04:50"
 DATE_FROM: "2026-05-01"
 DATE_TO: "2026-05-11"
 
-#to edit
+
 # ============================================================
 # Transaction Data — Transactions module (t4.1) 
 # Prefixed T4_ to avoid conflicts with t2.3/t3.2 txn variables
 # Use RB to RB transaction data
 # ============================================================
 
-T4_VALID_TXN_ID: "1bcf609c11544376b3386184e47c3c4d"
+T4_VALID_TXN_ID: "5091a9af3c8e4e04b92f26e7cfdf0c88"
 T4_TXN_TYPE: "External Transfer"
-T4_TXN_AMOUNT: "10.00"
+T4_TXN_AMOUNT: "5.00"
 T4_TXN_SERVICE_FEE: "15.00"
-T4_TXN_REMARKS: "Payment"
+T4_TXN_REMARKS: "N/A"
 T4_TXN_STATUS: "Success"
-T4_TXN_INSTAPAY_REF: "866021"
-T4_TXN_DEBIT_ACCT_NAME: "Peach Villados"
-T4_TXN_CREDIT_ACCT_NAME: "John Does"
-T4_TXN_DEBIT_ACCT_NO: "7710327656473864"
-T4_TXN_CREDIT_ACCT_NO: "000100000001732"
-T4_TXN_DEBIT_BANK_CODE: "RCBCPHMMXXX"
-T4_TXN_DEBIT_BANK_NAME: "Banco Abucay"
-T4_TXN_CREATED_ON: "22 Apr 2026 16:46:11"
-T4_DATE_FROM: "2026-04-23"
-T4_DATE_TO: "2026-04-24"
+T4_TXN_INSTAPAY_REF: "816286"
+T4_TXN_DEBIT_ACCT_NAME: "Rey Angel"
+T4_TXN_CREDIT_ACCT_NAME: "Louis Enggals"
+T4_TXN_DEBIT_ACCT_NO: "7710323755830582"
+T4_TXN_CREDIT_ACCT_NO: "7710542357798905"
+T4_TXN_CREDIT_BANK_CODE: "RCBCPHMMXXX"
+T4_TXN_CREDIT_BANK_NAME: "Banco Abucay, Inc."
+T4_TXN_CREATED_ON: "13 May 2026 19:54:50"
+T4_DATE_FROM: "2026-05-11"
+T4_DATE_TO: "2026-05-12"
 
-
+#to edit
 # ============================================================
 # Products Data (t2.4)
 # ============================================================
 
-T24_CUSTOMER_ID: "8ec1882b47074f3eb1827775ebc670a8"
-T24_CUSTOMER_NAME: "Mariah Ave"
+T24_CUSTOMER_ID: "D15ef74c9f7c44fab38c89701423f85a"
+T24_CUSTOMER_NAME: "Jane Dela Cruz"
 T24_AVAILED_LOAN_PRODUCT: "Regular Home Loan"
 T24_AVAILED_SAVINGS_PRODUCT: "Student Savings"
-T24_ACTIVE_PRODUCT: "Education Loan 101"
-T24_ARCHIVED_PRODUCT: "Loan 13C"
+T24_ACTIVE_PRODUCT: "Premium Savings 101"
+T24_ARCHIVED_PRODUCT: "Savings 0513152924"
 
 
 # ============================================================
@@ -148,11 +148,11 @@ VALID_DATE_TO: "2026-04-24"
 # Prefixed T42_ to avoid conflicts with other txn variables
 # ============================================================
 
-T42_ACCOUNT_NUMBER: "7710394943067321"
-T42_ACCOUNT_NAME: "Peach Villados"
+T42_ACCOUNT_NUMBER: "7711379076953640"
+T42_ACCOUNT_NAME: "Jane Santos"
 T42_ACCOUNT_TYPE: "Savings"
 T42_ACCOUNT_STATUS: "Active"
-T42_CUSTOMER_NAME: "Peach Villados"
+T42_CUSTOMER_NAME: "Jane Santos"
 T42_WITHDRAWAL_TYPE: "Cash Withdrawal"
 T42_WITHDRAWAL_AMOUNT: "10.00"
 T42_WITHDRAWAL_NOTES: "payment"
@@ -164,8 +164,8 @@ T42_WITHDRAWAL_NOTES: "payment"
 # T42_OTC_CUSTOMER_NAME: "Yuki Hadjar"
 # T42_OTC_ACCOUNT_NUMBER: "7710357755282456"
 # T42_OTC_CUSTOMER_NAME: "Ave Maria"
-T42_OTC_ACCOUNT_NUMBER: "7710455410784261"
-T42_OTC_CUSTOMER_NAME: "Chai Villados"
+T42_OTC_ACCOUNT_NUMBER: "7711379076953640"
+T42_OTC_CUSTOMER_NAME: "Jane Santos"
 # T42_OTC_ACCOUNT_NUMBER: "7710487972758371"
 # T42_OTC_CUSTOMER_NAME: "Niki Zefanya"
 T42_DAILY_LIMIT_INITIAL: "500,000"              # Daily Limit Remaining at start of day (before any OTC withdrawals)
@@ -177,7 +177,7 @@ T42_SECOND_OTC_AMOUNT: "30000"                # 2nd OTC withdrawal used in t4.2.
 # Negative / validation test data (t4.2.19–t4.2.31)
 T42_INVALID_ACCOUNT_NUMBER: "0000000000"
 T42_INVALID_ACCOUNT_NAME: "XXXXXXXXXXX"
-T42_ACCOUNT_NUMBER_EXCEED_BALANCE: "7710466650541254"    # Account with balance less than T42_OVER_BALANCE_AMOUNT
+T42_ACCOUNT_NUMBER_EXCEED_BALANCE: "7711340512255258"    # Account with balance less than T42_OVER_BALANCE_AMOUNT
 T42_OVER_BALANCE_AMOUNT: "500000"          # amount > current account balance
 T42_OVER_LIMIT_AMOUNT: "460000"          # amount > daily limit remaining after two OTC withdrawals
 T42_DAILY_LIMIT_ERROR: "You've reached your daily transfer limit of PHP 500,000."
@@ -187,11 +187,11 @@ T42_EXCEED_MAX_AMOUNT: "500001"          # one above the max allowed amount
 # ---------------------------------------------------------------
 # t4.3 — Create a Deposit Transaction via Teller
 # ---------------------------------------------------------------
-T43_ACCOUNT_NUMBER: "7710487972758371"
-T43_ACCOUNT_NAME: "Niki Zefanya"
+T43_ACCOUNT_NUMBER: "7711352223874734"
+T43_ACCOUNT_NAME: "John Co"
 T43_ACCOUNT_TYPE: "Savings"
 T43_ACCOUNT_STATUS: "Active"
-T43_CUSTOMER_NAME: "Niki Zefanya"
+T43_CUSTOMER_NAME: "John Co"
 T43_DEPOSIT_TYPE: "Cash Deposit"
 T43_DEPOSIT_AMOUNT: "1000"
 T43_DEPOSIT_AMOUNT_FORMATTED: "1,000.00"
@@ -205,8 +205,8 @@ T43_HIGH_DEPOSIT_AMOUNT_2: "500001"
 T43_HIGH_DEPOSIT_AMOUNT_3: "1000000"
 
 # T5.1
-T51_SAVINGS_PRODUCT_NAME: "Savings With All Optional"
-T51_LOANS_PRODUCT_NAME: "Loans Edit 1"
+T51_SAVINGS_PRODUCT_NAME: "Savings 0513184423"
+T51_LOANS_PRODUCT_NAME: "Loan 0513184626"
 
 # ---------------------------------------------------------------
 # t5.3 — Create New Savings Product
@@ -250,9 +250,9 @@ T53_LOANS_FIELD_PLACEHOLDER: "Enter employer name"
 # ---------------------------------------------------------------
 # t2.5 — Avail Savings Product
 # ---------------------------------------------------------------
-T25_CUSTOMER_ID: "f5e913c405554cd9bedd3045613a4567"
-T25_CUSTOMER_NAME: "Test Automation User"
-T25_SAVINGS_PRODUCT: "t5.3 Savings 0413093202"
+T25_CUSTOMER_ID: "00af10be6c9b494aa72e3a5cf08e8685"
+T25_CUSTOMER_NAME: "Jamie Cruz Smith"
+T25_SAVINGS_PRODUCT: "Savings 0513184423"
 T25_SAVINGS_PRODUCT_2: "Savings 421"
 T25_CUSTOM_FULL_NAME: "Automation Test Applicant"
 T25_MODIFIED_FULL_NAME: "Automation Modified Name"
@@ -260,4 +260,4 @@ T25_OPTIONAL_SAVINGS_PRODUCT: "Savings With All Optional Custom Fields"
 T25_NO_FIELDS_SAVINGS_PRODUCT: "Savings with no custom field"
 T25_VERSIONED_SAVINGS_PRODUCT: "Savings With All Optional Custom Fields"
 T25_UPDATED_DESCRIPTION: "Updated by test automation"
-T25_INVALID_STATUS_CUSTOMER: "Yuki Santos"    # Inactive customer ID: 1326171c8c5f410ebed36bf8c67740dd
+T25_INVALID_STATUS_CUSTOMER: "John Siao"    # Inactive customer ID: 1326171c8c5f410ebed36bf8c67740dd

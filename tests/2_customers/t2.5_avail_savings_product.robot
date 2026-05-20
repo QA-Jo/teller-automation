@@ -405,7 +405,7 @@ t2.5.7 Modify Custom Field Inputs on Review Step and Re-Confirm (Savings)
     [Documentation]    Verify that clicking Back from the Review step returns to Customer Information
     ...                with the form still filled, modified values are reflected in the review summary,
     ...                and the product is successfully availed with the updated data.
-    [Tags]             customers    products    regression    mvp    type2
+    [Tags]             customers    products    regression    smoke    mvp    type2
 
     Navigate To Avail Product Page
     Fill Customer Information Form
@@ -474,7 +474,7 @@ t2.5.9 Avail Savings Product with No Custom Fields
     [Documentation]    Verify that a Savings product with no custom fields shows the correct
     ...                empty-state messages on both steps, Continue is enabled by default,
     ...                and the availment completes successfully.
-    [Tags]             customers    products    smoke    mvp    type2
+    [Tags]             customers    products    mvp    type2
 
     Avail Product By Name        ${T25_NO_FIELDS_SAVINGS_PRODUCT}
 
@@ -610,7 +610,7 @@ t2.5.12 Re-Avail Edited Savings Product – Multiple Versions on Same Customer
 t2.5.13 Avail Savings Product with Only Optional Custom Fields
     [Documentation]    Verify that a Savings product with only optional custom fields allows
     ...                the user to proceed without filling anything. No validation errors.
-    [Tags]             customers    products    smoke    mvp    type2
+    [Tags]             customers    products    mvp    type2
 
     Avail Product By Name        ${T25_OPTIONAL_SAVINGS_PRODUCT}
 

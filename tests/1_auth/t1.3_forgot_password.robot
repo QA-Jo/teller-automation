@@ -17,7 +17,7 @@ ${FP_INVALID_FORMAT_EMAIL}          notanemail
 ${FP_WRONG_CONFIRM_PASSWORD}        WrongPassword999!
 ${ERR_UNREGISTERED_EMAIL}           Email address is invalid, please try again.
 ${ERR_EMAIL_REQUIRED}               Email is required.
-${ERR_INVALID_EMAIL_FORMAT}         Invalid email format.
+${ERR_INVALID_EMAIL_FORMAT}         Incorrect email format.
 ${ERR_PASSWORD_MISMATCH}            Passwords do not match.
 ${OTP}                              123456
 

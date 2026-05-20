@@ -531,7 +531,7 @@ t5.1.13 Action: Archive Product – Confirmation Modal Appears
     WHILE    True
         ${exists}=    Run Keyword And Return Status
         ...    Wait For Elements State
-        ...    css=[data-testid="table-products-active"] tbody tr:has(td:nth-child(5):has-text("Nov 2025")) >> nth=0
+        ...    css=[data-testid="table-products-active"] tbody tr:has(td:nth-child(5):has-text("14:02:48")) >> nth=0
         ...    visible    timeout=2s
         IF    ${exists}
             ${found}=    Set Variable    ${TRUE}
@@ -546,7 +546,7 @@ t5.1.13 Action: Archive Product – Confirmation Modal Appears
     Skip If    not ${found}    No product created in Nov 2025 found in the Active Products table
     # Click the Archive button for the Nov 2025 product
     Click
-    ...    css=[data-testid="table-products-active"] tbody tr:has(td:nth-child(5):has-text("Nov 2025")) [data-testid="btn-products-archive"] >> nth=0
+    ...    css=[data-testid="table-products-active"] tbody tr:has(td:nth-child(5):has-text("14:02:48")) [data-testid="btn-products-archive"] >> nth=0
     Wait For Load Spinner To Disappear
     Wait For Elements State    ${PRODUCT_UPDATE_STATUS_MODAL}    visible
     # Verify modal title and body message
@@ -572,7 +572,7 @@ t5.1.14 Action: Archive Product – Confirm Archive
     WHILE    True
         ${exists}=    Run Keyword And Return Status
         ...    Wait For Elements State
-        ...    css=[data-testid="table-products-active"] tbody tr:has(td:nth-child(5):has-text("Nov 2025")) >> nth=0
+        ...    css=[data-testid="table-products-active"] tbody tr:has(td:nth-child(5):has-text("14:02:48")) >> nth=0
         ...    visible    timeout=2s
         IF    ${exists}
             ${found}=    Set Variable    ${TRUE}
@@ -587,12 +587,12 @@ t5.1.14 Action: Archive Product – Confirm Archive
     Skip If    not ${found}    No product created in Nov 2025 found in the Active Products table
     # Capture the Product ID (first column) before archiving
     ${product_id_raw}=    Get Text
-    ...    css=[data-testid="table-products-active"] tbody tr:has(td:nth-child(5):has-text("Nov 2025")) >> nth=0 >> td >> nth=0
+    ...    css=[data-testid="table-products-active"] tbody tr:has(td:nth-child(5):has-text("14:02:48")) >> nth=0 >> td >> nth=0
     ${product_id}=    Evaluate    '''${product_id_raw}'''.split('\\n')[0].strip()
     Log    Archiving product ID: ${product_id}
     # Click the Archive button for the first Nov 2025 product
     Click
-    ...    css=[data-testid="table-products-active"] tbody tr:has(td:nth-child(5):has-text("Nov 2025")) [data-testid="btn-products-archive"] >> nth=0
+    ...    css=[data-testid="table-products-active"] tbody tr:has(td:nth-child(5):has-text("14:02:48")) [data-testid="btn-products-archive"] >> nth=0
     Wait For Load Spinner To Disappear
     Wait For Elements State    ${PRODUCT_UPDATE_STATUS_MODAL}    visible
     # Confirm the archive

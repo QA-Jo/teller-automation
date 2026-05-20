@@ -23,12 +23,12 @@ TIMEOUT: "30s"
 # Auth — Reset Password via Temp Password (t1.1)
 # ============================================================
 
-RTP_NEW_USER_EMAIL: "pvillados+429@nmblr.ai" #needs to be changed every run
-RTP_TEMP_PASSWORD: "HoV1yiQR1KSf" #needs to be changed every run
-RTP_NEW_USER_EMAIL_2: "pvillados+apr24@agsx.net" #needs to be changed every run
-RTP_TEMP_PASSWORD_2: "EBj8wXGKj9yq" #needs to be changed every run
-RTP_MIXED_CASE_EMAIL: "Pvillados+429@NmBlR.aI" #needs to be changed every run
-RTP_MIXED_CASE_EMAIL_PASSWORD: "HoV1yiQR1KSf" #needs to be changed every run
+RTP_NEW_USER_EMAIL: "pvillados+433@agsx.net" #needs to be changed every run
+RTP_TEMP_PASSWORD: "i1o7oO0gAzyf" #needs to be changed every run
+RTP_NEW_USER_EMAIL_2: "pvillados+431@agsx.net" #needs to be changed every run
+RTP_TEMP_PASSWORD_2: "CHM3hqui3dAC" #needs to be changed every run
+RTP_MIXED_CASE_EMAIL: "PvIlLaDoS+433@AgSx.NeT" #needs to be changed every run
+RTP_MIXED_CASE_EMAIL_PASSWORD: "i1o7oO0gAzyf" #needs to be changed every run
 RTP_EXPIRED_USER_EMAIL: "pvillados+feb3@agsx.net"
 EXPIRED_TEMP_PASSWORD: "g9EUrGq0ttVQ"
 RTP_WRONG_CONFIRM_PASSWORD: "Password1234!"
@@ -38,7 +38,7 @@ RTP_WRONG_CONFIRM_PASSWORD: "Password1234!"
 # Auth — Test Suite Specific (t1.2, t1.3, t1.4)
 # ============================================================
 
-MIXED_CASE_EMAIL: "Pvillados@Agsx.Net"
+MIXED_CASE_EMAIL: "Pvillados+u1@Agsx.Net"
 FP_MIXED_CASE_EMAIL: "Pvillados+U1@Agsx.Net"
 CP_USER_EMAIL: "pvillados+u2@agsx.net"
 CP_USER_PASSWORD: "Password123!"
@@ -82,20 +82,20 @@ EXPECTED_CREATED_ON: "19 Dec 2025"
 # Transaction Data — Customers & Accounts modules (t2.3, t3.2)
 # ============================================================
 
-VALID_TXN_ID: "22557a68f82e4091abaa9ca743c66a0a"
+VALID_TXN_ID: "cb5098faf1c3430da21d34a6c1467168"
 TXN_TYPE: "Fund Transfer"
-TXN_AMOUNT: "100.00"
+TXN_AMOUNT: "300.00"
 TXN_SERVICE_FEE: "0.00"
-TXN_REMARKS: "N/A"
+TXN_REMARKS: "Payment"
 TXN_STATUS: "Success"
-TXN_DEBIT_ACCT_NAME: "Carlos Sainz"
-TXN_CREDIT_ACCT_NAME: "Alexandra Leclerc"
-TXN_DEBIT_ACCT_NO: "7710501120611581"
-TXN_CREDIT_ACCT_NO: "7710527851369522"
-TXN_CREATED_ON: "26 Feb 2026 18:34:33"
-TXN_UPDATED_ON: "26 Feb 2026 18:34:33"
-DATE_FROM: "2026-05-01"
-DATE_TO: "2026-05-04"
+TXN_DEBIT_ACCT_NAME: "Lena Moretti"
+TXN_CREDIT_ACCT_NAME: "John Vergil Flores Aparri"
+TXN_DEBIT_ACCT_NO: "7710744278473292"
+TXN_CREDIT_ACCT_NO: "7710794016092030"
+TXN_CREATED_ON: "22 Oct 2025 17:29:13"
+TXN_UPDATED_ON: "22 Oct 2025 17:29:13"
+DATE_FROM: "2026-05-12"
+DATE_TO: "2026-05-13"
 
 #to edit
 # ============================================================
@@ -104,22 +104,22 @@ DATE_TO: "2026-05-04"
 # Use RB to RB transaction data
 # ============================================================
 
-T4_VALID_TXN_ID: "e998dabcb0554c31ba7782178ff9e271"
+T4_VALID_TXN_ID: "cf7055944f9f4bdf9c66147a0cdc3d76"
 T4_TXN_TYPE: "External Transfer"
-T4_TXN_AMOUNT: "10.00"
-T4_TXN_SERVICE_FEE: "0.00"
-T4_TXN_REMARKS: "Online Transfer"
+T4_TXN_AMOUNT: "1.00"
+T4_TXN_SERVICE_FEE: "15.00"
+T4_TXN_REMARKS: "N/A"
 T4_TXN_STATUS: "Success"
-T4_TXN_INSTAPAY_REF: "880199"
-T4_TXN_DEBIT_ACCT_NAME: "Peach Villados"
-T4_TXN_CREDIT_ACCT_NAME: "Alexandra Leclerc"
-T4_TXN_DEBIT_ACCT_NO: "7710374359311354"
-T4_TXN_CREDIT_ACCT_NO: "7710527851369522"
-T4_TXN_DEBIT_BANK_CODE: "RCBCPHMMXXX"
-T4_TXN_DEBIT_BANK_NAME: "Rural Bank San Antonio, Inc."
-T4_TXN_CREATED_ON: "22 Apr 2026 16:46:24"
-T4_DATE_FROM: "2026-04-23"
-T4_DATE_TO: "2026-04-24"
+T4_TXN_INSTAPAY_REF: "831230"
+T4_TXN_DEBIT_ACCT_NAME: "Lena Moretti"
+T4_TXN_CREDIT_ACCT_NAME: "Peach Villados"
+T4_TXN_DEBIT_ACCT_NO: "7710744278473292"
+T4_TXN_CREDIT_ACCT_NO: "7710327656473864"
+T4_TXN_CREDIT_BANK_CODE: "RCBCPHMMXXX"
+T4_TXN_CREDIT_BANK_NAME: "Alegre"
+T4_TXN_CREATED_ON: "14 May 2026 15:17:36"
+T4_DATE_FROM: "2026-05-13"
+T4_DATE_TO: "2026-05-14"
 
 
 # # ============================================================
@@ -138,9 +138,9 @@ T4_DATE_TO: "2026-04-24"
 # Reports Data (t6.1)
 # ============================================================
 
-VALID_CLOSING_DATE: "2026-05-12"
-VALID_DATE_FROM: "2026-05-12"
-VALID_DATE_TO: "2026-05-13"
+VALID_CLOSING_DATE: "2026-05-13"
+VALID_DATE_FROM: "2026-05-13"
+VALID_DATE_TO: "2026-05-14"
 
 
 # # ============================================================

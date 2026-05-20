@@ -9,7 +9,7 @@ Open Teller App
     New Browser         ${BROWSER}    headless=${HEADLESS}
     New Context         viewport={'width': 1643, 'height': 830}    acceptDownloads=${TRUE}
     Set Browser Timeout    ${TIMEOUT}
-    New Page            ${BASE_URL}
+    New Page            ${BASE_URL}    wait_until=domcontentloaded
 
 
 Login To Teller App
