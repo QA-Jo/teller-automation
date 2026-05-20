@@ -1,30 +1,89 @@
 *** Variables ***
-# ============================================================
-# Loans Module Locators
-# ============================================================
-# Update these to match your actual teller app HTML
+# ============================================================================
+# 🧭 SIDEBAR NAVIGATION CONTROLS
+# ============================================================================
+${LOANS_PARENT_MENU}                  css=[data-testid="nav-sidebar-loans"]
+# Sub-menu items are AntD <li> elements with no data-testid — match on data-menu-id route suffix.
+${ACTIVE_LOANS_MENU}                  css=[data-menu-id$="/loans/active"]
+${PENDING_APPS_MENU}                  css=[data-menu-id$="/loans/pending"]
+${PENDING_DISB_MENU}                  css=[data-menu-id$="/loans/disbursement"]
+${REJECTED_APPS_MENU}                 css=[data-menu-id$="/loans/rejected"]
 
-# Navigation
-${LOANS_MENU}                  css=[data-menu="loans"]
+# ============================================================================
+# 🟢 ACTIVE LOANS VIEW
+# ============================================================================
+${ACTIVE_LOANS_PAGE}                  css=[data-testid="page-loans-active"]
+${ACTIVE_LOANS_SEARCH}                css=[data-testid="search-loans-active"]
+${ACTIVE_LOANS_TABLE}                 css=[data-testid="table-loans-active"]
+# Cleared >> nth=0 for dynamic keyword parsing safety
+${ACTIVE_LOANS_VIEW_SCHEDULE_BTN}     css=[data-testid="btn-loans-active-view-schedule"]
+${ACTIVE_LOANS_PAY_NOW_BTN}           css=[data-testid="btn-loans-active-pay-now"]
 
-# Loan List
-${LOAN_LIST}                   css=.loan-list
+# ============================================================================
+# 🟡 PENDING APPLICATIONS VIEW
+# ============================================================================
+${PENDING_APPS_PAGE}                  css=[data-testid="page-loans-pending"]
+${PENDING_APPS_SEARCH}                css=[data-testid="search-loans-pending"]
+${PENDING_APPS_TABLE}                 css=[data-testid="table-loans-pending"]
+# Cleared >> nth=0 for dynamic keyword parsing safety
+${PENDING_APPS_APPROVE_BTN}           css=[data-testid="btn-loans-pending-approve"]
+${PENDING_APPS_REJECT_BTN}            css=[data-testid="btn-loans-pending-reject"]
 
-# New Loan Form
-${CUSTOMER_ID_FIELD}           id=customer-id
-${LOAN_PRODUCT_DROPDOWN}       id=loan-product
-${LOAN_AMOUNT_FIELD}           id=loan-amount
-${LOAN_TERM_FIELD}             id=loan-term
-${LOAN_PURPOSE_FIELD}          id=loan-purpose
-${CREATE_LOAN_BUTTON}          id=create-loan-button
+# ============================================================================
+# 🔵 PENDING DISBURSEMENTS VIEW
+# ============================================================================
+${PENDING_DISB_PAGE}                  css=[data-testid="page-loans-disbursements"]
+${PENDING_DISB_SEARCH}                css=[data-testid="search-loans-disbursements"]
+${PENDING_DISB_TABLE}                 css=[data-testid="table-loans-disbursements"]
+# Cleared >> nth=0 for dynamic keyword parsing safety
+${PENDING_DISB_VIEW_DETAILS_BTN}      css=[data-testid="btn-loans-disbursements-view-details"]
+${PENDING_DISB_DISBURSE_BTN}          css=[data-testid="btn-loans-disbursements-disburse"]
 
-# Loan Actions
-${APPROVE_BUTTON}              data-action=approve
-${REJECT_BUTTON}               data-action=reject
-${DISBURSE_BUTTON}             data-action=disburse
-${REJECTION_REASON_FIELD}      id=rejection-reason
-${CONFIRM_REJECT_BUTTON}       id=confirm-reject-button
-${CONFIRM_DISBURSE_BUTTON}     id=confirm-disburse-button
+# ============================================================================
+# 🔴 REJECTED APPLICATIONS VIEW
+# ============================================================================
+${REJECTED_APPS_PAGE}                 css=[data-testid="page-loans-rejected"]
+${REJECTED_APPS_SEARCH}               css=[data-testid="search-loans-rejected"]
+${REJECTED_APPS_TABLE}                css=[data-testid="table-loans-rejected"]
 
-# Messages
-${SUCCESS_MESSAGE}             css=.success-message
+# ============================================================================
+# 📅 ACTIVE LOAN SCHEDULE PAGE
+# ============================================================================
+${LOAN_SCHEDULE_PAGE}                 css=[data-testid="page-loans-schedule"]
+${LOAN_SCHEDULE_TABLE}                css=[data-testid="table-loans-schedule"]
+${LOAN_SCHEDULE_VIEW_TXN_BTN}         css=[data-testid="btn-loans-schedule-view-transaction"]
+${LOAN_SCHEDULE_STATUS_CARD}          css=[data-testid="card-loans-schedule-payment-status"]
+${LOAN_SCHEDULE_DETAILS_CARD}         css=[data-testid="card-loans-schedule-loan-details"]
+${LOAN_SCHEDULE_PAY_NOW_BTN}          css=[data-testid="btn-loans-schedule-pay-now"]
+
+# ============================================================================
+# 📦 TRANSACTION DETAILS MODAL
+# ============================================================================
+${TXN_DETAILS_MODAL}                  css=[data-testid="modal-transaction-details"]
+${TXN_DETAILS_BACK_BTN}               css=[data-testid="btn-transaction-details-back"]
+${TXN_DETAILS_FILE_LIST}              css=[data-testid="file-list-transaction-details"]
+
+# ============================================================================
+# ⚖️ APPLICATION DECISION MODAL
+# ============================================================================
+${APP_DECISION_MODAL}                 css=[data-testid="modal-loan-application-decision"]
+${APP_DECISION_CLOSE_BTN}             css=[data-testid="btn-loan-decision-close"]
+
+# ============================================================================
+# 🔍 LOAN DETAILS MODAL
+# ============================================================================
+${LOAN_DETAILS_MODAL}                 css=[data-testid="modal-loan-details"]
+${LOAN_DETAILS_APPROVE_BTN}           css=[data-testid="btn-loan-details-approve"]
+${LOAN_DETAILS_REJECT_BTN}            css=[data-testid="btn-loan-details-reject"]
+${LOAN_DETAILS_CLOSE_BTN}             css=[data-testid="btn-loan-details-close"]
+
+# ============================================================================
+# 💳 PAYMENT MODALS
+# ============================================================================
+${LOAN_PAYMENT_MODAL}                 css=[data-testid="modal-loan-payment"]
+${LOAN_PAYMENT_CONFIRM_MODAL}         css=[data-testid="modal-loan-payment-confirmation"]
+
+# ============================================================================
+# 📝 REJECTION REMARKS MODAL
+# ============================================================================
+${LOAN_REJECTION_REMARKS_MODAL}       css=[data-testid="modal-loan-rejection-remarks"]
