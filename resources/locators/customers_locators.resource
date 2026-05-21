@@ -182,3 +182,11 @@ ${AVAIL_PRODUCT_CONFIRM_BTN}        css=[data-testid="btn-avail-product-submit"]
 ${AVAIL_PRODUCT_BACK_TO_PROFILE}    css=[data-testid="btn-avail-product-back-to-profile"]
 # Drawer opened from the avail product page (no data-testid on this context's drawer)
 ${AVAIL_PRODUCT_DETAILS_DRAWER}     css=.ant-drawer-content
+
+# Loan product availment — Customer Information step (t2.6)
+${AVAIL_LOAN_AMOUNT_INPUT}          css=[data-field="loanAmount"] input.ant-input-number-input
+${AVAIL_LOAN_INTEREST_RATE_INPUT}   css=[data-field="interestRate"] input.ant-input-number-input
+${AVAIL_LOAN_TERM_LENGTH_INPUT}     css=[data-field="termLength"] input.ant-input-number-input
+${AVAIL_LOAN_DISBURSEMENT_SELECT}   css=[data-field="disbursementMode"] .ant-select-selector
+${AVAIL_LOAN_EMPLOYER_NAME_INPUT}   css=[data-field="employerName"] input
+${AVAIL_LOAN_SUCCESS_PANEL}         css=[data-testid="field-avail-product-success"]

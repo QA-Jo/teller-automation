@@ -14,6 +14,8 @@ ${REJECTED_APPS_MENU}                 css=[data-menu-id$="/loans/rejected"]
 # ============================================================================
 ${ACTIVE_LOANS_PAGE}                  css=[data-testid="page-loans-active"]
 ${ACTIVE_LOANS_SEARCH}                css=[data-testid="search-loans-active"]
+${ACTIVE_LOANS_SEARCH_INPUT}          css=[data-testid="search-loans-active"] input
+${ACTIVE_LOANS_SEARCH_BTN}            css=[data-testid="search-loans-active"] button
 ${ACTIVE_LOANS_TABLE}                 css=[data-testid="table-loans-active"]
 # Cleared >> nth=0 for dynamic keyword parsing safety
 ${ACTIVE_LOANS_VIEW_SCHEDULE_BTN}     css=[data-testid="btn-loans-active-view-schedule"]
@@ -24,6 +26,8 @@ ${ACTIVE_LOANS_PAY_NOW_BTN}           css=[data-testid="btn-loans-active-pay-now
 # ============================================================================
 ${PENDING_APPS_PAGE}                  css=[data-testid="page-loans-pending"]
 ${PENDING_APPS_SEARCH}                css=[data-testid="search-loans-pending"]
+${PENDING_APPS_SEARCH_INPUT}          css=[data-testid="search-loans-pending"] input
+${PENDING_APPS_SEARCH_BTN}            css=[data-testid="search-loans-pending"] button
 ${PENDING_APPS_TABLE}                 css=[data-testid="table-loans-pending"]
 # Cleared >> nth=0 for dynamic keyword parsing safety
 ${PENDING_APPS_APPROVE_BTN}           css=[data-testid="btn-loans-pending-approve"]
@@ -34,6 +38,8 @@ ${PENDING_APPS_REJECT_BTN}            css=[data-testid="btn-loans-pending-reject
 # ============================================================================
 ${PENDING_DISB_PAGE}                  css=[data-testid="page-loans-disbursements"]
 ${PENDING_DISB_SEARCH}                css=[data-testid="search-loans-disbursements"]
+${PENDING_DISB_SEARCH_INPUT}          css=[data-testid="search-loans-disbursements"] input
+${PENDING_DISB_SEARCH_BTN}            css=[data-testid="search-loans-disbursements"] button
 ${PENDING_DISB_TABLE}                 css=[data-testid="table-loans-disbursements"]
 # Cleared >> nth=0 for dynamic keyword parsing safety
 ${PENDING_DISB_VIEW_DETAILS_BTN}      css=[data-testid="btn-loans-disbursements-view-details"]
@@ -44,6 +50,8 @@ ${PENDING_DISB_DISBURSE_BTN}          css=[data-testid="btn-loans-disbursements-
 # ============================================================================
 ${REJECTED_APPS_PAGE}                 css=[data-testid="page-loans-rejected"]
 ${REJECTED_APPS_SEARCH}               css=[data-testid="search-loans-rejected"]
+${REJECTED_APPS_SEARCH_INPUT}         css=[data-testid="search-loans-rejected"] input
+${REJECTED_APPS_SEARCH_BTN}           css=[data-testid="search-loans-rejected"] button
 ${REJECTED_APPS_TABLE}                css=[data-testid="table-loans-rejected"]
 
 # ============================================================================
