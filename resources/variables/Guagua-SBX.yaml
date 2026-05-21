@@ -262,3 +262,26 @@ VALID_DATE_TO: "2026-05-13"
 # T25_VERSIONED_SAVINGS_PRODUCT: "Savings With All Optional Custom Fields"
 # T25_UPDATED_DESCRIPTION: "Updated by test automation"
 # T25_INVALID_STATUS_CUSTOMER: "Yuki Santos"    # Inactive customer ID: 1326171c8c5f410ebed36bf8c67740dd
+
+
+# ============================================================
+# Loans — Search Values (t7.1.9–t7.1.12)
+# ============================================================
+
+T71_ACTIVE_LOAN_SEARCH: "7710378177805086"
+T71_PENDING_APP_SEARCH: "Ollie Bearman"
+T71_PENDING_DISB_SEARCH: "Albert Camus"
+T71_REJECTED_LOAN_SEARCH: "Jace Amban"
+
+
+# ---------------------------------------------------------------
+# t2.6 — Avail Loans Product
+# ---------------------------------------------------------------
+T26_CUSTOMER_ID: "Eb29daaa15e9468aacb75bbd98befb5e"
+T26_CUSTOMER_NAME: "Luis Ramos"
+T26_LOANS_PRODUCT: "Loan 0513151340"
+T26_LOAN_AMOUNT: "10000"
+T26_INTEREST_RATE: "2"
+T26_LOAN_TERM_LENGTH: "10"
+T26_DISBURSEMENT_MODE: "Cash"
+T26_EMPLOYER_NAME: "Nmblr"
