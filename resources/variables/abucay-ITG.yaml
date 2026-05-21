@@ -3,10 +3,10 @@
 # ============================================================
 
 BANK_NAME: "Banco Abucay"
-BASE_URL: "https://alegre-dashboard.int.itg.higala.ph/banco-abucay/login"
+BASE_URL: "https://alegre-dashboard.pub.itg.higala.ph/banco-abucay/login"
 
 # Teller Credentials
-TELLER_EMAIL: "pvillados+u1@agsx.net"
+TELLER_EMAIL: "pvillados@agsx.net"
 TELLER_PASSWORD: "Password123!"
 
 # Invalid Credentials (for negative test cases)
@@ -38,9 +38,9 @@ RTP_WRONG_CONFIRM_PASSWORD: "Password1234!"
 # Auth — Test Suite Specific (t1.2, t1.3, t1.4)
 # ============================================================
 
-MIXED_CASE_EMAIL: "Pvillados+aBuCaYoP1@Agsx.Net"
-FP_MIXED_CASE_EMAIL: "Pvillados+oPeRaToR76@NmBlR.aI"
-CP_USER_EMAIL: "pvillados+u1@agsx.net"
+MIXED_CASE_EMAIL: "Pvillados+u1@Agsx.Net"
+FP_MIXED_CASE_EMAIL: "Pvillados+u2@Agsx.Net"
+CP_USER_EMAIL: "pvillados+u2@agsx.net"
 CP_USER_PASSWORD: "Password123!"
 
 

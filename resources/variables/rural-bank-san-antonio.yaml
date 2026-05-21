@@ -3,7 +3,7 @@
 # ============================================================
 
 BANK_NAME: "Rural Bank of San Antonio"
-BASE_URL: "https://alegre-dashboard.int.itg.higala.ph/rural-bank-san-antonio/login"
+BASE_URL: "https://alegre-dashboard.pub.itg.higala.ph/rural-bank-san-antonio/login"
 
 # Teller Credentials
 TELLER_EMAIL: "pvillados+u1@agsx.net"

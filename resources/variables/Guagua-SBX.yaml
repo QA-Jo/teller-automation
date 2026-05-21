@@ -6,7 +6,7 @@ BANK_NAME: "Rural Bank of San Antonio"
 BASE_URL: "https://alegre-dashboard.pub.sbx.higala.ph/guagua-rural-bank/login"
 
 # Teller Credentials
-TELLER_EMAIL: "pvillados@agsx.net"
+TELLER_EMAIL: "pvillados+u1@agsx.net"
 TELLER_PASSWORD: "Password123!"
 
 # Invalid Credentials (for negative test cases)
@@ -38,7 +38,7 @@ RTP_WRONG_CONFIRM_PASSWORD: "Password1234!"
 # Auth — Test Suite Specific (t1.2, t1.3, t1.4)
 # ============================================================
 
-MIXED_CASE_EMAIL: "Pvillados@Agsx.Net"
+MIXED_CASE_EMAIL: "Pvillados+u1@Agsx.Net"
 FP_MIXED_CASE_EMAIL: "Pvillados+U1@Agsx.Net"
 CP_USER_EMAIL: "pvillados+u2@agsx.net"
 CP_USER_PASSWORD: "Password123!"
@@ -119,20 +119,20 @@ T4_TXN_CREDIT_ACCT_NO: "101400001643"
 T4_TXN_CREDIT_BANK_CODE: "CHBKPHMMXXX"
 T4_TXN_CREDIT_BANK_NAME: "China Banking Corporation"
 T4_TXN_CREATED_ON: "12 May 2026 11:36:22"
-T4_DATE_FROM: "2026-04-20"
-T4_DATE_TO: "2026-04-22"
+T4_DATE_FROM: "2026-05-11"
+T4_DATE_TO: "2026-05-12"
 
 
-# ============================================================
-# Products Data (t2.4)
-# ============================================================
+# # ============================================================
+# # Products Data (t2.4)
+# # ============================================================
 
-T24_CUSTOMER_ID: "8ec1882b47074f3eb1827775ebc670a8"
-T24_CUSTOMER_NAME: "Mariah Ave"
-T24_AVAILED_LOAN_PRODUCT: "Regular Home Loan"
-T24_AVAILED_SAVINGS_PRODUCT: "Student Savings"
-T24_ACTIVE_PRODUCT: "Education Loan 101"
-T24_ARCHIVED_PRODUCT: "Loan 13C"
+# T24_CUSTOMER_ID: "8ec1882b47074f3eb1827775ebc670a8"
+# T24_CUSTOMER_NAME: "Mariah Ave"
+# T24_AVAILED_LOAN_PRODUCT: "Regular Home Loan"
+# T24_AVAILED_SAVINGS_PRODUCT: "Student Savings"
+# T24_ACTIVE_PRODUCT: "Education Loan 101"
+# T24_ARCHIVED_PRODUCT: "Loan 13C"
 
 
 # ============================================================
@@ -144,121 +144,121 @@ VALID_DATE_FROM: "2026-05-12"
 VALID_DATE_TO: "2026-05-13"
 
 
-# ============================================================
-# Create Transaction Data — Withdrawal (t4.2)
-# Prefixed T42_ to avoid conflicts with other txn variables
-# ============================================================
+# # ============================================================
+# # Create Transaction Data — Withdrawal (t4.2)
+# # Prefixed T42_ to avoid conflicts with other txn variables
+# # ============================================================
 
-T42_ACCOUNT_NUMBER: "7710394943067321"
-T42_ACCOUNT_NAME: "Peach Villados"
-T42_ACCOUNT_TYPE: "Savings"
-T42_ACCOUNT_STATUS: "Active"
-T42_CUSTOMER_NAME: "Peach Villados"
-T42_WITHDRAWAL_TYPE: "Cash Withdrawal"
-T42_WITHDRAWAL_AMOUNT: "10.00"
-T42_WITHDRAWAL_NOTES: "payment"
+# T42_ACCOUNT_NUMBER: "7710394943067321"
+# T42_ACCOUNT_NAME: "Peach Villados"
+# T42_ACCOUNT_TYPE: "Savings"
+# T42_ACCOUNT_STATUS: "Active"
+# T42_CUSTOMER_NAME: "Peach Villados"
+# T42_WITHDRAWAL_TYPE: "Cash Withdrawal"
+# T42_WITHDRAWAL_AMOUNT: "10.00"
+# T42_WITHDRAWAL_NOTES: "payment"
 
-# Daily OTC limit test data (t4.2.10–t4.2.18)
-# OTC account used exclusively for daily limit tests (t4.2.10–t4.2.18)
-# Using a separate account avoids polluting the main test account's daily limit
-# T42_OTC_ACCOUNT_NUMBER: "7710353968956465"
-# T42_OTC_CUSTOMER_NAME: "Yuki Hadjar"
-# T42_OTC_ACCOUNT_NUMBER: "7710357755282456"
-# T42_OTC_CUSTOMER_NAME: "Ave Maria"
-T42_OTC_ACCOUNT_NUMBER: "7710455410784261"
-T42_OTC_CUSTOMER_NAME: "Chai Villados"
-# T42_OTC_ACCOUNT_NUMBER: "7710487972758371"
-# T42_OTC_CUSTOMER_NAME: "Niki Zefanya"
-T42_DAILY_LIMIT_INITIAL: "500,000"              # Daily Limit Remaining at start of day (before any OTC withdrawals)
-T42_DAILY_LIMIT_AFTER_FIRST_OTC: "480,000"      # Daily Limit Remaining after first OTC withdrawal (INITIAL - FIRST_OTC_AMOUNT)
-T42_DAILY_LIMIT_AFTER_SECOND_OTC: "450,000"     # Daily Limit Remaining after second OTC withdrawal (AFTER_FIRST - SECOND_OTC_AMOUNT)
-T42_FIRST_OTC_AMOUNT: "20000"                 # 1st OTC withdrawal used in t4.2.12
-T42_SECOND_OTC_AMOUNT: "30000"                # 2nd OTC withdrawal used in t4.2.13
+# # Daily OTC limit test data (t4.2.10–t4.2.18)
+# # OTC account used exclusively for daily limit tests (t4.2.10–t4.2.18)
+# # Using a separate account avoids polluting the main test account's daily limit
+# # T42_OTC_ACCOUNT_NUMBER: "7710353968956465"
+# # T42_OTC_CUSTOMER_NAME: "Yuki Hadjar"
+# # T42_OTC_ACCOUNT_NUMBER: "7710357755282456"
+# # T42_OTC_CUSTOMER_NAME: "Ave Maria"
+# T42_OTC_ACCOUNT_NUMBER: "7710455410784261"
+# T42_OTC_CUSTOMER_NAME: "Chai Villados"
+# # T42_OTC_ACCOUNT_NUMBER: "7710487972758371"
+# # T42_OTC_CUSTOMER_NAME: "Niki Zefanya"
+# T42_DAILY_LIMIT_INITIAL: "500,000"              # Daily Limit Remaining at start of day (before any OTC withdrawals)
+# T42_DAILY_LIMIT_AFTER_FIRST_OTC: "480,000"      # Daily Limit Remaining after first OTC withdrawal (INITIAL - FIRST_OTC_AMOUNT)
+# T42_DAILY_LIMIT_AFTER_SECOND_OTC: "450,000"     # Daily Limit Remaining after second OTC withdrawal (AFTER_FIRST - SECOND_OTC_AMOUNT)
+# T42_FIRST_OTC_AMOUNT: "20000"                 # 1st OTC withdrawal used in t4.2.12
+# T42_SECOND_OTC_AMOUNT: "30000"                # 2nd OTC withdrawal used in t4.2.13
 
-# Negative / validation test data (t4.2.19–t4.2.31)
-T42_INVALID_ACCOUNT_NUMBER: "0000000000"
-T42_INVALID_ACCOUNT_NAME: "XXXXXXXXXXX"
-T42_ACCOUNT_NUMBER_EXCEED_BALANCE: "7710466650541254"    # Account with balance less than T42_OVER_BALANCE_AMOUNT
-T42_OVER_BALANCE_AMOUNT: "500000"          # amount > current account balance
-T42_OVER_LIMIT_AMOUNT: "460000"          # amount > daily limit remaining after two OTC withdrawals
-T42_DAILY_LIMIT_ERROR: "You've reached your daily transfer limit of PHP 500,000."
-T42_MAX_ALLOWED_AMOUNT: "500000"         # maximum single-transaction daily limit
-T42_EXCEED_MAX_AMOUNT: "500001"          # one above the max allowed amount
+# # Negative / validation test data (t4.2.19–t4.2.31)
+# T42_INVALID_ACCOUNT_NUMBER: "0000000000"
+# T42_INVALID_ACCOUNT_NAME: "XXXXXXXXXXX"
+# T42_ACCOUNT_NUMBER_EXCEED_BALANCE: "7710466650541254"    # Account with balance less than T42_OVER_BALANCE_AMOUNT
+# T42_OVER_BALANCE_AMOUNT: "500000"          # amount > current account balance
+# T42_OVER_LIMIT_AMOUNT: "460000"          # amount > daily limit remaining after two OTC withdrawals
+# T42_DAILY_LIMIT_ERROR: "You've reached your daily transfer limit of PHP 500,000."
+# T42_MAX_ALLOWED_AMOUNT: "500000"         # maximum single-transaction daily limit
+# T42_EXCEED_MAX_AMOUNT: "500001"          # one above the max allowed amount
 
-# ---------------------------------------------------------------
-# t4.3 — Create a Deposit Transaction via Teller
-# ---------------------------------------------------------------
-T43_ACCOUNT_NUMBER: "7710487972758371"
-T43_ACCOUNT_NAME: "Niki Zefanya"
-T43_ACCOUNT_TYPE: "Savings"
-T43_ACCOUNT_STATUS: "Active"
-T43_CUSTOMER_NAME: "Niki Zefanya"
-T43_DEPOSIT_TYPE: "Cash Deposit"
-T43_DEPOSIT_AMOUNT: "1000"
-T43_DEPOSIT_AMOUNT_FORMATTED: "1,000.00"
-T43_DEPOSIT_NOTES: "Deposit"
+# # ---------------------------------------------------------------
+# # t4.3 — Create a Deposit Transaction via Teller
+# # ---------------------------------------------------------------
+# T43_ACCOUNT_NUMBER: "7710487972758371"
+# T43_ACCOUNT_NAME: "Niki Zefanya"
+# T43_ACCOUNT_TYPE: "Savings"
+# T43_ACCOUNT_STATUS: "Active"
+# T43_CUSTOMER_NAME: "Niki Zefanya"
+# T43_DEPOSIT_TYPE: "Cash Deposit"
+# T43_DEPOSIT_AMOUNT: "1000"
+# T43_DEPOSIT_AMOUNT_FORMATTED: "1,000.00"
+# T43_DEPOSIT_NOTES: "Deposit"
 
-# Validation test data (t4.3.10–t4.3.19)
-T43_INVALID_ACCOUNT_NUMBER: "0000000000"
-T43_INVALID_ACCOUNT_NAME: "XXXXXXXXXXX"
-T43_HIGH_DEPOSIT_AMOUNT_1: "500000"
-T43_HIGH_DEPOSIT_AMOUNT_2: "500001"
-T43_HIGH_DEPOSIT_AMOUNT_3: "1000000"
+# # Validation test data (t4.3.10–t4.3.19)
+# T43_INVALID_ACCOUNT_NUMBER: "0000000000"
+# T43_INVALID_ACCOUNT_NAME: "XXXXXXXXXXX"
+# T43_HIGH_DEPOSIT_AMOUNT_1: "500000"
+# T43_HIGH_DEPOSIT_AMOUNT_2: "500001"
+# T43_HIGH_DEPOSIT_AMOUNT_3: "1000000"
 
-# T5.1
-T51_SAVINGS_PRODUCT_NAME: "Savings With All Optional"
-T51_LOANS_PRODUCT_NAME: "Loans Edit 1"
+# # T5.1
+# T51_SAVINGS_PRODUCT_NAME: "Savings With All Optional"
+# T51_LOANS_PRODUCT_NAME: "Loans Edit 1"
 
-# ---------------------------------------------------------------
-# t5.3 — Create New Savings Product
-# ---------------------------------------------------------------
-T53_DESCRIPTION: "Created via teller app!"
-T53_MIN_AGE: "18"
-T53_REQUIRED_DOCUMENT: "governmentId"
-T53_AVG_DAILY_BALANCE: "1000"
-T53_INITIAL_DEPOSIT: "500"
-T53_WITHDRAWAL_AMOUNT: "5000"
-T53_INTEREST_RATE: "2.5"
-T53_EXCESS_WITHDRAWAL_FEE: "25"
-T53_DORMANCY_FEE: "10"
-T53_ACCOUNT_CLOSURE_FEE: "50"
-T53_TRANSACTION_CHARGE: "2"
-T53_TAX_RATE: "20"
-T53_SECTION_NAME: "Personal Information"
-T53_FIELD_NAME: "Full Name"
-T53_FIELD_PLACEHOLDER: "Enter full name"
+# # ---------------------------------------------------------------
+# # t5.3 — Create New Savings Product
+# # ---------------------------------------------------------------
+# T53_DESCRIPTION: "Created via teller app!"
+# T53_MIN_AGE: "18"
+# T53_REQUIRED_DOCUMENT: "governmentId"
+# T53_AVG_DAILY_BALANCE: "1000"
+# T53_INITIAL_DEPOSIT: "500"
+# T53_WITHDRAWAL_AMOUNT: "5000"
+# T53_INTEREST_RATE: "2.5"
+# T53_EXCESS_WITHDRAWAL_FEE: "25"
+# T53_DORMANCY_FEE: "10"
+# T53_ACCOUNT_CLOSURE_FEE: "50"
+# T53_TRANSACTION_CHARGE: "2"
+# T53_TAX_RATE: "20"
+# T53_SECTION_NAME: "Personal Information"
+# T53_FIELD_NAME: "Full Name"
+# T53_FIELD_PLACEHOLDER: "Enter full name"
 
-# ---------------------------------------------------------------
-# t5.3 — Create New Loans Product
-# ---------------------------------------------------------------
-T53_LOANS_LOAN_PURPOSE: "For personal and home improvement expenses"
-T53_LOANS_MIN_AMOUNT: "10000"
-T53_LOANS_MAX_AMOUNT: "500000"
-T53_LOANS_TERM_LENGTH: "12"
-T53_LOANS_REPAYMENT_METHOD: "Monthly amortization"
-T53_LOANS_MIN_AGE: "21"
-T53_LOANS_MAX_AGE: "65"
-T53_LOANS_MIN_INCOME: "15000"
-T53_LOANS_CREDIT_SCORE: "650"
-T53_LOANS_PROCESSING_FEE: "1500"
-T53_LOANS_PENALTY_RATE: "3.5"
-T53_LOANS_PENALTY_CONDITIONS: "Applied after 30 days overdue"
-T53_LOANS_SECTION_NAME: "Employment Information"
-T53_LOANS_FIELD_NAME: "Employer Name"
-T53_LOANS_FIELD_PLACEHOLDER: "Enter employer name"
+# # ---------------------------------------------------------------
+# # t5.3 — Create New Loans Product
+# # ---------------------------------------------------------------
+# T53_LOANS_LOAN_PURPOSE: "For personal and home improvement expenses"
+# T53_LOANS_MIN_AMOUNT: "10000"
+# T53_LOANS_MAX_AMOUNT: "500000"
+# T53_LOANS_TERM_LENGTH: "12"
+# T53_LOANS_REPAYMENT_METHOD: "Monthly amortization"
+# T53_LOANS_MIN_AGE: "21"
+# T53_LOANS_MAX_AGE: "65"
+# T53_LOANS_MIN_INCOME: "15000"
+# T53_LOANS_CREDIT_SCORE: "650"
+# T53_LOANS_PROCESSING_FEE: "1500"
+# T53_LOANS_PENALTY_RATE: "3.5"
+# T53_LOANS_PENALTY_CONDITIONS: "Applied after 30 days overdue"
+# T53_LOANS_SECTION_NAME: "Employment Information"
+# T53_LOANS_FIELD_NAME: "Employer Name"
+# T53_LOANS_FIELD_PLACEHOLDER: "Enter employer name"
 
 
-# ---------------------------------------------------------------
-# t2.5 — Avail Savings Product
-# ---------------------------------------------------------------
-T25_CUSTOMER_ID: "f5e913c405554cd9bedd3045613a4567"
-T25_CUSTOMER_NAME: "Test Automation User"
-T25_SAVINGS_PRODUCT: "t5.3 Savings 0413093202"
-T25_SAVINGS_PRODUCT_2: "Savings 421"
-T25_CUSTOM_FULL_NAME: "Automation Test Applicant"
-T25_MODIFIED_FULL_NAME: "Automation Modified Name"
-T25_OPTIONAL_SAVINGS_PRODUCT: "Savings With All Optional Custom Fields"
-T25_NO_FIELDS_SAVINGS_PRODUCT: "Savings with no custom field"
-T25_VERSIONED_SAVINGS_PRODUCT: "Savings With All Optional Custom Fields"
-T25_UPDATED_DESCRIPTION: "Updated by test automation"
-T25_INVALID_STATUS_CUSTOMER: "Yuki Santos"    # Inactive customer ID: 1326171c8c5f410ebed36bf8c67740dd
+# # ---------------------------------------------------------------
+# # t2.5 — Avail Savings Product
+# # ---------------------------------------------------------------
+# T25_CUSTOMER_ID: "f5e913c405554cd9bedd3045613a4567"
+# T25_CUSTOMER_NAME: "Test Automation User"
+# T25_SAVINGS_PRODUCT: "t5.3 Savings 0413093202"
+# T25_SAVINGS_PRODUCT_2: "Savings 421"
+# T25_CUSTOM_FULL_NAME: "Automation Test Applicant"
+# T25_MODIFIED_FULL_NAME: "Automation Modified Name"
+# T25_OPTIONAL_SAVINGS_PRODUCT: "Savings With All Optional Custom Fields"
+# T25_NO_FIELDS_SAVINGS_PRODUCT: "Savings with no custom field"
+# T25_VERSIONED_SAVINGS_PRODUCT: "Savings With All Optional Custom Fields"
+# T25_UPDATED_DESCRIPTION: "Updated by test automation"
+# T25_INVALID_STATUS_CUSTOMER: "Yuki Santos"    # Inactive customer ID: 1326171c8c5f410ebed36bf8c67740dd
