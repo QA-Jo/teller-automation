@@ -1,20 +1,20 @@
-{"level":30,"time":"2026-05-22T01:56:03.495Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"Listening on 127.0.0.1:63725"}
-{"level":30,"time":"2026-05-22T01:56:04.580Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method newBrowser"}
-{"level":30,"time":"2026-05-22T01:56:06.543Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"Adding browser to stack: chromium, version: 141.0.7390.37"}
-{"level":30,"time":"2026-05-22T01:56:06.543Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"Adding 0 contexts to browser"}
-{"level":30,"time":"2026-05-22T01:56:06.543Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method newBrowser"}
-{"level":30,"time":"2026-05-22T01:56:06.562Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method newContext"}
-{"level":30,"time":"2026-05-22T01:56:06.563Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"Creating new context with options: {\"acceptDownloads\":true,\"bypassCSP\":false,\"forcedColors\":\"none\",\"ignoreHTTPSErrors\":false,\"javaScriptEnabled\":true,\"offline\":false,\"reducedMotion\":\"no-preference\",\"serviceWorkers\":\"allow\",\"viewport\":{\"height\":830,\"width\":1643}}"}
-{"level":30,"time":"2026-05-22T01:56:06.563Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"currentBrowser: {\"name\":\"chromium\",\"browser\":{\"_type\":\"Browser\",\"_guid\":\"browser@69a121211665eb6e72f9269fcf5bde1d\"},\"headless\":false,\"_contextStack\":[],\"id\":\"browser=665f9edc-a267-411f-84c6-aae7e2c50344\"}"}
-{"level":30,"time":"2026-05-22T01:56:06.563Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"Trace file: "}
-{"level":30,"time":"2026-05-22T01:56:06.582Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"Setting default timeout for context context=4f308449-f179-494e-87eb-58460e956527 to 10000"}
-{"level":30,"time":"2026-05-22T01:56:06.582Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"Changed active context: context=4f308449-f179-494e-87eb-58460e956527"}
-{"level":30,"time":"2026-05-22T01:56:06.582Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method newContext"}
-{"level":30,"time":"2026-05-22T01:56:06.587Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method newPage"}
-{"level":30,"time":"2026-05-22T01:56:06.587Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"currentBrowser: {\"name\":\"chromium\",\"browser\":{\"_type\":\"Browser\",\"_guid\":\"browser@69a121211665eb6e72f9269fcf5bde1d\"},\"headless\":false,\"_contextStack\":[{\"id\":\"context=4f308449-f179-494e-87eb-58460e956527\",\"c\":{\"_type\":\"BrowserContext\",\"_guid\":\"browser-context@e06e911d454d42343a7d03c2e8910bdf\"},\"pageStack\":[],\"options\":{\"acceptDownloads\":true,\"bypassCSP\":false,\"forcedColors\":\"none\",\"ignoreHTTPSErrors\":false,\"javaScriptEnabled\":true,\"offline\":false,\"reducedMotion\":\"no-preference\",\"serviceWorkers\":\"allow\",\"viewport\":{\"height\":830,\"width\":1643}},\"traceFile\":\"\"}],\"id\":\"browser=665f9edc-a267-411f-84c6-aae7e2c50344\"}"}
-{"level":30,"time":"2026-05-22T01:56:07.275Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"Video path: undefined"}
-{"level":30,"time":"2026-05-22T01:56:07.275Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"Changed active page"}
-{"level":30,"time":"2026-05-22T01:56:37.284Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"Error of node method  newPage"}
+{"level":30,"time":"2026-05-22T01:57:59.631Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"Listening on 127.0.0.1:63812"}
+{"level":30,"time":"2026-05-22T01:58:00.724Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method newBrowser"}
+{"level":30,"time":"2026-05-22T01:58:02.077Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"Adding browser to stack: chromium, version: 141.0.7390.37"}
+{"level":30,"time":"2026-05-22T01:58:02.077Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"Adding 0 contexts to browser"}
+{"level":30,"time":"2026-05-22T01:58:02.078Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method newBrowser"}
+{"level":30,"time":"2026-05-22T01:58:02.090Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method newContext"}
+{"level":30,"time":"2026-05-22T01:58:02.090Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"Creating new context with options: {\"acceptDownloads\":true,\"bypassCSP\":false,\"forcedColors\":\"none\",\"ignoreHTTPSErrors\":false,\"javaScriptEnabled\":true,\"offline\":false,\"reducedMotion\":\"no-preference\",\"serviceWorkers\":\"allow\",\"viewport\":{\"height\":830,\"width\":1643}}"}
+{"level":30,"time":"2026-05-22T01:58:02.090Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"currentBrowser: {\"name\":\"chromium\",\"browser\":{\"_type\":\"Browser\",\"_guid\":\"browser@d57104528018e2ce7d3b9a0d1ae13342\"},\"headless\":false,\"_contextStack\":[],\"id\":\"browser=68cf30cb-f246-4e5c-88f5-904639a223cf\"}"}
+{"level":30,"time":"2026-05-22T01:58:02.090Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"Trace file: "}
+{"level":30,"time":"2026-05-22T01:58:02.113Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"Setting default timeout for context context=446d72af-c7e8-4f40-b479-47e79a8f5eda to 10000"}
+{"level":30,"time":"2026-05-22T01:58:02.113Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"Changed active context: context=446d72af-c7e8-4f40-b479-47e79a8f5eda"}
+{"level":30,"time":"2026-05-22T01:58:02.113Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method newContext"}
+{"level":30,"time":"2026-05-22T01:58:02.117Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method newPage"}
+{"level":30,"time":"2026-05-22T01:58:02.117Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"currentBrowser: {\"name\":\"chromium\",\"browser\":{\"_type\":\"Browser\",\"_guid\":\"browser@d57104528018e2ce7d3b9a0d1ae13342\"},\"headless\":false,\"_contextStack\":[{\"id\":\"context=446d72af-c7e8-4f40-b479-47e79a8f5eda\",\"c\":{\"_type\":\"BrowserContext\",\"_guid\":\"browser-context@f6de1f48c360c735b8b902203e0e8750\"},\"pageStack\":[],\"options\":{\"acceptDownloads\":true,\"bypassCSP\":false,\"forcedColors\":\"none\",\"ignoreHTTPSErrors\":false,\"javaScriptEnabled\":true,\"offline\":false,\"reducedMotion\":\"no-preference\",\"serviceWorkers\":\"allow\",\"viewport\":{\"height\":830,\"width\":1643}},\"traceFile\":\"\"}],\"id\":\"browser=68cf30cb-f246-4e5c-88f5-904639a223cf\"}"}
+{"level":30,"time":"2026-05-22T01:58:02.821Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"Video path: undefined"}
+{"level":30,"time":"2026-05-22T01:58:02.821Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"Changed active page"}
+{"level":30,"time":"2026-05-22T01:58:32.830Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"Error of node method  newPage"}
 ================= Original suppressed error =================
 page.goto: Timeout 30000ms exceeded.
 Call log:
@@ -25,7 +25,7 @@ Call log:
   name: 'TimeoutError'
 }
 =============================================================
-{"level":30,"time":"2026-05-22T01:56:37.322Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method takeScreenshot"}
+{"level":30,"time":"2026-05-22T01:58:32.868Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method takeScreenshot"}
 ================= Original suppressed error =================
 Error: Tried to take screenshot, but no page was open.
     at exists (/Users/peachvillados/teller-automation/.venv/lib/python3.14/site-packages/Browser/wrapper/index.js:10979:11)
@@ -39,73 +39,73 @@ Error: Tried to take screenshot, but no page was open.
     at endReadableNT (node:internal/streams/readable:1729:12)
     at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
 =============================================================
-{"level":30,"time":"2026-05-22T01:56:37.323Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"Error of node method  takeScreenshot"}
-{"level":30,"time":"2026-05-22T01:56:37.341Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.341Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.345Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.345Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.347Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.347Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.349Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.349Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.351Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.351Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.354Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.354Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.356Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.356Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.358Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.358Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.360Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.360Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.362Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.362Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.364Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.364Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.368Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.368Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.369Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.369Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.371Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.371Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.372Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.372Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.373Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.373Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.374Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.374Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.379Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.379Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.381Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.381Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.383Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.383Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.385Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.385Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.387Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.387Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.389Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.389Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.390Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.390Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.393Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.393Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.395Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.395Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.396Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.396Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.398Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.398Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.400Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.400Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.406Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.406Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.408Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.408Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.410Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.410Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.420Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method closeBrowser"}
-{"level":30,"time":"2026-05-22T01:56:37.658Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method closeBrowser"}
+{"level":30,"time":"2026-05-22T01:58:32.868Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"Error of node method  takeScreenshot"}
+{"level":30,"time":"2026-05-22T01:58:32.891Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.892Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.894Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.894Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.896Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.896Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.898Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.899Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.900Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.900Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.907Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.907Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.909Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.909Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.910Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.910Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.912Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.912Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.913Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.913Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.915Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.915Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.922Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.923Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.924Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.925Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.926Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.927Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.929Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.929Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.933Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.933Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.935Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.935Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.940Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.940Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.943Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.943Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.945Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.945Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.947Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.947Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.949Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.949Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.951Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.951Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.952Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.952Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.954Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.954Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.955Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.955Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.956Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.956Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.957Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.957Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.959Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.959Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.961Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.961Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.963Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.963Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.965Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.965Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:32.972Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method closeBrowser"}
+{"level":30,"time":"2026-05-22T01:58:33.321Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method closeBrowser"}
 ================= Original suppressed error =================
 Error: Browser has been closed.
     at PlaywrightState.getActiveBrowser (/Users/peachvillados/teller-automation/.venv/lib/python3.14/site-packages/Browser/wrapper/index.js:12547:15)
@@ -119,7 +119,7 @@ Error: Browser has been closed.
     at endReadableNT (node:internal/streams/readable:1729:12)
     at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
 =============================================================
-{"level":30,"time":"2026-05-22T01:56:37.661Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.661Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2026-05-22T01:56:37.695Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method closeAllBrowsers"}
-{"level":30,"time":"2026-05-22T01:56:37.695Z","pid":36222,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method closeAllBrowsers"}
+{"level":30,"time":"2026-05-22T01:58:33.324Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:33.324Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-05-22T01:58:33.346Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"Start of node method closeAllBrowsers"}
+{"level":30,"time":"2026-05-22T01:58:33.347Z","pid":38460,"hostname":"Amihans-MacBook-Air-2.local","msg":"End of node method closeAllBrowsers"}
