@@ -3,10 +3,10 @@
 # ============================================================
 
 BANK_NAME: "Rural Bank of San Antonio"
-BASE_URL: "https://alegre-dashboard.pub.itg.higala.ph/rural-bank-san-antonio/login"
+BASE_URL: "https://alegre-dashboard.int.itg.higala.ph/rural-bank-san-antonio/login"
 
 # Teller Credentials
-TELLER_EMAIL: "pvillados+u1@agsx.net"
+TELLER_EMAIL: "pvillados@agsx.net"
 TELLER_PASSWORD: "Password123!"
 
 # Invalid Credentials (for negative test cases)
@@ -283,3 +283,11 @@ T26_INTEREST_RATE: "2.00"
 T26_LOAN_TERM_LENGTH: "10"
 T26_DISBURSEMENT_MODE: "Cash"
 T26_EMPLOYER_NAME: "Nmblr"
+
+# t2.6 validation values
+T26_LOAN_AMOUNT_BELOW_MIN: "9999"
+T26_LOAN_AMOUNT_ABOVE_MAX: "500001"
+T26_NEGATIVE_LOAN_AMOUNT: "-5000"
+T26_NEGATIVE_TERM_LENGTH: "-12"
+T26_MODIFIED_LOAN_AMOUNT: "15000"
+T26_MODIFIED_EMPLOYER_NAME: "Nmblr Updated"
