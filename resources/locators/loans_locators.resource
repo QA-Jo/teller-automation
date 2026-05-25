@@ -86,6 +86,14 @@ ${LOAN_DETAILS_REJECT_BTN}            css=[data-testid="btn-loan-details-reject"
 ${LOAN_DETAILS_CLOSE_BTN}             css=[data-testid="btn-loan-details-close"]
 
 # ============================================================================
+# 📋 LOAN APPLICATION DETAIL MODAL (opens via Pending Applications row Approve/Reject)
+# No testid on the modal itself — anchor on the "Customer Form" label inside the body.
+# ============================================================================
+${LOAN_APP_DETAIL_MODAL}              css=.ant-modal-content:has-text("Customer Form")
+${LOAN_APP_MODAL_CUSTOMER_FORM}       css=.ant-modal-content p:text-is("Customer Form")
+${LOAN_APP_MODAL_CUSTOMER_DETAILS}    css=.ant-modal-content p:text-is("Customer Details")
+
+# ============================================================================
 # 💳 PAYMENT MODALS
 # ============================================================================
 ${LOAN_PAYMENT_MODAL}                 css=[data-testid="modal-loan-payment"]
@@ -95,3 +103,6 @@ ${LOAN_PAYMENT_CONFIRM_MODAL}         css=[data-testid="modal-loan-payment-confi
 # 📝 REJECTION REMARKS MODAL
 # ============================================================================
 ${LOAN_REJECTION_REMARKS_MODAL}       css=[data-testid="modal-loan-rejection-remarks"]
+${LOAN_REJECTION_INPUT}               css=[data-testid="input-loan-rejection-remarks"]
+${LOAN_REJECTION_SUBMIT_BTN}          css=[data-testid="modal-loan-rejection-remarks-btn-ok"]
+${LOAN_REJECTION_BACK_BTN}            css=[data-testid="modal-loan-rejection-remarks-btn-cancel"]
