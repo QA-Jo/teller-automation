@@ -57,6 +57,8 @@ ${REJECTED_APPS_TABLE}                css=[data-testid="table-loans-rejected"]
 # ============================================================================
 # 📅 ACTIVE LOAN SCHEDULE PAGE
 # ============================================================================
+${NAV_BREADCRUMB}                     css=[data-testid="nav-breadcrumb"]
+${HEADER_TITLE_BLOCK}                 css=[data-testid="field-header-title"]
 ${LOAN_SCHEDULE_PAGE}                 css=[data-testid="page-loans-schedule"]
 ${LOAN_SCHEDULE_TABLE}                css=[data-testid="table-loans-schedule"]
 ${LOAN_SCHEDULE_VIEW_TXN_BTN}         css=[data-testid="btn-loans-schedule-view-transaction"]

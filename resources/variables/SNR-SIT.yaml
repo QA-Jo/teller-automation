@@ -261,6 +261,7 @@ T25_VERSIONED_SAVINGS_PRODUCT: "Savings With All Optional Custom Fields"
 T25_UPDATED_DESCRIPTION: "Updated by test automation"
 T25_INVALID_STATUS_CUSTOMER: "Yuki Santos"    # Inactive customer ID: 1326171c8c5f410ebed36bf8c67740dd
 
+# VALUES BELOW ARE TO BE EDITED BASED ON SNR-SIT VALUES AFTER SBX DEPLOYMENT
 
 # ============================================================
 # Loans — Search Values (t7.1.9–t7.1.12)
@@ -278,8 +279,8 @@ T71_REJECTED_LOAN_SEARCH: "Jace Amban"
 T26_CUSTOMER_ID: "Eb29daaa15e9468aacb75bbd98befb5e"
 T26_CUSTOMER_NAME: "Luis Ramos"
 T26_LOANS_PRODUCT: "Loan 0513151340"
-T26_LOAN_AMOUNT: "10000"
-T26_INTEREST_RATE: "2"
+T26_LOAN_AMOUNT: "10000.00"
+T26_INTEREST_RATE: "2.00"
 T26_LOAN_TERM_LENGTH: "10"
 T26_DISBURSEMENT_MODE: "Cash"
 T26_EMPLOYER_NAME: "Nmblr"
@@ -303,5 +304,32 @@ T72_APPROVER_PASSWORD: "Password123!"
 T72_CREATOR_EMAIL: "pvillados@agsx.net"
 T72_CREATOR_PASSWORD: "Password123!"
 T72_REJECTION_REMARKS: "Insufficient documentation provided"
-T72_APPROVE_SAME_USER_ERROR: "Loan application cannot be approved by the same user who created it"
-T72_REJECT_SAME_USER_ERROR: "Loan application cannot be rejected by the same user who created it"
+
+# Target the Ant Design error popups using clean, normalized substring locators
+# Wrap the entire text block in single quotes so the colon doesn't break the parser
+# Fix: Wrapping the entire locator string in double quotes masks the internal colon from the YAML scanner
+T72_APPROVE_SAME_USER_ERROR: "css=.ant-message-notice-error >> text=Error approving loan application: Loan application cannot be approved by the same user who created it."
+T72_REJECT_SAME_USER_ERROR: "css=.ant-message-notice-error >> text=Error rejecting loan application: Loan application cannot be rejected by the same user who created it."
+
+# Loans — t7.2 Approval/Rejection success toast messages. Name should be changed depending on T26_CUSTOMER_NAME value
+
+# Target the Ant Design message content using substring matching to ignore non-breaking spaces
+SUCCESS_TOAST_APPROVED: css=.ant-message-custom-content.ant-message-success span:has-text("Luis Ramos")
+SUCCESS_TOAST_REJECTED: css=.ant-message-custom-content.ant-message-success span:has-text("Luis Ramos")
+
+# ---------------------------------------------------------------
+# t7.3 — Loan Disbursement
+# ---------------------------------------------------------------
+
+SUCCESS_TOAST_DISBURSED: css=.ant-message-custom-content.ant-message-success span:has-text("Luis Ramos")
+
+
+# ---------------------------------------------------------------
+# t7.4 — Loan Schedule View
+# Target data for validating the repayment schedule dashboard.
+# ---------------------------------------------------------------
+T74_TARGET_CUSTOMER_NAME: "Luis Ramos"
+T74_EXPECTED_AMORTIZATION: "1,009.19"
+T74_EXPECTED_INTEREST: "2%"
+T74_EXPECTED_DISBURSER: "Peach Villados"
+T74_EXPECTED_REPAYMENT_TOTAL: "10,091.91"
