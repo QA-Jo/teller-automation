@@ -316,3 +316,19 @@ T72_REJECT_SAME_USER_ERROR: "css=.ant-message-notice-error >> text=Error rejecti
 SUCCESS_TOAST_APPROVED: css=.ant-message-custom-content.ant-message-success span:has-text("Luis Ramos")
 SUCCESS_TOAST_REJECTED: css=.ant-message-custom-content.ant-message-success span:has-text("Luis Ramos")
 
+# ---------------------------------------------------------------
+# t7.3 — Loan Disbursement
+# ---------------------------------------------------------------
+
+SUCCESS_TOAST_DISBURSED: css=.ant-message-custom-content.ant-message-success span:has-text("Luis Ramos")
+
+
+# ---------------------------------------------------------------
+# t7.4 — Loan Schedule View
+# Target data for validating the repayment schedule dashboard.
+# ---------------------------------------------------------------
+T74_TARGET_CUSTOMER_NAME: "Luis Ramos"
+T74_EXPECTED_AMORTIZATION: "1,009.19"
+T74_EXPECTED_INTEREST: "2%"
+T74_EXPECTED_DISBURSER: "Peach Villados"
+T74_EXPECTED_REPAYMENT_TOTAL: "10,091.91"
