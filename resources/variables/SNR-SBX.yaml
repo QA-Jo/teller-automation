@@ -293,3 +293,17 @@ T26_NEGATIVE_LOAN_AMOUNT: "-5000"
 T26_NEGATIVE_TERM_LENGTH: "-12"
 T26_MODIFIED_LOAN_AMOUNT: "15000"
 T26_MODIFIED_EMPLOYER_NAME: "Nmblr Updated"
+
+
+# ---------------------------------------------------------------
+# t7.2 — Loan Approval and Rejection
+# Approver and creator must be different users (separation of duties).
+# Reuses T26_CUSTOMER_NAME / T26_CUSTOMER_ID / T26_LOANS_PRODUCT.
+# ---------------------------------------------------------------
+T72_APPROVER_EMAIL: "pvillados+u2@agsx.net"
+T72_APPROVER_PASSWORD: "Password123!"
+T72_CREATOR_EMAIL: "pvillados@agsx.net"
+T72_CREATOR_PASSWORD: "Password123!"
+T72_REJECTION_REMARKS: "Insufficient documentation provided"
+T72_APPROVE_SAME_USER_ERROR: "Loan application cannot be approved by the same user who created it"
+T72_REJECT_SAME_USER_ERROR: "Loan application cannot be rejected by the same user who created it"
