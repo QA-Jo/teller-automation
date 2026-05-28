@@ -69,7 +69,8 @@ ${LOAN_SCHEDULE_PAY_NOW_BTN}          css=[data-testid="btn-loans-schedule-pay-n
 # ============================================================================
 # 📦 TRANSACTION DETAILS MODAL
 # ============================================================================
-${TXN_DETAILS_MODAL}                  css=[data-testid="modal-transaction-details"]
+# FIX: Appended .ant-modal-content to bypass the hidden root element wrapper
+${TXN_DETAILS_MODAL}                  css=[data-testid="modal-transaction-details"] .ant-modal-content
 ${TXN_DETAILS_BACK_BTN}               css=[data-testid="btn-transaction-details-back"]
 ${TXN_DETAILS_FILE_LIST}              css=[data-testid="file-list-transaction-details"]
 
@@ -95,11 +96,7 @@ ${LOAN_APP_DETAIL_MODAL}              css=.ant-modal-content:has-text("Customer 
 ${LOAN_APP_MODAL_CUSTOMER_FORM}       css=.ant-modal-content p:text-is("Customer Form")
 ${LOAN_APP_MODAL_CUSTOMER_DETAILS}    css=.ant-modal-content p:text-is("Customer Details")
 
-# ============================================================================
-# 💳 PAYMENT MODALS
-# ============================================================================
-${LOAN_PAYMENT_MODAL}                 css=[data-testid="modal-loan-payment"]
-${LOAN_PAYMENT_CONFIRM_MODAL}         css=[data-testid="modal-loan-payment-confirmation"]
+
 
 # ============================================================================
 # 📝 REJECTION REMARKS MODAL
@@ -108,3 +105,23 @@ ${LOAN_REJECTION_REMARKS_MODAL}       css=[data-testid="modal-loan-rejection-rem
 ${LOAN_REJECTION_INPUT}               css=[data-testid="input-loan-rejection-remarks"]
 ${LOAN_REJECTION_SUBMIT_BTN}          css=[data-testid="modal-loan-rejection-remarks-btn-ok"]
 ${LOAN_REJECTION_BACK_BTN}            css=[data-testid="modal-loan-rejection-remarks-btn-cancel"]
+
+# ============================================================================
+# 💳 PAYMENT MODALS
+# ============================================================================
+# FIXED: Appended .ant-modal-content to bypass the hidden root element wrapper
+${LOAN_PAYMENT_MODAL}                 css=[data-testid="modal-loan-payment"] .ant-modal-content
+${LOAN_PAYMENT_AMOUNT_INPUT}          css=[data-testid="input-loan-payment-amountToPay"]
+${LOAN_PAYMENT_MODE_SELECT}           css=[data-testid="input-loan-payment-modeOfPayment"]
+${LOAN_PAYMENT_SOURCE_SELECT}         css=[data-testid="input-loan-payment-sourceOfFunds"]
+${LOAN_PAYMENT_CANCEL_BTN}            css=[data-testid="modal-loan-payment-btn-cancel"]
+${LOAN_PAYMENT_CLOSE_BTN}             css=.ant-modal-close
+${LOAN_PAYMENT_PAY_NOW_BTN}           css=[data-testid="modal-loan-payment-btn-ok"]
+
+# ============================================================================
+# 💳 PAYMENT CONFIRMATION OVERLAY
+# ============================================================================
+# FIXED: Appended .ant-modal-content here as well
+${LOAN_PAYMENT_CONFIRM_MODAL}         css=[data-testid="modal-loan-payment-confirmation"] .ant-modal-content
+${LOAN_PAYMENT_CONFIRM_BACK_BTN}      css=[data-testid="modal-loan-payment-confirmation-btn-cancel"]
+${LOAN_PAYMENT_CONFIRM_OK_BTN}        css=[data-testid="modal-loan-payment-confirmation-btn-ok"]
