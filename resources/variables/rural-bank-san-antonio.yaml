@@ -6,7 +6,7 @@ BANK_NAME: "Rural Bank of San Antonio"
 BASE_URL: "https://alegre-dashboard.pub.itg.higala.ph/rural-bank-san-antonio/login"
 
 # Teller Credentials
-TELLER_EMAIL: "pvillados@agsx.net"
+TELLER_EMAIL: "pvillados+u1@agsx.net"
 TELLER_PASSWORD: "Password123!"
 
 # Invalid Credentials (for negative test cases)
@@ -332,3 +332,25 @@ T74_EXPECTED_AMORTIZATION: "1,009.19"
 T74_EXPECTED_INTEREST: "2%"
 T74_EXPECTED_DISBURSER: "Peach Villados"
 T74_EXPECTED_REPAYMENT_TOTAL: "10,091.91"
+
+
+# ---------------------------------------------------------------
+# t7.5 — Loan Repayment Processing
+# ---------------------------------------------------------------
+T75_TARGET_CUSTOMER_NAME: "Luis Ramos"
+T75_EXPECTED_AMORTIZATION: "1,009.19"
+T75_TOTAL_DENOMINATOR: "10,091.91"
+T75_SAVINGS_ACCOUNT_MATCH: "7710"
+
+# ==============================================================================
+# T7.5 & T7.6 LOAN AUTOMATION TEST FIXTURES
+# ==============================================================================
+# Dedicated data anchors to completely eliminate API loops and rate limits
+
+# Target active loan account that has history footprints and open balance runway
+T76_STATIC_ACTIVE_LOAN: "7710396736994875"
+T76_TARGET_CUSTOMER_NAME: "Cookies Cream"
+T76_STATIC_EXPECTED_AMORT: "1,010.88"
+
+# Target freshly disbursed loan account that has 0 payments recorded yet
+T76_STATIC_EMPTY_LOAN: "7710361059757626"
