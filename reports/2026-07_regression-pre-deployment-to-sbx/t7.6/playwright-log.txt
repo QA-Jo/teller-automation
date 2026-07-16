@@ -1,0 +1,598 @@
+{"level":30,"time":"2026-07-16T14:48:18.977Z","pid":13757,"hostname":"192.168.1.14","msg":"Listening on 127.0.0.1:54667"}
+{"level":30,"time":"2026-07-16T14:48:20.043Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method newBrowser"}
+{"level":30,"time":"2026-07-16T14:48:23.024Z","pid":13757,"hostname":"192.168.1.14","msg":"Adding browser to stack: chromium, version: 141.0.7390.37"}
+{"level":30,"time":"2026-07-16T14:48:23.026Z","pid":13757,"hostname":"192.168.1.14","msg":"Adding 0 contexts to browser"}
+{"level":30,"time":"2026-07-16T14:48:23.026Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method newBrowser"}
+{"level":30,"time":"2026-07-16T14:48:23.056Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method newContext"}
+{"level":30,"time":"2026-07-16T14:48:23.056Z","pid":13757,"hostname":"192.168.1.14","msg":"Creating new context with options: {\"acceptDownloads\":true,\"bypassCSP\":false,\"forcedColors\":\"none\",\"ignoreHTTPSErrors\":false,\"javaScriptEnabled\":true,\"offline\":false,\"reducedMotion\":\"no-preference\",\"serviceWorkers\":\"allow\",\"viewport\":{\"width\":1643,\"height\":830}}"}
+{"level":30,"time":"2026-07-16T14:48:23.056Z","pid":13757,"hostname":"192.168.1.14","msg":"currentBrowser: {\"name\":\"chromium\",\"browser\":{\"_type\":\"Browser\",\"_guid\":\"browser@4bdd0e0a2ea8d030c23077b9d44b0d6d\"},\"headless\":false,\"_contextStack\":[],\"id\":\"browser=0361d286-dc0f-47f8-a0f4-c52c5af3e139\"}"}
+{"level":30,"time":"2026-07-16T14:48:23.056Z","pid":13757,"hostname":"192.168.1.14","msg":"Trace file: "}
+{"level":30,"time":"2026-07-16T14:48:23.068Z","pid":13757,"hostname":"192.168.1.14","msg":"Setting default timeout for context context=fdafd4fa-97e0-4767-a72a-7d1ad4a6a48e to 10000"}
+{"level":30,"time":"2026-07-16T14:48:23.069Z","pid":13757,"hostname":"192.168.1.14","msg":"Changed active context: context=fdafd4fa-97e0-4767-a72a-7d1ad4a6a48e"}
+{"level":30,"time":"2026-07-16T14:48:23.069Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method newContext"}
+{"level":30,"time":"2026-07-16T14:48:23.073Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method newPage"}
+{"level":30,"time":"2026-07-16T14:48:23.073Z","pid":13757,"hostname":"192.168.1.14","msg":"currentBrowser: {\"name\":\"chromium\",\"browser\":{\"_type\":\"Browser\",\"_guid\":\"browser@4bdd0e0a2ea8d030c23077b9d44b0d6d\"},\"headless\":false,\"_contextStack\":[{\"id\":\"context=fdafd4fa-97e0-4767-a72a-7d1ad4a6a48e\",\"c\":{\"_type\":\"BrowserContext\",\"_guid\":\"browser-context@12963aa1047c3cdea358eabe37560c10\"},\"pageStack\":[],\"options\":{\"acceptDownloads\":true,\"bypassCSP\":false,\"forcedColors\":\"none\",\"ignoreHTTPSErrors\":false,\"javaScriptEnabled\":true,\"offline\":false,\"reducedMotion\":\"no-preference\",\"serviceWorkers\":\"allow\",\"viewport\":{\"width\":1643,\"height\":830}},\"traceFile\":\"\"}],\"id\":\"browser=0361d286-dc0f-47f8-a0f4-c52c5af3e139\"}"}
+{"level":30,"time":"2026-07-16T14:48:23.911Z","pid":13757,"hostname":"192.168.1.14","msg":"Video path: undefined"}
+{"level":30,"time":"2026-07-16T14:48:23.912Z","pid":13757,"hostname":"192.168.1.14","msg":"Changed active page"}
+{"level":30,"time":"2026-07-16T14:48:27.989Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method newPage"}
+{"level":30,"time":"2026-07-16T14:48:28.022Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method fillText"}
+{"level":30,"time":"2026-07-16T14:48:28.022Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"input-login-email\"] in page."}
+{"level":30,"time":"2026-07-16T14:48:28.115Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method fillText"}
+{"level":30,"time":"2026-07-16T14:48:28.117Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method fillText"}
+{"level":30,"time":"2026-07-16T14:48:28.117Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"input-login-password\"] in page."}
+{"level":30,"time":"2026-07-16T14:48:28.130Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method fillText"}
+{"level":30,"time":"2026-07-16T14:48:28.134Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method click"}
+{"level":30,"time":"2026-07-16T14:48:28.134Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"btn-login-submit\"] in page."}
+{"level":30,"time":"2026-07-16T14:48:28.235Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method click"}
+{"level":30,"time":"2026-07-16T14:48:28.237Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:48:28.237Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=h3.text-2xl in page."}
+{"level":30,"time":"2026-07-16T14:48:29.026Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:48:29.031Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-07-16T14:48:29.032Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-07-16T14:48:41.058Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:48:41.058Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"nav-sidebar-loans\"] in page."}
+{"level":30,"time":"2026-07-16T14:48:41.064Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:48:41.067Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method click"}
+{"level":30,"time":"2026-07-16T14:48:41.067Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"nav-sidebar-loans\"] in page."}
+{"level":30,"time":"2026-07-16T14:48:41.157Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method click"}
+{"level":30,"time":"2026-07-16T14:48:41.170Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:48:41.170Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-menu-id$=\"/loans/active\"] in page."}
+{"level":30,"time":"2026-07-16T14:48:41.181Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:48:41.185Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method click"}
+{"level":30,"time":"2026-07-16T14:48:41.185Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-menu-id$=\"/loans/active\"] in page."}
+{"level":30,"time":"2026-07-16T14:48:41.260Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method click"}
+{"level":30,"time":"2026-07-16T14:48:41.282Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:48:41.282Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"page-loans-active\"] in page."}
+{"level":30,"time":"2026-07-16T14:48:41.320Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:48:41.326Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:48:41.326Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"table-loans-active\"] in page."}
+{"level":30,"time":"2026-07-16T14:48:41.337Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:48:41.339Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method fillText"}
+{"level":30,"time":"2026-07-16T14:48:41.339Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"search-loans-active\"] input in page."}
+{"level":30,"time":"2026-07-16T14:48:41.357Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method fillText"}
+{"level":30,"time":"2026-07-16T14:48:41.362Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method click"}
+{"level":30,"time":"2026-07-16T14:48:41.362Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"search-loans-active\"] button in page."}
+{"level":30,"time":"2026-07-16T14:48:41.413Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method click"}
+{"level":30,"time":"2026-07-16T14:48:41.421Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:48:41.421Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=.ant-spin-spinning in page."}
+{"level":30,"time":"2026-07-16T14:48:41.422Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:48:41.424Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:48:41.424Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=.ant-spin-spinning in page."}
+{"level":30,"time":"2026-07-16T14:48:42.213Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:48:42.224Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method click"}
+{"level":30,"time":"2026-07-16T14:48:42.224Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"table-loans-active\"] >> tbody tr.ant-table-row:has-text(\"7710396736994875\") >> css=[data-testid=\"btn-loans-active-view-schedule\"] >> nth=0 in page."}
+{"level":30,"time":"2026-07-16T14:48:42.272Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method click"}
+{"level":30,"time":"2026-07-16T14:48:42.275Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:48:42.275Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"page-loans-schedule\"] in page."}
+{"level":30,"time":"2026-07-16T14:48:42.356Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:48:42.358Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:48:42.358Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"table-loans-schedule\"] th:text-is(\"Transaction ID\") in page."}
+{"level":30,"time":"2026-07-16T14:48:42.360Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:48:42.361Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:48:42.361Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"table-loans-schedule\"] th:text-is(\"Paid on\") in page."}
+{"level":30,"time":"2026-07-16T14:48:42.365Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:48:42.366Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:48:42.366Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"table-loans-schedule\"] th:text-is(\"Amount Paid\") in page."}
+{"level":30,"time":"2026-07-16T14:48:42.368Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:48:42.369Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:48:42.369Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"table-loans-schedule\"] th:text-is(\"Processed by\") in page."}
+{"level":30,"time":"2026-07-16T14:48:42.370Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:48:42.372Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:48:42.372Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"btn-loans-schedule-view-transaction\"] >> nth=0 in page."}
+{"level":30,"time":"2026-07-16T14:48:43.163Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:48:43.170Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:48:43.170Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=.ant-modal-wrap:not([style*=\"display: none\"]) in page."}
+{"level":30,"time":"2026-07-16T14:48:44.177Z","pid":13757,"hostname":"192.168.1.14","msg":"Error of node method  waitForElementState"}
+================= Original suppressed error =================
+locator.waitFor: Timeout 1000ms exceeded.
+Call log:
+[2m  - waiting for locator('.ant-modal-wrap:not([style*="display: none"])') to be visible[22m
+
+    at waitForElementState (/Users/jocelynjavier/Higala/Teller App Automation/teller-automation/.venv/lib/python3.14/site-packages/Browser/wrapper/index.js:11604:19)
+    at async PlaywrightServer.waitForElementsState (/Users/jocelynjavier/Higala/Teller App Automation/teller-automation/.venv/lib/python3.14/site-packages/Browser/wrapper/index.js:13510:28) {
+  name: 'TimeoutError'
+}
+=============================================================
+{"level":30,"time":"2026-07-16T14:48:44.198Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method takeScreenshot"}
+{"level":30,"time":"2026-07-16T14:48:44.198Z","pid":13757,"hostname":"192.168.1.14","Take screenshot with options: ":{"path":"/Users/jocelynjavier/Higala/Teller App Automation/teller-automation/results/2026-07_regression-pre-deployment-to-sbx/t7.6/browser/screenshot/fail-screenshot-1.png","fileType":"png","fullPage":false,"timeout":30000,"omitBackground":false}}
+{"level":30,"time":"2026-07-16T14:48:44.283Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method takeScreenshot"}
+{"level":30,"time":"2026-07-16T14:48:44.302Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-07-16T14:48:44.304Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-07-16T14:48:44.307Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-07-16T14:48:44.308Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-07-16T14:48:56.330Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:48:56.330Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"nav-sidebar-loans\"] in page."}
+{"level":30,"time":"2026-07-16T14:48:56.337Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:48:56.341Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method click"}
+{"level":30,"time":"2026-07-16T14:48:56.341Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"nav-sidebar-loans\"] in page."}
+{"level":30,"time":"2026-07-16T14:48:56.401Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method click"}
+{"level":30,"time":"2026-07-16T14:48:56.404Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:48:56.404Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-menu-id$=\"/loans/active\"] in page."}
+{"level":30,"time":"2026-07-16T14:48:56.405Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:48:56.409Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method click"}
+{"level":30,"time":"2026-07-16T14:48:56.409Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-menu-id$=\"/loans/active\"] in page."}
+{"level":30,"time":"2026-07-16T14:48:56.468Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method click"}
+{"level":30,"time":"2026-07-16T14:48:56.478Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:48:56.478Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"page-loans-active\"] in page."}
+{"level":30,"time":"2026-07-16T14:48:56.574Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:48:56.580Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:48:56.580Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"table-loans-active\"] in page."}
+{"level":30,"time":"2026-07-16T14:48:56.605Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:48:56.611Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method fillText"}
+{"level":30,"time":"2026-07-16T14:48:56.611Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"search-loans-active\"] input in page."}
+{"level":30,"time":"2026-07-16T14:48:56.624Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method fillText"}
+{"level":30,"time":"2026-07-16T14:48:56.627Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method click"}
+{"level":30,"time":"2026-07-16T14:48:56.627Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"search-loans-active\"] button in page."}
+{"level":30,"time":"2026-07-16T14:48:56.682Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method click"}
+{"level":30,"time":"2026-07-16T14:48:56.685Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:48:56.685Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=.ant-spin-spinning in page."}
+{"level":30,"time":"2026-07-16T14:48:58.688Z","pid":13757,"hostname":"192.168.1.14","msg":"Error of node method  waitForElementState"}
+================= Original suppressed error =================
+locator.waitFor: Timeout 2000ms exceeded.
+Call log:
+[2m  - waiting for locator('.ant-spin-spinning') to be visible[22m
+
+    at waitForElementState (/Users/jocelynjavier/Higala/Teller App Automation/teller-automation/.venv/lib/python3.14/site-packages/Browser/wrapper/index.js:11604:19)
+    at async PlaywrightServer.waitForElementsState (/Users/jocelynjavier/Higala/Teller App Automation/teller-automation/.venv/lib/python3.14/site-packages/Browser/wrapper/index.js:13510:28) {
+  name: 'TimeoutError'
+}
+=============================================================
+{"level":30,"time":"2026-07-16T14:48:58.704Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method takeScreenshot"}
+{"level":30,"time":"2026-07-16T14:48:58.704Z","pid":13757,"hostname":"192.168.1.14","Take screenshot with options: ":{"path":"/Users/jocelynjavier/Higala/Teller App Automation/teller-automation/results/2026-07_regression-pre-deployment-to-sbx/t7.6/browser/screenshot/fail-screenshot-2.png","fileType":"png","fullPage":false,"timeout":30000,"omitBackground":false}}
+{"level":30,"time":"2026-07-16T14:48:58.780Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method takeScreenshot"}
+{"level":30,"time":"2026-07-16T14:48:58.788Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method click"}
+{"level":30,"time":"2026-07-16T14:48:58.788Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"table-loans-active\"] >> tbody tr.ant-table-row:has-text(\"7710396736994875\") >> css=[data-testid=\"btn-loans-active-view-schedule\"] >> nth=0 in page."}
+{"level":30,"time":"2026-07-16T14:48:58.841Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method click"}
+{"level":30,"time":"2026-07-16T14:48:58.845Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:48:58.845Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"page-loans-schedule\"] in page."}
+{"level":30,"time":"2026-07-16T14:48:58.918Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:48:58.935Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:48:58.935Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"card-loans-schedule-payment-status\"] >> text=\"Loan Repayment Progress\" in page."}
+{"level":30,"time":"2026-07-16T14:48:58.943Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:48:58.945Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:48:58.945Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"card-loans-schedule-payment-status\"] .ant-progress-circle >> nth=0 in page."}
+{"level":30,"time":"2026-07-16T14:48:58.946Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:48:58.948Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:48:58.948Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=.ant-modal-wrap:not([style*=\"display: none\"]) in page."}
+{"level":30,"time":"2026-07-16T14:48:59.951Z","pid":13757,"hostname":"192.168.1.14","msg":"Error of node method  waitForElementState"}
+================= Original suppressed error =================
+locator.waitFor: Timeout 1000ms exceeded.
+Call log:
+[2m  - waiting for locator('.ant-modal-wrap:not([style*="display: none"])') to be visible[22m
+
+    at waitForElementState (/Users/jocelynjavier/Higala/Teller App Automation/teller-automation/.venv/lib/python3.14/site-packages/Browser/wrapper/index.js:11604:19)
+    at async PlaywrightServer.waitForElementsState (/Users/jocelynjavier/Higala/Teller App Automation/teller-automation/.venv/lib/python3.14/site-packages/Browser/wrapper/index.js:13510:28) {
+  name: 'TimeoutError'
+}
+=============================================================
+{"level":30,"time":"2026-07-16T14:48:59.962Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method takeScreenshot"}
+{"level":30,"time":"2026-07-16T14:48:59.962Z","pid":13757,"hostname":"192.168.1.14","Take screenshot with options: ":{"path":"/Users/jocelynjavier/Higala/Teller App Automation/teller-automation/results/2026-07_regression-pre-deployment-to-sbx/t7.6/browser/screenshot/fail-screenshot-3.png","fileType":"png","fullPage":false,"timeout":30000,"omitBackground":false}}
+{"level":30,"time":"2026-07-16T14:49:00.020Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method takeScreenshot"}
+{"level":30,"time":"2026-07-16T14:49:00.028Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-07-16T14:49:00.029Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-07-16T14:49:00.030Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-07-16T14:49:00.031Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-07-16T14:49:12.181Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:12.188Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"nav-sidebar-loans\"] in page."}
+{"level":30,"time":"2026-07-16T14:49:12.246Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:12.252Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method click"}
+{"level":30,"time":"2026-07-16T14:49:12.253Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"nav-sidebar-loans\"] in page."}
+{"level":30,"time":"2026-07-16T14:49:12.365Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method click"}
+{"level":30,"time":"2026-07-16T14:49:12.367Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:12.367Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-menu-id$=\"/loans/active\"] in page."}
+{"level":30,"time":"2026-07-16T14:49:12.368Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:12.370Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method click"}
+{"level":30,"time":"2026-07-16T14:49:12.370Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-menu-id$=\"/loans/active\"] in page."}
+{"level":30,"time":"2026-07-16T14:49:12.532Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method click"}
+{"level":30,"time":"2026-07-16T14:49:12.544Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:12.544Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"page-loans-active\"] in page."}
+{"level":30,"time":"2026-07-16T14:49:12.565Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:12.567Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:12.567Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"table-loans-active\"] in page."}
+{"level":30,"time":"2026-07-16T14:49:12.574Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:12.578Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method fillText"}
+{"level":30,"time":"2026-07-16T14:49:12.578Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"search-loans-active\"] input in page."}
+{"level":30,"time":"2026-07-16T14:49:12.592Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method fillText"}
+{"level":30,"time":"2026-07-16T14:49:12.594Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method click"}
+{"level":30,"time":"2026-07-16T14:49:12.594Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"search-loans-active\"] button in page."}
+{"level":30,"time":"2026-07-16T14:49:12.649Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method click"}
+{"level":30,"time":"2026-07-16T14:49:12.651Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:12.651Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=.ant-spin-spinning in page."}
+{"level":30,"time":"2026-07-16T14:49:14.655Z","pid":13757,"hostname":"192.168.1.14","msg":"Error of node method  waitForElementState"}
+================= Original suppressed error =================
+locator.waitFor: Timeout 2000ms exceeded.
+Call log:
+[2m  - waiting for locator('.ant-spin-spinning') to be visible[22m
+
+    at waitForElementState (/Users/jocelynjavier/Higala/Teller App Automation/teller-automation/.venv/lib/python3.14/site-packages/Browser/wrapper/index.js:11604:19)
+    at async PlaywrightServer.waitForElementsState (/Users/jocelynjavier/Higala/Teller App Automation/teller-automation/.venv/lib/python3.14/site-packages/Browser/wrapper/index.js:13510:28) {
+  name: 'TimeoutError'
+}
+=============================================================
+{"level":30,"time":"2026-07-16T14:49:14.674Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method takeScreenshot"}
+{"level":30,"time":"2026-07-16T14:49:14.674Z","pid":13757,"hostname":"192.168.1.14","Take screenshot with options: ":{"path":"/Users/jocelynjavier/Higala/Teller App Automation/teller-automation/results/2026-07_regression-pre-deployment-to-sbx/t7.6/browser/screenshot/fail-screenshot-4.png","fileType":"png","fullPage":false,"timeout":30000,"omitBackground":false}}
+{"level":30,"time":"2026-07-16T14:49:14.751Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method takeScreenshot"}
+{"level":30,"time":"2026-07-16T14:49:14.756Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method click"}
+{"level":30,"time":"2026-07-16T14:49:14.756Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"table-loans-active\"] >> tbody tr.ant-table-row:has-text(\"7710396736994875\") >> css=[data-testid=\"btn-loans-active-view-schedule\"] >> nth=0 in page."}
+{"level":30,"time":"2026-07-16T14:49:14.802Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method click"}
+{"level":30,"time":"2026-07-16T14:49:14.804Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:14.804Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"page-loans-schedule\"] in page."}
+{"level":30,"time":"2026-07-16T14:49:14.876Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:14.880Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:14.880Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"card-loans-schedule-loan-details\"] dt:text-is(\"Monthly Amortization Amount:\") in page."}
+{"level":30,"time":"2026-07-16T14:49:14.882Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:14.883Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:14.883Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"card-loans-schedule-loan-details\"] dt:text-is(\"Interest Rate (%):\") in page."}
+{"level":30,"time":"2026-07-16T14:49:14.884Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:14.885Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:14.885Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"card-loans-schedule-loan-details\"] dt:text-is(\"Loan Disbursed by:\") in page."}
+{"level":30,"time":"2026-07-16T14:49:14.886Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:14.888Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:14.888Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=.ant-modal-wrap:not([style*=\"display: none\"]) in page."}
+{"level":30,"time":"2026-07-16T14:49:15.890Z","pid":13757,"hostname":"192.168.1.14","msg":"Error of node method  waitForElementState"}
+================= Original suppressed error =================
+locator.waitFor: Timeout 1000ms exceeded.
+Call log:
+[2m  - waiting for locator('.ant-modal-wrap:not([style*="display: none"])') to be visible[22m
+
+    at waitForElementState (/Users/jocelynjavier/Higala/Teller App Automation/teller-automation/.venv/lib/python3.14/site-packages/Browser/wrapper/index.js:11604:19)
+    at async PlaywrightServer.waitForElementsState (/Users/jocelynjavier/Higala/Teller App Automation/teller-automation/.venv/lib/python3.14/site-packages/Browser/wrapper/index.js:13510:28) {
+  name: 'TimeoutError'
+}
+=============================================================
+{"level":30,"time":"2026-07-16T14:49:15.903Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method takeScreenshot"}
+{"level":30,"time":"2026-07-16T14:49:15.904Z","pid":13757,"hostname":"192.168.1.14","Take screenshot with options: ":{"path":"/Users/jocelynjavier/Higala/Teller App Automation/teller-automation/results/2026-07_regression-pre-deployment-to-sbx/t7.6/browser/screenshot/fail-screenshot-5.png","fileType":"png","fullPage":false,"timeout":30000,"omitBackground":false}}
+{"level":30,"time":"2026-07-16T14:49:15.979Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method takeScreenshot"}
+{"level":30,"time":"2026-07-16T14:49:15.992Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-07-16T14:49:15.993Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-07-16T14:49:15.995Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-07-16T14:49:15.995Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-07-16T14:49:28.018Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:28.018Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"nav-sidebar-loans\"] in page."}
+{"level":30,"time":"2026-07-16T14:49:28.030Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:28.034Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method click"}
+{"level":30,"time":"2026-07-16T14:49:28.034Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"nav-sidebar-loans\"] in page."}
+{"level":30,"time":"2026-07-16T14:49:28.131Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method click"}
+{"level":30,"time":"2026-07-16T14:49:28.134Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:28.134Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-menu-id$=\"/loans/active\"] in page."}
+{"level":30,"time":"2026-07-16T14:49:28.136Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:28.138Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method click"}
+{"level":30,"time":"2026-07-16T14:49:28.138Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-menu-id$=\"/loans/active\"] in page."}
+{"level":30,"time":"2026-07-16T14:49:28.302Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method click"}
+{"level":30,"time":"2026-07-16T14:49:28.307Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:28.307Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"page-loans-active\"] in page."}
+{"level":30,"time":"2026-07-16T14:49:28.318Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:28.320Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:28.320Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"table-loans-active\"] in page."}
+{"level":30,"time":"2026-07-16T14:49:28.326Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:28.331Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method fillText"}
+{"level":30,"time":"2026-07-16T14:49:28.331Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"search-loans-active\"] input in page."}
+{"level":30,"time":"2026-07-16T14:49:28.346Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method fillText"}
+{"level":30,"time":"2026-07-16T14:49:28.349Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method click"}
+{"level":30,"time":"2026-07-16T14:49:28.349Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"search-loans-active\"] button in page."}
+{"level":30,"time":"2026-07-16T14:49:28.401Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method click"}
+{"level":30,"time":"2026-07-16T14:49:28.403Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:28.403Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=.ant-spin-spinning in page."}
+{"level":30,"time":"2026-07-16T14:49:30.405Z","pid":13757,"hostname":"192.168.1.14","msg":"Error of node method  waitForElementState"}
+================= Original suppressed error =================
+locator.waitFor: Timeout 2000ms exceeded.
+Call log:
+[2m  - waiting for locator('.ant-spin-spinning') to be visible[22m
+
+    at waitForElementState (/Users/jocelynjavier/Higala/Teller App Automation/teller-automation/.venv/lib/python3.14/site-packages/Browser/wrapper/index.js:11604:19)
+    at async PlaywrightServer.waitForElementsState (/Users/jocelynjavier/Higala/Teller App Automation/teller-automation/.venv/lib/python3.14/site-packages/Browser/wrapper/index.js:13510:28) {
+  name: 'TimeoutError'
+}
+=============================================================
+{"level":30,"time":"2026-07-16T14:49:30.426Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method takeScreenshot"}
+{"level":30,"time":"2026-07-16T14:49:30.426Z","pid":13757,"hostname":"192.168.1.14","Take screenshot with options: ":{"path":"/Users/jocelynjavier/Higala/Teller App Automation/teller-automation/results/2026-07_regression-pre-deployment-to-sbx/t7.6/browser/screenshot/fail-screenshot-6.png","fileType":"png","fullPage":false,"timeout":30000,"omitBackground":false}}
+{"level":30,"time":"2026-07-16T14:49:30.498Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method takeScreenshot"}
+{"level":30,"time":"2026-07-16T14:49:30.506Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method click"}
+{"level":30,"time":"2026-07-16T14:49:30.506Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"table-loans-active\"] >> tbody tr.ant-table-row:has-text(\"7710396736994875\") >> css=[data-testid=\"btn-loans-active-view-schedule\"] >> nth=0 in page."}
+{"level":30,"time":"2026-07-16T14:49:30.558Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method click"}
+{"level":30,"time":"2026-07-16T14:49:30.562Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:30.562Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"page-loans-schedule\"] in page."}
+{"level":30,"time":"2026-07-16T14:49:30.638Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:30.641Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:30.641Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"field-header-title\"] h3:text-is(\"7710396736994875\") in page."}
+{"level":30,"time":"2026-07-16T14:49:30.644Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:30.646Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:30.646Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"field-header-title\"] h4:text-is(\"Cookies Cream\") in page."}
+{"level":30,"time":"2026-07-16T14:49:30.647Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:30.650Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:30.650Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=.ant-modal-wrap:not([style*=\"display: none\"]) in page."}
+================= Original suppressed error =================
+{"level":30,"time":"2026-07-16T14:49:31.652Z","pid":13757,"hostname":"192.168.1.14","msg":"Error of node method  waitForElementState"}
+locator.waitFor: Timeout 1000ms exceeded.
+Call log:
+[2m  - waiting for locator('.ant-modal-wrap:not([style*="display: none"])') to be visible[22m
+
+    at waitForElementState (/Users/jocelynjavier/Higala/Teller App Automation/teller-automation/.venv/lib/python3.14/site-packages/Browser/wrapper/index.js:11604:19)
+    at async PlaywrightServer.waitForElementsState (/Users/jocelynjavier/Higala/Teller App Automation/teller-automation/.venv/lib/python3.14/site-packages/Browser/wrapper/index.js:13510:28) {
+  name: 'TimeoutError'
+}
+=============================================================
+{"level":30,"time":"2026-07-16T14:49:31.664Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method takeScreenshot"}
+{"level":30,"time":"2026-07-16T14:49:31.664Z","pid":13757,"hostname":"192.168.1.14","Take screenshot with options: ":{"path":"/Users/jocelynjavier/Higala/Teller App Automation/teller-automation/results/2026-07_regression-pre-deployment-to-sbx/t7.6/browser/screenshot/fail-screenshot-7.png","fileType":"png","fullPage":false,"timeout":30000,"omitBackground":false}}
+{"level":30,"time":"2026-07-16T14:49:31.727Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method takeScreenshot"}
+{"level":30,"time":"2026-07-16T14:49:31.732Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-07-16T14:49:31.733Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-07-16T14:49:31.734Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-07-16T14:49:31.735Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-07-16T14:49:43.750Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:43.750Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"nav-sidebar-loans\"] in page."}
+{"level":30,"time":"2026-07-16T14:49:43.759Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:43.762Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method click"}
+{"level":30,"time":"2026-07-16T14:49:43.762Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"nav-sidebar-loans\"] in page."}
+{"level":30,"time":"2026-07-16T14:49:43.850Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method click"}
+{"level":30,"time":"2026-07-16T14:49:43.852Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:43.852Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-menu-id$=\"/loans/active\"] in page."}
+{"level":30,"time":"2026-07-16T14:49:43.854Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:43.856Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method click"}
+{"level":30,"time":"2026-07-16T14:49:43.856Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-menu-id$=\"/loans/active\"] in page."}
+{"level":30,"time":"2026-07-16T14:49:43.941Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method click"}
+{"level":30,"time":"2026-07-16T14:49:43.957Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:43.957Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"page-loans-active\"] in page."}
+{"level":30,"time":"2026-07-16T14:49:44.050Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:44.052Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:44.052Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"table-loans-active\"] in page."}
+{"level":30,"time":"2026-07-16T14:49:44.056Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:44.058Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method fillText"}
+{"level":30,"time":"2026-07-16T14:49:44.058Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"search-loans-active\"] input in page."}
+{"level":30,"time":"2026-07-16T14:49:44.095Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method fillText"}
+{"level":30,"time":"2026-07-16T14:49:44.098Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method click"}
+{"level":30,"time":"2026-07-16T14:49:44.098Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"search-loans-active\"] button in page."}
+{"level":30,"time":"2026-07-16T14:49:44.153Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method click"}
+{"level":30,"time":"2026-07-16T14:49:44.154Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:44.155Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=.ant-spin-spinning in page."}
+{"level":30,"time":"2026-07-16T14:49:46.158Z","pid":13757,"hostname":"192.168.1.14","msg":"Error of node method  waitForElementState"}
+================= Original suppressed error =================
+locator.waitFor: Timeout 2000ms exceeded.
+Call log:
+[2m  - waiting for locator('.ant-spin-spinning') to be visible[22m
+
+    at waitForElementState (/Users/jocelynjavier/Higala/Teller App Automation/teller-automation/.venv/lib/python3.14/site-packages/Browser/wrapper/index.js:11604:19)
+    at async PlaywrightServer.waitForElementsState (/Users/jocelynjavier/Higala/Teller App Automation/teller-automation/.venv/lib/python3.14/site-packages/Browser/wrapper/index.js:13510:28) {
+  name: 'TimeoutError'
+}
+=============================================================
+{"level":30,"time":"2026-07-16T14:49:46.188Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method takeScreenshot"}
+{"level":30,"time":"2026-07-16T14:49:46.188Z","pid":13757,"hostname":"192.168.1.14","Take screenshot with options: ":{"path":"/Users/jocelynjavier/Higala/Teller App Automation/teller-automation/results/2026-07_regression-pre-deployment-to-sbx/t7.6/browser/screenshot/fail-screenshot-8.png","fileType":"png","fullPage":false,"timeout":30000,"omitBackground":false}}
+{"level":30,"time":"2026-07-16T14:49:46.268Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method takeScreenshot"}
+{"level":30,"time":"2026-07-16T14:49:46.273Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method click"}
+{"level":30,"time":"2026-07-16T14:49:46.273Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"table-loans-active\"] >> tbody tr.ant-table-row:has-text(\"7710396736994875\") >> css=[data-testid=\"btn-loans-active-view-schedule\"] >> nth=0 in page."}
+{"level":30,"time":"2026-07-16T14:49:46.333Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method click"}
+{"level":30,"time":"2026-07-16T14:49:46.336Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:46.336Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"page-loans-schedule\"] in page."}
+{"level":30,"time":"2026-07-16T14:49:46.426Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:46.427Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method click"}
+{"level":30,"time":"2026-07-16T14:49:46.428Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"btn-loans-schedule-view-transaction\"] >> nth=0 in page."}
+{"level":30,"time":"2026-07-16T14:49:46.524Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method click"}
+{"level":30,"time":"2026-07-16T14:49:46.538Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:46.538Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=.ant-modal-content:visible in page."}
+{"level":30,"time":"2026-07-16T14:49:46.547Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:46.548Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:46.548Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=.ant-modal-content:visible >> text=\"Paid on\" in page."}
+{"level":30,"time":"2026-07-16T14:49:47.337Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:47.344Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:47.344Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=.ant-modal-content:visible >> text=\"Total Amount Paid\" in page."}
+{"level":30,"time":"2026-07-16T14:49:47.347Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:47.350Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:47.350Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=.ant-modal-content:visible >> text=\"Principal Amount Paid\" in page."}
+{"level":30,"time":"2026-07-16T14:49:47.358Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:47.360Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:47.360Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=.ant-modal-content:visible >> text=\"Interest Amount Paid\" in page."}
+{"level":30,"time":"2026-07-16T14:49:47.363Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:47.365Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:47.365Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=.ant-modal-content:visible >> text=\"Mode of Payment\" in page."}
+{"level":30,"time":"2026-07-16T14:49:47.367Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:47.371Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:47.371Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=.ant-modal-wrap:not([style*=\"display: none\"]) in page."}
+{"level":30,"time":"2026-07-16T14:49:47.374Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:47.377Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:47.377Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=.ant-modal-confirm-btns in page."}
+{"level":30,"time":"2026-07-16T14:49:47.879Z","pid":13757,"hostname":"192.168.1.14","msg":"Error of node method  waitForElementState"}
+================= Original suppressed error =================
+locator.waitFor: Timeout 500ms exceeded.
+Call log:
+[2m  - waiting for locator('.ant-modal-confirm-btns') to be visible[22m
+
+    at waitForElementState (/Users/jocelynjavier/Higala/Teller App Automation/teller-automation/.venv/lib/python3.14/site-packages/Browser/wrapper/index.js:11604:19)
+    at async PlaywrightServer.waitForElementsState (/Users/jocelynjavier/Higala/Teller App Automation/teller-automation/.venv/lib/python3.14/site-packages/Browser/wrapper/index.js:13510:28) {
+  name: 'TimeoutError'
+}
+=============================================================
+{"level":30,"time":"2026-07-16T14:49:47.888Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method takeScreenshot"}
+{"level":30,"time":"2026-07-16T14:49:47.888Z","pid":13757,"hostname":"192.168.1.14","Take screenshot with options: ":{"path":"/Users/jocelynjavier/Higala/Teller App Automation/teller-automation/results/2026-07_regression-pre-deployment-to-sbx/t7.6/browser/screenshot/fail-screenshot-9.png","fileType":"png","fullPage":false,"timeout":30000,"omitBackground":false}}
+{"level":30,"time":"2026-07-16T14:49:47.967Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method takeScreenshot"}
+{"level":30,"time":"2026-07-16T14:49:47.973Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:49:47.973Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=.ant-modal-close in page."}
+{"level":30,"time":"2026-07-16T14:49:48.475Z","pid":13757,"hostname":"192.168.1.14","msg":"Error of node method  waitForElementState"}
+================= Original suppressed error =================
+locator.waitFor: Timeout 500ms exceeded.
+Call log:
+[2m  - waiting for locator('.ant-modal-close') to be visible[22m
+
+    at waitForElementState (/Users/jocelynjavier/Higala/Teller App Automation/teller-automation/.venv/lib/python3.14/site-packages/Browser/wrapper/index.js:11604:19)
+    at async PlaywrightServer.waitForElementsState (/Users/jocelynjavier/Higala/Teller App Automation/teller-automation/.venv/lib/python3.14/site-packages/Browser/wrapper/index.js:13510:28) {
+  name: 'TimeoutError'
+}
+=============================================================
+{"level":30,"time":"2026-07-16T14:49:48.486Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method takeScreenshot"}
+{"level":30,"time":"2026-07-16T14:49:48.487Z","pid":13757,"hostname":"192.168.1.14","Take screenshot with options: ":{"path":"/Users/jocelynjavier/Higala/Teller App Automation/teller-automation/results/2026-07_regression-pre-deployment-to-sbx/t7.6/browser/screenshot/fail-screenshot-10.png","fileType":"png","fullPage":false,"timeout":30000,"omitBackground":false}}
+{"level":30,"time":"2026-07-16T14:49:48.591Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method takeScreenshot"}
+{"level":30,"time":"2026-07-16T14:49:48.604Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method keyboardKey"}
+{"level":30,"time":"2026-07-16T14:49:48.604Z","pid":13757,"hostname":"192.168.1.14","msg":"Invoking keyboard action press with params [\"Escape\"]"}
+{"level":30,"time":"2026-07-16T14:49:48.628Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method keyboardKey"}
+{"level":30,"time":"2026-07-16T14:49:49.139Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-07-16T14:49:49.143Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-07-16T14:49:49.151Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-07-16T14:49:49.152Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-07-16T14:50:01.182Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:50:01.183Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"nav-sidebar-loans\"] in page."}
+{"level":30,"time":"2026-07-16T14:50:01.197Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:50:01.200Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method click"}
+{"level":30,"time":"2026-07-16T14:50:01.200Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"nav-sidebar-loans\"] in page."}
+{"level":30,"time":"2026-07-16T14:50:01.291Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method click"}
+{"level":30,"time":"2026-07-16T14:50:01.296Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:50:01.296Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-menu-id$=\"/loans/active\"] in page."}
+{"level":30,"time":"2026-07-16T14:50:01.299Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:50:01.301Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method click"}
+{"level":30,"time":"2026-07-16T14:50:01.301Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-menu-id$=\"/loans/active\"] in page."}
+{"level":30,"time":"2026-07-16T14:50:01.341Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method click"}
+{"level":30,"time":"2026-07-16T14:50:01.350Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:50:01.350Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"page-loans-active\"] in page."}
+{"level":30,"time":"2026-07-16T14:50:01.423Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:50:01.431Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:50:01.431Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"table-loans-active\"] in page."}
+{"level":30,"time":"2026-07-16T14:50:01.438Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:50:01.439Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method fillText"}
+{"level":30,"time":"2026-07-16T14:50:01.439Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"search-loans-active\"] input in page."}
+{"level":30,"time":"2026-07-16T14:50:01.444Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method fillText"}
+{"level":30,"time":"2026-07-16T14:50:01.446Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method click"}
+{"level":30,"time":"2026-07-16T14:50:01.446Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"search-loans-active\"] button in page."}
+{"level":30,"time":"2026-07-16T14:50:01.498Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method click"}
+{"level":30,"time":"2026-07-16T14:50:01.502Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:50:01.503Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=.ant-spin-spinning in page."}
+{"level":30,"time":"2026-07-16T14:50:03.505Z","pid":13757,"hostname":"192.168.1.14","msg":"Error of node method  waitForElementState"}
+================= Original suppressed error =================
+locator.waitFor: Timeout 2000ms exceeded.
+Call log:
+[2m  - waiting for locator('.ant-spin-spinning') to be visible[22m
+
+    at waitForElementState (/Users/jocelynjavier/Higala/Teller App Automation/teller-automation/.venv/lib/python3.14/site-packages/Browser/wrapper/index.js:11604:19)
+    at async PlaywrightServer.waitForElementsState (/Users/jocelynjavier/Higala/Teller App Automation/teller-automation/.venv/lib/python3.14/site-packages/Browser/wrapper/index.js:13510:28) {
+  name: 'TimeoutError'
+}
+=============================================================
+{"level":30,"time":"2026-07-16T14:50:03.529Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method takeScreenshot"}
+{"level":30,"time":"2026-07-16T14:50:03.529Z","pid":13757,"hostname":"192.168.1.14","Take screenshot with options: ":{"path":"/Users/jocelynjavier/Higala/Teller App Automation/teller-automation/results/2026-07_regression-pre-deployment-to-sbx/t7.6/browser/screenshot/fail-screenshot-11.png","fileType":"png","fullPage":false,"timeout":30000,"omitBackground":false}}
+{"level":30,"time":"2026-07-16T14:50:03.604Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method takeScreenshot"}
+{"level":30,"time":"2026-07-16T14:50:03.611Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method click"}
+{"level":30,"time":"2026-07-16T14:50:03.611Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"table-loans-active\"] >> tbody tr.ant-table-row:has-text(\"7710396736994875\") >> css=[data-testid=\"btn-loans-active-view-schedule\"] >> nth=0 in page."}
+{"level":30,"time":"2026-07-16T14:50:03.656Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method click"}
+{"level":30,"time":"2026-07-16T14:50:03.659Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:50:03.659Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"page-loans-schedule\"] in page."}
+{"level":30,"time":"2026-07-16T14:50:03.711Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:50:03.715Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method click"}
+{"level":30,"time":"2026-07-16T14:50:03.715Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"btn-loans-schedule-view-transaction\"] >> nth=0 in page."}
+{"level":30,"time":"2026-07-16T14:50:03.783Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method click"}
+{"level":30,"time":"2026-07-16T14:50:03.785Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:50:03.785Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=.ant-modal-content:visible in page."}
+{"level":30,"time":"2026-07-16T14:50:03.787Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:50:03.788Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method click"}
+{"level":30,"time":"2026-07-16T14:50:03.788Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"btn-transaction-details-back\"] in page."}
+{"level":30,"time":"2026-07-16T14:50:03.826Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method click"}
+{"level":30,"time":"2026-07-16T14:50:03.829Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:50:03.829Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=.ant-modal-content:visible in page."}
+{"level":30,"time":"2026-07-16T14:50:04.113Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:50:04.116Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:50:04.116Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"page-loans-schedule\"] in page."}
+{"level":30,"time":"2026-07-16T14:50:04.117Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:50:04.121Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:50:04.121Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=.ant-modal-wrap:not([style*=\"display: none\"]) in page."}
+{"level":30,"time":"2026-07-16T14:50:05.123Z","pid":13757,"hostname":"192.168.1.14","msg":"Error of node method  waitForElementState"}
+================= Original suppressed error =================
+locator.waitFor: Timeout 1000ms exceeded.
+Call log:
+[2m  - waiting for locator('.ant-modal-wrap:not([style*="display: none"])') to be visible[22m
+
+    at waitForElementState (/Users/jocelynjavier/Higala/Teller App Automation/teller-automation/.venv/lib/python3.14/site-packages/Browser/wrapper/index.js:11604:19)
+    at async PlaywrightServer.waitForElementsState (/Users/jocelynjavier/Higala/Teller App Automation/teller-automation/.venv/lib/python3.14/site-packages/Browser/wrapper/index.js:13510:28) {
+  name: 'TimeoutError'
+}
+=============================================================
+{"level":30,"time":"2026-07-16T14:50:05.135Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method takeScreenshot"}
+{"level":30,"time":"2026-07-16T14:50:05.135Z","pid":13757,"hostname":"192.168.1.14","Take screenshot with options: ":{"path":"/Users/jocelynjavier/Higala/Teller App Automation/teller-automation/results/2026-07_regression-pre-deployment-to-sbx/t7.6/browser/screenshot/fail-screenshot-12.png","fileType":"png","fullPage":false,"timeout":30000,"omitBackground":false}}
+{"level":30,"time":"2026-07-16T14:50:05.213Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method takeScreenshot"}
+{"level":30,"time":"2026-07-16T14:50:05.223Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-07-16T14:50:05.224Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-07-16T14:50:05.225Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-07-16T14:50:05.226Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-07-16T14:50:17.246Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:50:17.246Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"nav-sidebar-loans\"] in page."}
+{"level":30,"time":"2026-07-16T14:50:17.253Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:50:17.255Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method click"}
+{"level":30,"time":"2026-07-16T14:50:17.255Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"nav-sidebar-loans\"] in page."}
+{"level":30,"time":"2026-07-16T14:50:17.343Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method click"}
+{"level":30,"time":"2026-07-16T14:50:17.347Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:50:17.348Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-menu-id$=\"/loans/active\"] in page."}
+{"level":30,"time":"2026-07-16T14:50:17.352Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:50:17.354Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method click"}
+{"level":30,"time":"2026-07-16T14:50:17.354Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-menu-id$=\"/loans/active\"] in page."}
+{"level":30,"time":"2026-07-16T14:50:17.401Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method click"}
+{"level":30,"time":"2026-07-16T14:50:17.407Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:50:17.407Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"page-loans-active\"] in page."}
+{"level":30,"time":"2026-07-16T14:50:17.462Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:50:17.464Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:50:17.464Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"table-loans-active\"] in page."}
+{"level":30,"time":"2026-07-16T14:50:17.468Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:50:17.470Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"search-loans-active\"] input in page."}
+{"level":30,"time":"2026-07-16T14:50:17.470Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method fillText"}
+{"level":30,"time":"2026-07-16T14:50:17.474Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method fillText"}
+{"level":30,"time":"2026-07-16T14:50:17.476Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method click"}
+{"level":30,"time":"2026-07-16T14:50:17.476Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"search-loans-active\"] button in page."}
+{"level":30,"time":"2026-07-16T14:50:17.537Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method click"}
+{"level":30,"time":"2026-07-16T14:50:17.540Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:50:17.540Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=.ant-spin-spinning in page."}
+{"level":30,"time":"2026-07-16T14:50:19.543Z","pid":13757,"hostname":"192.168.1.14","msg":"Error of node method  waitForElementState"}
+================= Original suppressed error =================
+locator.waitFor: Timeout 2000ms exceeded.
+Call log:
+[2m  - waiting for locator('.ant-spin-spinning') to be visible[22m
+
+    at waitForElementState (/Users/jocelynjavier/Higala/Teller App Automation/teller-automation/.venv/lib/python3.14/site-packages/Browser/wrapper/index.js:11604:19)
+    at async PlaywrightServer.waitForElementsState (/Users/jocelynjavier/Higala/Teller App Automation/teller-automation/.venv/lib/python3.14/site-packages/Browser/wrapper/index.js:13510:28) {
+  name: 'TimeoutError'
+}
+=============================================================
+{"level":30,"time":"2026-07-16T14:50:19.565Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method takeScreenshot"}
+{"level":30,"time":"2026-07-16T14:50:19.565Z","pid":13757,"hostname":"192.168.1.14","Take screenshot with options: ":{"path":"/Users/jocelynjavier/Higala/Teller App Automation/teller-automation/results/2026-07_regression-pre-deployment-to-sbx/t7.6/browser/screenshot/fail-screenshot-13.png","fileType":"png","fullPage":false,"timeout":30000,"omitBackground":false}}
+{"level":30,"time":"2026-07-16T14:50:19.654Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method takeScreenshot"}
+{"level":30,"time":"2026-07-16T14:50:19.659Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method click"}
+{"level":30,"time":"2026-07-16T14:50:19.659Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"table-loans-active\"] >> tbody tr.ant-table-row:has-text(\"7710396736994875\") >> css=[data-testid=\"btn-loans-active-view-schedule\"] >> nth=0 in page."}
+{"level":30,"time":"2026-07-16T14:50:19.702Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method click"}
+{"level":30,"time":"2026-07-16T14:50:19.703Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:50:19.704Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"page-loans-schedule\"] in page."}
+{"level":30,"time":"2026-07-16T14:50:19.762Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:50:19.765Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:50:19.765Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=[data-testid=\"btn-loans-schedule-pay-now\"] in page."}
+{"level":30,"time":"2026-07-16T14:50:19.767Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:50:19.768Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method waitForElementState"}
+{"level":30,"time":"2026-07-16T14:50:19.768Z","pid":13757,"hostname":"192.168.1.14","msg":"Strict mode is enabled, find Locator with css=.ant-modal-wrap:not([style*=\"display: none\"]) in page."}
+{"level":30,"time":"2026-07-16T14:50:20.770Z","pid":13757,"hostname":"192.168.1.14","msg":"Error of node method  waitForElementState"}
+================= Original suppressed error =================
+locator.waitFor: Timeout 1000ms exceeded.
+Call log:
+[2m  - waiting for locator('.ant-modal-wrap:not([style*="display: none"])') to be visible[22m
+
+    at waitForElementState (/Users/jocelynjavier/Higala/Teller App Automation/teller-automation/.venv/lib/python3.14/site-packages/Browser/wrapper/index.js:11604:19)
+    at async PlaywrightServer.waitForElementsState (/Users/jocelynjavier/Higala/Teller App Automation/teller-automation/.venv/lib/python3.14/site-packages/Browser/wrapper/index.js:13510:28) {
+  name: 'TimeoutError'
+}
+=============================================================
+{"level":30,"time":"2026-07-16T14:50:20.779Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method takeScreenshot"}
+{"level":30,"time":"2026-07-16T14:50:20.779Z","pid":13757,"hostname":"192.168.1.14","Take screenshot with options: ":{"path":"/Users/jocelynjavier/Higala/Teller App Automation/teller-automation/results/2026-07_regression-pre-deployment-to-sbx/t7.6/browser/screenshot/fail-screenshot-14.png","fileType":"png","fullPage":false,"timeout":30000,"omitBackground":false}}
+{"level":30,"time":"2026-07-16T14:50:20.845Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method takeScreenshot"}
+{"level":30,"time":"2026-07-16T14:50:20.850Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-07-16T14:50:20.851Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-07-16T14:50:20.852Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method closeBrowser"}
+{"level":30,"time":"2026-07-16T14:50:20.887Z","pid":13757,"hostname":"192.168.1.14","msg":"Removed page=7d77968c-22a3-4c2d-a07c-701612f28d69 from context=fdafd4fa-97e0-4767-a72a-7d1ad4a6a48e page stack"}
+{"level":30,"time":"2026-07-16T14:50:21.390Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method closeBrowser"}
+================= Original suppressed error =================
+Error: Browser has been closed.
+    at PlaywrightState.getActiveBrowser (/Users/jocelynjavier/Higala/Teller App Automation/teller-automation/.venv/lib/python3.14/site-packages/Browser/wrapper/index.js:12547:15)
+    at PlaywrightServer.getActiveBrowser (/Users/jocelynjavier/Higala/Teller App Automation/teller-automation/.venv/lib/python3.14/site-packages/Browser/wrapper/index.js:13497:59)
+    at PlaywrightServer.setTimeout (/Users/jocelynjavier/Higala/Teller App Automation/teller-automation/.venv/lib/python3.14/site-packages/Browser/wrapper/index.js:13747:57)
+    at Object.onReceiveHalfClose (/Users/jocelynjavier/Higala/Teller App Automation/teller-automation/.venv/lib/python3.14/site-packages/Browser/wrapper/node_modules/@grpc/grpc-js/build/src/server.js:1464:25)
+    at BaseServerInterceptingCall.maybePushNextMessage (/Users/jocelynjavier/Higala/Teller App Automation/teller-automation/.venv/lib/python3.14/site-packages/Browser/wrapper/node_modules/@grpc/grpc-js/build/src/server-interceptors.js:595:31)
+    at BaseServerInterceptingCall.handleEndEvent (/Users/jocelynjavier/Higala/Teller App Automation/teller-automation/.venv/lib/python3.14/site-packages/Browser/wrapper/node_modules/@grpc/grpc-js/build/src/server-interceptors.js:635:14)
+    at ServerHttp2Stream.<anonymous> (/Users/jocelynjavier/Higala/Teller App Automation/teller-automation/.venv/lib/python3.14/site-packages/Browser/wrapper/node_modules/@grpc/grpc-js/build/src/server-interceptors.js:394:18)
+    at ServerHttp2Stream.emit (node:events:520:35)
+    at endReadableNT (node:internal/streams/readable:1701:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:89:21)
+=============================================================
+{"level":30,"time":"2026-07-16T14:50:21.408Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2026-07-16T14:50:21.408Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2026-07-16T14:50:21.470Z","pid":13757,"hostname":"192.168.1.14","msg":"Start of node method closeAllBrowsers"}
+{"level":30,"time":"2026-07-16T14:50:21.470Z","pid":13757,"hostname":"192.168.1.14","msg":"End of node method closeAllBrowsers"}
