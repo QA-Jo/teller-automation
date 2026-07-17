@@ -154,6 +154,9 @@ done < <(ls -1 "$RUNS_DIR" 2>/dev/null | grep -v '^latest$' | sort -r)
   .no-reports { padding: 12px 20px; color: #888; font-size: 0.9rem; }
   .latest-banner { background: #fff8e1; border-left: 4px solid #f9a825; padding: 12px 20px; margin-bottom: 24px; border-radius: 4px; font-size: 0.9rem; }
   .latest-banner a { color: #1565c0; }
+  .run-note { display: flex; gap: 10px; align-items: flex-start; margin: 12px 16px; padding: 10px 14px; background: #e3f2fd; border-left: 4px solid #1976d2; border-radius: 4px; font-size: 0.82rem; color: #0d47a1; line-height: 1.5; }
+  .run-note .i { flex: 0 0 auto; font-style: normal; font-weight: 700; width: 18px; height: 18px; border-radius: 50%; background: #1976d2; color: #fff; text-align: center; line-height: 18px; font-size: 0.72rem; margin-top: 1px; }
+  .run-note strong { color: #0d47a1; }
 </style>
 </head>
 <body>
@@ -194,6 +197,12 @@ HTML
     else
       echo "    <div class=\"run-header\"><span class=\"ts\">${label}</span></div>"
     fi
+
+    # Per-run out-of-scope notice for the current regression run
+    if [[ "$ts" == "$TIMESTAMP" ]]; then
+      echo "    <div class=\"run-note\"><span class=\"i\">i</span><span><strong>Out of scope:</strong> <code>t1.x</code> (auth) and <code>t8.1</code> (interest) were excluded from this run &mdash; no recent changes to these areas on the current deployment. Regression for them was done last June 2026 (see the <code>2026-06-02_regression-post-deployment</code> results).</span></div>"
+    fi
+
     echo "    <div class=\"reports-grid\">"
 
     # Find all report.html files in this run
