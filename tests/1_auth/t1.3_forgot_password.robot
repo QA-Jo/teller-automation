@@ -309,8 +309,9 @@ t1.3.15-16 Reset Password – Cooldown Prevents Immediate Resend, Then Allows Re
     Wait For Elements State     ${FP_RESEND_BTN}              hidden
 
     # Wait for the 60-second cooldown timer to finish
-    Sleep                       61s
-    Wait For Elements State     ${FP_RESEND_BTN}              enabled
+    # Sleep starts after button is hidden (~1-2s after send), so add buffer for server-side timing variance
+    Sleep                       65s
+    Wait For Elements State     ${FP_RESEND_BTN}              enabled    timeout=30s
     Click                       ${FP_RESEND_BTN}
 
     # Verify a new code was sent (continue button resets to disabled while new OTP is pending)

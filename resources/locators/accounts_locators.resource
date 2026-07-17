@@ -34,9 +34,8 @@ ${FILTER_OPTION_INACTIVE}           css=[data-menu-id$="-inactive"]
 ${FILTER_OPTION_DORMANT}            css=[data-menu-id$="-dormant"]
 ${FILTER_OPTION_FROZEN}             css=[data-menu-id$="-frozen"]
 ${FILTER_OPTION_CLOSED}             css=[data-menu-id$="-closed"]
-${FILTER_OPTION_OVERDRAWN}          css=[data-menu-id$="-overdrawn"]
+${FILTER_OPTION_DECEASED}           css=[data-menu-id$="-deceased"]
 ${FILTER_OPTION_BLOCKED}            css=[data-menu-id$="-blocked"]
-${FILTER_OPTION_SUSPENDED}          css=[data-menu-id$="-suspended"]
 
 # Filter Action Buttons (shared across all filters)
 ${FILTER_APPLY_BTN}                 css=button.ant-btn-primary.ant-btn-sm:has-text("OK")

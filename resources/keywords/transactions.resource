@@ -14,6 +14,9 @@ Navigate To Transactions
 Setup Transactions Page
     [Documentation]    Navigates to the Transactions module and ensures a clean state.
     ...                Uses Reload first to clear any modal state before navigating.
+    ...                Paces between tests so the suite stays under the backend request
+    ...                rate limit (bursts of ~13 requests return HTTP 429 for ~1 hour).
+    Sleep    12s
     Reload
     Wait For Load Spinner To Disappear
     Navigate To Transactions
@@ -126,7 +129,14 @@ Select Txn Date Range From AntD Picker
         ${right_year}=     Get Text    css=.ant-picker-dropdown:not(.ant-picker-dropdown-hidden) .ant-picker-panel:last-of-type .ant-picker-year-btn
         ${found}=    Evaluate    '${month_from}' in '${left_month} ${left_year}' or '${month_from}' in '${right_month} ${right_year}'
         IF    ${found}    BREAK
-        Click    css=.ant-picker-dropdown:not(.ant-picker-dropdown-hidden) .ant-picker-header-super-next-btn >> nth=0
+        # Navigate backward if the target month is before the current panel, else forward.
+        # (Forward-only navigation hits the disabled next button for past date ranges.)
+        ${go_back}=    Evaluate    __import__('datetime').datetime.strptime('${month_from}', '%b %Y') < __import__('datetime').datetime.strptime('${left_month} ${left_year}', '%b %Y')
+        IF    ${go_back}
+            Click    css=.ant-picker-dropdown:not(.ant-picker-dropdown-hidden) .ant-picker-header-prev-btn >> nth=0
+        ELSE
+            Click    css=.ant-picker-dropdown:not(.ant-picker-dropdown-hidden) .ant-picker-header-super-next-btn >> nth=0
+        END
         Sleep    0.3s
     END
     # Click start date in the correct panel
@@ -147,7 +157,13 @@ Select Txn Date Range From AntD Picker
         ${right_year}=     Get Text    css=.ant-picker-dropdown:not(.ant-picker-dropdown-hidden) .ant-picker-panel:last-of-type .ant-picker-year-btn
         ${found}=    Evaluate    '${month_to}' in '${left_month} ${left_year}' or '${month_to}' in '${right_month} ${right_year}'
         IF    ${found}    BREAK
-        Click    css=.ant-picker-dropdown:not(.ant-picker-dropdown-hidden) .ant-picker-header-super-next-btn >> nth=0
+        # Navigate backward if the target month is before the current panel, else forward.
+        ${go_back}=    Evaluate    __import__('datetime').datetime.strptime('${month_to}', '%b %Y') < __import__('datetime').datetime.strptime('${left_month} ${left_year}', '%b %Y')
+        IF    ${go_back}
+            Click    css=.ant-picker-dropdown:not(.ant-picker-dropdown-hidden) .ant-picker-header-prev-btn >> nth=0
+        ELSE
+            Click    css=.ant-picker-dropdown:not(.ant-picker-dropdown-hidden) .ant-picker-header-super-next-btn >> nth=0
+        END
         Sleep    0.3s
     END
     # Click end date in the correct panel

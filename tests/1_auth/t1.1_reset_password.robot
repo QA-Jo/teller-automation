@@ -340,7 +340,7 @@ t1.1.18 Reset Password – Validation on the 5th Failed OTP Attempt (Maximum All
     [Tags]             reset-password    negative    otp    security    temp-password    mvp    type1
 
     Navigate To Reset Password Page    email=${RTP_NEW_USER_EMAIL_2}    temp_password=${RTP_TEMP_PASSWORD_2}
-    Complete Reset Password Form
+    Complete Reset Password Form    temp_password=${RTP_TEMP_PASSWORD_2}
 
     # Enter magic OTP value that immediately triggers max-attempts error
     Wait For Elements State     ${RTP_OTP_INPUT}    visible

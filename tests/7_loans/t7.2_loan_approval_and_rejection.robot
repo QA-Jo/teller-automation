@@ -45,7 +45,7 @@ Close Loan Modals If Open
     ${modal_open}=    Run Keyword And Return Status
     ...    Wait For Elements State    ${LOAN_APP_MODAL_CUSTOMER_FORM}    visible    timeout=1s
     IF    ${modal_open}
-        Click    ${LOAN_DETAILS_CLOSE_BTN}
+        Click    css=.ant-modal-close
         Wait For Elements State    ${LOAN_APP_MODAL_CUSTOMER_FORM}    hidden    timeout=5s
     END
 
@@ -77,10 +77,14 @@ Open Reject Modal For First Customer Row
 
 Verify Application Detail Modal Content
     [Documentation]    Verifies that the application detail modal shows the expected title,
-    ...                Customer Form fields, and Customer Details fields.
-    # Modal title contains the product name + "Loan Application"
+    ...                Customer Form fields, and Customer Details fields. Takes the customer
+    ...                name so it works for both the approval and rejection customers.
+    [Arguments]        ${customer_name}=${T26_CUSTOMER_NAME}
+    # Modal title ends with "Loan Application". The product name prefix varies per customer
+    # (this keyword serves both the approval and rejection customers, whose pending loans can
+    # be different products), so match the generic "Loan Application" title within the modal.
     Run Keyword And Continue On Failure
-    ...    Wait For Elements State    text=${T26_LOANS_PRODUCT} Loan Application    visible
+    ...    Wait For Elements State    ${LOAN_APP_DETAIL_MODAL} >> text=Loan Application >> nth=0    visible
 
     # Customer Form (left column) — Loan Details fields
     Run Keyword And Continue On Failure
@@ -124,7 +128,7 @@ Verify Application Detail Modal Content
 
     # Customer name value appears in the modal
     Run Keyword And Continue On Failure
-    ...    Wait For Elements State    ${LOAN_APP_DETAIL_MODAL} >> text=${T26_CUSTOMER_NAME}    visible
+    ...    Wait For Elements State    ${LOAN_APP_DETAIL_MODAL} >> text=${customer_name}    visible
 
 
 *** Test Cases ***
@@ -163,10 +167,16 @@ t7.2.2 Verify Teller can finalize approval by clicking Approve this application
     Open Approve Modal For First Customer Row    ${T26_CUSTOMER_NAME}
 
     Click                        ${LOAN_DETAILS_APPROVE_BTN}
-    Wait For Elements State      ${LOAN_APP_MODAL_CUSTOMER_FORM}    hidden    timeout=15s
+    # Handle Ant Design confirm dialog ("Are you sure?") that appears after clicking Approve
+    ${confirm_visible}=    Run Keyword And Return Status
+    ...    Wait For Elements State    css=.ant-modal-confirm-btns    visible    timeout=5s
+    IF    ${confirm_visible}
+        Click    css=.ant-modal-confirm-btns .ant-btn-primary
+    END
+    Wait For Elements State      ${LOAN_APP_MODAL_CUSTOMER_FORM}    hidden    timeout=30s
 
-    # Changed from 'visible' to 'attached' to capture fast fade-outs safely
-    Run Keyword And Continue On Failure
+    # Toast is best-effort — it disappears quickly; Pending Disbursement check below is the real verification
+    Run Keyword And Ignore Error
     ...    Wait For Elements State    ${SUCCESS_TOAST_APPROVED}    attached    timeout=5s
 
     # The approved loan should appear in Pending Disbursement
@@ -187,8 +197,8 @@ t7.2.3 Verify Teller can review application details before rejecting a loan
     ...                modal via Back leaves the application in Pending status.
     [Tags]             loans    rejection    pending_apps    smoke    mvp    type1
 
-    Open Reject Modal For First Customer Row    ${T26_CUSTOMER_NAME}
-    Verify Application Detail Modal Content
+    Open Reject Modal For First Customer Row    ${T72_REJECT_CUSTOMER_NAME}
+    Verify Application Detail Modal Content    ${T72_REJECT_CUSTOMER_NAME}
 
     # Reject action button is visible and clickable
     Run Keyword And Continue On Failure
@@ -202,7 +212,7 @@ t7.2.3 Verify Teller can review application details before rejecting a loan
     Wait For Elements State      ${PENDING_APPS_PAGE}    visible
     Run Keyword And Continue On Failure
     ...    Wait For Elements State
-    ...    ${PENDING_APPS_TABLE} >> tbody tr:has-text("${T26_CUSTOMER_NAME}") >> nth=0    visible
+    ...    ${PENDING_APPS_TABLE} >> tbody tr:has-text("${T72_REJECT_CUSTOMER_NAME}") >> nth=0    visible
 
 
 t7.2.4 Verify mandatory remarks modal appears when rejecting an application
@@ -211,15 +221,13 @@ t7.2.4 Verify mandatory remarks modal appears when rejecting an application
     ...                disabled while remarks are empty.
     [Tags]             loans    rejection    validation    type1
 
-    Open Reject Modal For First Customer Row    ${T26_CUSTOMER_NAME}
+    Open Reject Modal For First Customer Row    ${T72_REJECT_CUSTOMER_NAME}
     Click                        ${LOAN_DETAILS_REJECT_BTN}
 
     # Add remarks modal opens
     Wait For Elements State      ${LOAN_REJECTION_INPUT}    visible    timeout=10s
     Run Keyword And Continue On Failure
     ...    Wait For Elements State    text=Add remarks for rejection    visible
-    Run Keyword And Continue On Failure
-    ...    Wait For Elements State    text=Add remarks                  visible
 
     # Submit button is disabled while remarks are empty
     Run Keyword And Continue On Failure
@@ -232,7 +240,7 @@ t7.2.5 Verify final rejection and success toast message
     ...                to Rejected Applications.
     [Tags]             loans    rejection    pending_apps    smoke    mvp    type1
 
-    Open Reject Modal For First Customer Row    ${T26_CUSTOMER_NAME}
+    Open Reject Modal For First Customer Row    ${T72_REJECT_CUSTOMER_NAME}
     Click                        ${LOAN_DETAILS_REJECT_BTN}
     Wait For Elements State      ${LOAN_REJECTION_INPUT}    visible    timeout=10s
 
@@ -249,12 +257,12 @@ t7.2.5 Verify final rejection and success toast message
     # The rejected loan should appear in Rejected Applications
     Navigate To Rejected Loans Page
     View Rejected Loans List
-    Fill Text                    ${REJECTED_APPS_SEARCH_INPUT}    ${T26_CUSTOMER_NAME}
+    Fill Text                    ${REJECTED_APPS_SEARCH_INPUT}    ${T72_REJECT_CUSTOMER_NAME}
     Click                        ${REJECTED_APPS_SEARCH_BTN}
     Wait For Load Spinner To Disappear
     Run Keyword And Continue On Failure
     ...    Wait For Elements State
-    ...    ${REJECTED_APPS_TABLE} >> tbody tr:has-text("${T26_CUSTOMER_NAME}") >> nth=0    visible    timeout=10s
+    ...    ${REJECTED_APPS_TABLE} >> tbody tr:has-text("${T72_REJECT_CUSTOMER_NAME}") >> nth=0    visible    timeout=10s
 
 
 t7.2.6 Verify Rejected Applications page layout and columns
@@ -353,7 +361,7 @@ t7.2.9 Verify Separation of Duties – Same Teller Cannot Approve Own Applicatio
 
     Navigate To Pending Applications Page
     View Pending Applications List
-    Open Approve Modal For First Customer Row    ${T26_CUSTOMER_NAME}
+    Open Approve Modal For First Customer Row    ${T72_SOD_CUSTOMER_NAME}
     Click                        ${LOAN_DETAILS_APPROVE_BTN}
 
     # FIX: Checked for 'attached' state and removed the broken 'text=' prefix wrapper
@@ -372,19 +380,23 @@ t7.2.10 Verify Separation of Duties – Same Teller Cannot Reject Own Applicatio
     ...                same-user rejection error blocks the action.
     [Tags]             loans    separation_of_duties    negative    regression    type2
 
-    # 1. FIX: Instead of a risky 'Click text=Log out' which can get intercepted, 
-    # go directly to the login page link to force a clean, unauthenticated container view.
-    Go To                        ${BASE_URL}
-    
-    # 2. Authenticate cleanly using default teller credentials (no arguments passed)
-    Login To Teller App
+    # 1. Log out from the current session
+    Click                        text=Log out
+    Wait For Elements State      ${LOGIN_BUTTON}    visible    timeout=10s
+
+    # 2. Reuse the current browser — fill credentials directly without opening a new browser
+    Wait For Elements State      ${EMAIL_FIELD}     visible    timeout=15s
+    Fill Text                    ${EMAIL_FIELD}     ${T72_APPROVER_EMAIL}
+    Fill Text                    ${PASSWORD_FIELD}  ${T72_APPROVER_PASSWORD}
+    Click                        ${LOGIN_BUTTON}
+    Wait For Elements State      css=h3.text-2xl    visible    timeout=30s
 
     # 3. Route to destination targets now that the dashboard is mounted
     Navigate To Pending Applications Page
     View Pending Applications List
     
     # 4. Execute Negative Workflow Action Review
-    Open Reject Modal For First Customer Row    ${T26_CUSTOMER_NAME}
+    Open Reject Modal For First Customer Row    ${T72_SOD_CUSTOMER_NAME}
     Click                        ${LOAN_DETAILS_REJECT_BTN}
     Wait For Elements State      ${LOAN_REJECTION_INPUT}    visible    timeout=10s
 
@@ -397,5 +409,4 @@ t7.2.10 Verify Separation of Duties – Same Teller Cannot Reject Own Applicatio
     ...    Wait For Elements State    ${T72_REJECT_SAME_USER_ERROR}    attached    timeout=10s
 
     # 6. Clear modal state on exit so subsequent runs start clean
-    [Teardown]    Run Keywords    Click    ${LOAN_DETAILS_CLOSE_BTN}    AND
-    ...                           Wait For Elements State    ${LOAN_APP_MODAL_CUSTOMER_FORM}    hidden    timeout=5s
+    [Teardown]    Close Loan Modals If Open

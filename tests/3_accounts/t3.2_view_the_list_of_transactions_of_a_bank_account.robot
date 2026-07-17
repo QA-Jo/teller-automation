@@ -16,9 +16,12 @@ Test Teardown       Close Modal If Open
 *** Keywords ***
 Setup Account Transaction Page
     [Documentation]    Navigates to the Transaction History page for the target account
-    ...                via the Accounts module and ensures a clean state.
+    ...                via the Accounts module.
+    ...                A short pace between tests keeps the suite under the backend's request
+    ...                rate limit (bursts of ~13 requests return HTTP 429 → empty lists). The
+    ...                extra reload was removed for the same reason (it doubled the requests).
+    Sleep    12s
     Navigate To Account Transactions    ${VALID_ACCOUNT_ID}
-    Reload
     Wait For Load Spinner To Disappear
 
 
@@ -187,18 +190,23 @@ t3.2.4 Search Transaction by ID and View Details (via Accounts)
 
 t3.2.5 Search Transactions Using Date Range (via Accounts)
     [Documentation]    Verify the date range filter shows only transactions within the selected range.
+    ...                Uses Camille Reyes Mendoza's account (7710332470539251) which has transactions
+    ...                in the May–June 2026 range.
     [Tags]             accounts    transactions    regression    mvp    type1
-    skip
+    [Setup]            Navigate To Account Transactions    ${T325_ACCOUNT_ID}
     # Apply a date range with known results
     Click                      ${DATE_TIME_FILTER}
     Wait For Elements State    ${DATE_START_INPUT}    visible
-    Select Date Range From AntD Picker    ${DATE_FROM}    ${DATE_TO}
+    Select Date Range From AntD Picker    ${T325_DATE_FROM}    ${T325_DATE_TO}
     Click                      ${DATE_FILTER_SEARCH_BTN}
+    # Wait for the filtered results to load — the table stays visible with the previous
+    # (unfiltered) rows during the request, so verify only after the spinner clears.
+    Wait For Load Spinner To Disappear
     Wait For Elements State    ${ACCT_TXN_TABLE}    visible
     # Verify at least one result row is visible
     Wait For Elements State    css=.ant-table-body table tbody tr:not([aria-hidden="true"]) >> nth=0    visible
     # Verify all transaction dates are within the specified range
-    Verify Acct Txn Dates Within Range    ${DATE_FROM}    ${DATE_TO}
+    Verify Acct Txn Dates Within Range    ${T325_DATE_FROM}    ${T325_DATE_TO}
     # Verify all required columns are still present after filtering
     # Verify all fields — continue on failure so ALL mismatches are reported
     Run Keyword And Continue On Failure

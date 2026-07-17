@@ -16,7 +16,7 @@ Test Teardown       Close Modal If Open
 
 
 *** Variables ***
-${TARGET_CUSTOMER_NAME}          Luis Ramos
+${TARGET_CUSTOMER_NAME}          Warren Giltendez
 ${PAGINATION_FIRST_PAGE}         css=.ant-pagination-item-1
 
 

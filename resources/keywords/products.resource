@@ -14,6 +14,9 @@ Navigate To Products
 Setup Products Page
     [Documentation]    Navigates to the Products module for a clean test state.
     ...                Dismisses any leave page confirmation dialog if present.
+    ...                Paces between tests to stay under the backend request rate limit
+    ...                (bursts of ~13 requests return HTTP 429 for ~1 hour).
+    Sleep    12s
     # Click products menu to navigate (may trigger leave confirmation if on edit page)
     Click    ${PRODUCTS_MENU}
     # Dismiss leave page confirmation if it appears (e.g. after editing a product)

@@ -27,6 +27,8 @@ Open Customer Profile And Cache URL
 
 Return To Customer Profile Page
     [Documentation]    Navigates directly to the cached customer profile URL before each test.
+    ...                Paces between tests to stay under the backend request rate limit.
+    Sleep                      12s
     Go To                      ${CUSTOMER_PROFILE_URL}
     Wait For Load Spinner To Disappear
 
@@ -287,9 +289,11 @@ t2.5.4 Review and Confirm Savings Product Availment
     ...                correct product name and a Back to Customer Profile button.
     [Tags]             customers    products    smoke    mvp    type2
 
-    # Navigate to avail page and complete step 1 to reach the review step
-    Go To    ${AVAIL_PAGE_URL}
-    Wait For Load Spinner To Disappear
+    # Navigate to avail page via the Eligible Products flow and complete step 1 to reach review.
+    # NOTE: use the click-through navigation (not Go To ${AVAIL_PAGE_URL}) — reloading the avail
+    # page by URL does not restore the availment flow state, so Confirm and Avail creates the
+    # account server-side (201) but the UI never advances to the success page.
+    Navigate To Avail Product Page
     Fill Customer Information Form
     Click    ${AVAIL_PRODUCT_CONTINUE_BTN}
     Wait For Load Spinner To Disappear

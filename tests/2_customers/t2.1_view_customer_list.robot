@@ -190,16 +190,16 @@ t2.1.7 Filter Customer List by Status - Inactive
     Wait For Elements State    ${CUSTOMER_TABLE}           visible
     Filter Results Should Contain Only Status              Inactive
 
-t2.1.8 Filter Customer List by Status - Dormant
-    [Documentation]    Verify that filtering by Dormant status shows only Dormant customers.
-    ...                If no Dormant customers exist, a "No Data" message is shown.
+t2.1.8 Filter Customer List by Status - Restricted
+    [Documentation]    Verify that filtering by Restricted status shows only Restricted customers.
+    ...                If no Restricted customers exist, a "No Data" message is shown.
     [Tags]             customers    regression    mvp    guardrails    type1
     Navigate To Customers
     Click                      ${CUSTOMER_STATUS_FILTER}
-    Click                      ${FILTER_OPTION_DORMANT}
+    Click                      ${FILTER_OPTION_RESTRICTED}
     Click                      ${FILTER_APPLY_BTN}
     Wait For Elements State    ${CUSTOMER_TABLE}           visible
-    Filter Results Should Contain Only Status              Dormant
+    Filter Results Should Contain Only Status              Restricted
 
 t2.1.9 Filter Customer List by Status - Closed
     [Documentation]    Verify that filtering by Closed status shows only Closed customers.
@@ -212,16 +212,16 @@ t2.1.9 Filter Customer List by Status - Closed
     Wait For Elements State    ${CUSTOMER_TABLE}           visible
     Filter Results Should Contain Only Status              Closed
 
-t2.1.10 Filter Customer List by Status - Blocked
-    [Documentation]    Verify that filtering by Blocked status shows only Blocked customers.
-    ...                If no Blocked customers exist, a "No Data" message is shown.
+t2.1.10 Filter Customer List by Status - Deceased
+    [Documentation]    Verify that filtering by Deceased status shows only Deceased customers.
+    ...                If no Deceased customers exist, a "No Data" message is shown.
     [Tags]             customers    regression    mvp    guardrails    type1
     Navigate To Customers
     Click                      ${CUSTOMER_STATUS_FILTER}
-    Click                      ${FILTER_OPTION_BLOCKED}
+    Click                      ${FILTER_OPTION_DECEASED}
     Click                      ${FILTER_APPLY_BTN}
     Wait For Elements State    ${CUSTOMER_TABLE}           visible
-    Filter Results Should Contain Only Status              Blocked
+    Filter Results Should Contain Only Status              Deceased
 
 t2.1.11 Filter Customer List by Status - Suspended
     [Documentation]    Verify that filtering by Suspended status shows only Suspended customers.

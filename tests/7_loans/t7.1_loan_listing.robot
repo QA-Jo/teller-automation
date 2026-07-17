@@ -7,8 +7,8 @@ Suite Setup         Login To Teller App
 Suite Teardown      Logout From Teller App
 
 *** Variables ***
-${TARGET_PENDING_LOAN}      LN-PEND-88412
-${TARGET_DISB_LOAN}         LN-CLEARED-3091
+${TARGET_PENDING_LOAN}      Loans Edit 1
+${TARGET_DISB_LOAN}         Loan 0603172028
 ${REJECTION_NOTE}           Insufficient collateral valuation profiles.
 
 *** Test Cases ***
@@ -241,9 +241,17 @@ t7.1.13 Execute Processing Workflow Actions for Loan Records
     [Tags]             loans    functional    regression    type1
     # 1. Test Approval & Rejection Sequences
     Navigate To Pending Applications Page
+    View Pending Applications List
+    Fill Text                        ${PENDING_APPS_SEARCH_INPUT}    ${TARGET_PENDING_LOAN}
+    Click                            ${PENDING_APPS_SEARCH_BTN}
+    Wait For Load Spinner To Disappear
     Approve Loan                     ${TARGET_PENDING_LOAN}
     Reject Loan                      ${TARGET_PENDING_LOAN}    ${REJECTION_NOTE}
 
     # 2. Test Disbursement Sequence
     Navigate To Pending Disbursements Page
+    View Pending Disbursements List
+    Fill Text                        ${PENDING_DISB_SEARCH_INPUT}    ${TARGET_DISB_LOAN}
+    Click                            ${PENDING_DISB_SEARCH_BTN}
+    Wait For Load Spinner To Disappear
     Disburse Loan                    ${TARGET_DISB_LOAN}

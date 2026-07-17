@@ -25,6 +25,13 @@
 
 set -euo pipefail
 
+# Auto-activate .venv if robot is not already from the venv
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+if [[ -f "${SCRIPT_DIR}/.venv/bin/activate" && "$(which robot)" != "${SCRIPT_DIR}/.venv/bin/robot" ]]; then
+  # shellcheck disable=SC1091
+  source "${SCRIPT_DIR}/.venv/bin/activate"
+fi
+
 # ============================================================
 # Configuration
 # ============================================================

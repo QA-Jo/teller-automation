@@ -26,7 +26,9 @@ Open Customer Profile And Cache URL
 
 Return To Customer Profile Page
     [Documentation]    Navigates directly to the cached customer profile URL — no search needed.
-    ...                Waits for the page to load before each test begins.
+    ...                Paces between tests to stay under the backend request rate limit
+    ...                (bursts of ~13 requests return HTTP 429 → empty tables / timeouts).
+    Sleep                      12s
     Go To                      ${CUSTOMER_PROFILE_URL}
     Wait For Load Spinner To Disappear
 

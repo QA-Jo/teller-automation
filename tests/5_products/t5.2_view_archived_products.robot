@@ -205,12 +205,10 @@ t5.2.4 Restore Product
     Wait For Load Spinner To Disappear
     # Verify the product is no longer in the Archived Products table
     Wait For Elements State    ${ARCHIVED_PRODUCTS_TABLE}    visible
-    ${still_archived}=    Run Keyword And Return Status
-    ...    Wait For Elements State
+    Wait For Elements State
     ...    css=[data-testid="table-products-archived"] tbody tr:has-text("${product_name}") >> nth=0
-    ...    visible    timeout=5s
-    Should Not Be True    ${still_archived}
-    ...    msg=Product "${product_name}" should have been removed from the Archived Products table after restoring
+    ...    hidden    timeout=15s
+    ...    message=Product "${product_name}" should have been removed from the Archived Products table after restoring
     # Verify the restored product now appears in the Active Products tab
     Click    ${ACTIVE_PRODUCTS_TAB}
     Wait For Load Spinner To Disappear

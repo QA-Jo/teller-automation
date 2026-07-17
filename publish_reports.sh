@@ -13,7 +13,7 @@
 set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "$0")" && pwd)"
-PAGES_URL="https://pvillados-nmblr.github.io/teller-automation"
+PAGES_URL="https://qa-jo.github.io/teller-automation"
 WORKTREE_PATH="/tmp/gh-pages-work"
 
 RED='\033[0;31m'
@@ -28,9 +28,13 @@ err()     { echo -e "  ${RED}[ERROR]${NC}  $*" >&2; exit 1; }
 
 # ── Argument parsing ──────────────────────────────────────
 TIMESTAMP=""
+DISPLAY_TITLE=""
+REMOVE_TIMESTAMPS=()
 while [[ $# -gt 0 ]]; do
   case $1 in
     --timestamp) TIMESTAMP="$2"; shift 2 ;;
+    --title)     DISPLAY_TITLE="$2"; shift 2 ;;
+    --remove)    REMOVE_TIMESTAMPS+=("$2"); shift 2 ;;
     *) echo "Unknown option: $1"; exit 1 ;;
   esac
 done
@@ -48,19 +52,20 @@ RESULTS_DIR="${REPO_ROOT}/results/${TIMESTAMP}"
 REPORT_COUNT=$(find "$RESULTS_DIR" -name "report.html" | wc -l | tr -d ' ')
 [[ "$REPORT_COUNT" -gt 0 ]] || err "No report.html files found in ${RESULTS_DIR}"
 
-info "Publishing ${REPORT_COUNT} report(s) from run: ${TIMESTAMP}"
+[[ -z "$DISPLAY_TITLE" ]] && DISPLAY_TITLE="$TIMESTAMP"
+info "Publishing ${REPORT_COUNT} report(s) from run: ${TIMESTAMP} (\"${DISPLAY_TITLE}\")"
 
 # ── Ensure gh-pages branch exists ────────────────────────
 cd "$REPO_ROOT"
 
-if ! git ls-remote --heads origin gh-pages | grep -q gh-pages; then
+if ! git ls-remote --heads pages gh-pages | grep -q gh-pages; then
   info "Creating gh-pages branch..."
   git checkout --orphan gh-pages
   git reset --hard
   echo "# Teller Automation — Test Reports" > index.html
   git add index.html
   git commit -m "init: gh-pages branch"
-  git push origin gh-pages
+  git push pages gh-pages
   git checkout -
 fi
 
@@ -78,11 +83,11 @@ if git worktree list | grep -q "$WORKTREE_PATH"; then
   git worktree remove --force "$WORKTREE_PATH" 2>/dev/null || true
 fi
 rm -rf "$WORKTREE_PATH"
-git fetch origin gh-pages
+git fetch pages gh-pages
 # Update local gh-pages to match remote before adding worktree
-git branch -f gh-pages origin/gh-pages 2>/dev/null || true
+git branch -f gh-pages pages/gh-pages 2>/dev/null || true
 git worktree add "$WORKTREE_PATH" gh-pages 2>/dev/null \
-  || git worktree add "$WORKTREE_PATH" --track -b gh-pages origin/gh-pages 2>/dev/null \
+  || git worktree add "$WORKTREE_PATH" --track -b gh-pages pages/gh-pages 2>/dev/null \
   || { cleanup; git worktree add "$WORKTREE_PATH" gh-pages; }
 
 # ── Copy reports ──────────────────────────────────────────
@@ -101,6 +106,14 @@ rm -rf "$DEST_LATEST"
 mkdir -p "$DEST_LATEST"
 cp -R "${RESULTS_DIR}/." "$DEST_LATEST/"
 find "$DEST_LATEST" -name "output.xml" -delete
+
+# ── Remove old entries if requested ──────────────────────
+for old_ts in "${REMOVE_TIMESTAMPS[@]+"${REMOVE_TIMESTAMPS[@]}"}"; do
+  if [[ -d "${WORKTREE_PATH}/reports/${old_ts}" ]]; then
+    info "Removing old entry: ${old_ts}"
+    rm -rf "${WORKTREE_PATH}/reports/${old_ts}"
+  fi
+done
 
 # ── Regenerate index.html ─────────────────────────────────
 info "Regenerating index..."
@@ -141,6 +154,9 @@ done < <(ls -1 "$RUNS_DIR" 2>/dev/null | grep -v '^latest$' | sort -r)
   .no-reports { padding: 12px 20px; color: #888; font-size: 0.9rem; }
   .latest-banner { background: #fff8e1; border-left: 4px solid #f9a825; padding: 12px 20px; margin-bottom: 24px; border-radius: 4px; font-size: 0.9rem; }
   .latest-banner a { color: #1565c0; }
+  .run-note { display: flex; gap: 10px; align-items: flex-start; margin: 12px 16px; padding: 10px 14px; background: #e3f2fd; border-left: 4px solid #1976d2; border-radius: 4px; font-size: 0.82rem; color: #0d47a1; line-height: 1.5; }
+  .run-note .i { flex: 0 0 auto; font-style: normal; font-weight: 700; width: 18px; height: 18px; border-radius: 50%; background: #1976d2; color: #fff; text-align: center; line-height: 18px; font-size: 0.72rem; margin-top: 1px; }
+  .run-note strong { color: #0d47a1; }
 </style>
 </head>
 <body>
@@ -157,13 +173,36 @@ HTML
     echo "  <div class=\"latest-banner\">Latest run: <strong>${LATEST_TS}</strong> &nbsp;·&nbsp; <a href=\"reports/latest/\">Jump to latest reports &rarr;</a></div>"
   fi
 
+  # Scope note — render REGRESSION_SCOPE.md (if present) as a collapsible section so viewers
+  # see what each regression covered and what was intentionally excluded (and why).
+  if [[ -f "${REPO_ROOT}/REGRESSION_SCOPE.md" ]]; then
+    echo "  <details open style=\"background:#fff;border-radius:8px;margin-bottom:24px;padding:14px 20px;box-shadow:0 1px 4px rgba(0,0,0,.08);\">"
+    echo "    <summary style=\"cursor:pointer;font-weight:600;color:#16213e;\">Regression scope &amp; exclusions</summary>"
+    echo "    <pre style=\"white-space:pre-wrap;font-size:0.85rem;line-height:1.5;margin:12px 0 0;font-family:inherit;\">"
+    sed -e 's/&/\&amp;/g' -e 's/</\&lt;/g' -e 's/>/\&gt;/g' "${REPO_ROOT}/REGRESSION_SCOPE.md"
+    echo "    </pre>"
+    echo "  </details>"
+  fi
+
   for ts in "${RUN_DIRS[@]}"; do
+    # Use custom title for the newly published run; raw ts for all others
+    if [[ "$ts" == "$TIMESTAMP" && -n "$DISPLAY_TITLE" && "$DISPLAY_TITLE" != "$TIMESTAMP" ]]; then
+      label="$DISPLAY_TITLE"
+    else
+      label="$ts"
+    fi
     echo "  <div class=\"run-card\">"
     if [[ "$ts" == "${RUN_DIRS[0]}" ]]; then
-      echo "    <div class=\"run-header\"><span class=\"ts\">${ts}</span><span class=\"badge latest\">latest</span></div>"
+      echo "    <div class=\"run-header\"><span class=\"ts\">${label}</span><span class=\"badge latest\">latest</span></div>"
     else
-      echo "    <div class=\"run-header\"><span class=\"ts\">${ts}</span></div>"
+      echo "    <div class=\"run-header\"><span class=\"ts\">${label}</span></div>"
     fi
+
+    # Per-run out-of-scope notice for the current regression run
+    if [[ "$ts" == "$TIMESTAMP" ]]; then
+      echo "    <div class=\"run-note\"><span class=\"i\">i</span><span><strong>Out of scope:</strong> <code>t1.x</code> (auth) and <code>t8.1</code> (interest) were excluded from this run &mdash; no recent changes to these areas on the current deployment. Regression for them was done last June 2026 (see the <code>2026-06-02_regression-post-deployment</code> results).</span></div>"
+    fi
+
     echo "    <div class=\"reports-grid\">"
 
     # Find all report.html files in this run
@@ -224,7 +263,7 @@ info "Committing and pushing to gh-pages..."
 git -C "$WORKTREE_PATH" add -A
 git -C "$WORKTREE_PATH" commit -m "reports: ${TIMESTAMP} (${REPORT_COUNT} report(s))" \
   || { info "Nothing new to commit."; exit 0; }
-git -C "$WORKTREE_PATH" push origin gh-pages
+git -C "$WORKTREE_PATH" push pages gh-pages
 
 echo ""
 echo "  ╔══════════════════════════════════════════════════════════╗"

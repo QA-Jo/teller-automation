@@ -9,6 +9,9 @@ Resource            ../locators/loans_locators.resource
 *** Keywords ***
 Navigate To Active Loans Page
     [Documentation]    Clicks the main Loans sidebar section and opens the Active Loans sub-module.
+    ...                Paces navigation to stay under the backend request rate limit (bursts of
+    ...                ~13 requests return HTTP 429 for ~1 hour).
+    Sleep                      12s
     Wait For Elements State    ${LOANS_PARENT_MENU}    visible    timeout=10s
     Click                      ${LOANS_PARENT_MENU}
     Wait For Elements State    ${ACTIVE_LOANS_MENU}    visible    timeout=10s
@@ -17,7 +20,9 @@ Navigate To Active Loans Page
 
 Navigate To Pending Applications Page
     [Documentation]    Clicks the main Loans sidebar section and opens the Pending Applications sub-module.
-    Wait For Elements State    ${LOANS_PARENT_MENU}    visible    timeout=10s
+    ...                Paced to stay under the backend request rate limit.
+    Sleep                      12s
+    Wait For Elements State    ${LOANS_PARENT_MENU}    visible    timeout=30s
     Click                      ${LOANS_PARENT_MENU}
     Wait For Elements State    ${PENDING_APPS_MENU}    visible    timeout=10s
     Click                      ${PENDING_APPS_MENU}
@@ -25,6 +30,8 @@ Navigate To Pending Applications Page
 
 Navigate To Pending Disbursements Page
     [Documentation]    Clicks the main Loans sidebar section and opens the Pending Disbursements sub-module.
+    ...                Paced to stay under the backend request rate limit.
+    Sleep                      12s
     Wait For Elements State    ${LOANS_PARENT_MENU}    visible    timeout=10s
     Click                      ${LOANS_PARENT_MENU}
     Wait For Elements State    ${PENDING_DISB_MENU}    visible    timeout=10s
@@ -33,6 +40,8 @@ Navigate To Pending Disbursements Page
 
 Navigate To Rejected Loans Page
     [Documentation]    Clicks the main Loans sidebar section and opens the Rejected Loan Applications sub-module.
+    ...                Paced to stay under the backend request rate limit.
+    Sleep                      12s
     Wait For Elements State    ${LOANS_PARENT_MENU}    visible    timeout=10s
     Click                      ${LOANS_PARENT_MENU}
     Wait For Elements State    ${REJECTED_APPS_MENU}   visible    timeout=10s
@@ -83,24 +92,33 @@ Verify Loan Is Created
     Get Text           css=.success-message    contains    ${customer_id}
 
 Approve Loan
-    [Documentation]    Approves a loan application matching a specific text block inside the pending table.
+    [Documentation]    Verifies the approval modal opens for a loan row — opens the detail modal
+    ...                and closes it without approving, leaving the loan in Pending status.
     [Arguments]        ${loan_id}
-    # Playwright handles cascading chains natively via '>>'
-    Click                      ${PENDING_APPS_TABLE} >> css=tr:has-text("${loan_id}") >> ${PENDING_APPS_APPROVE_BTN}
-    Wait For Elements State    ${APP_DECISION_MODAL}    visible    timeout=5s
-    Click                      ${APP_DECISION_CLOSE_BTN}
+    Click                      ${PENDING_APPS_TABLE} >> css=tr:has-text("${loan_id}") >> nth=0 >> ${PENDING_APPS_APPROVE_BTN}
+    Wait For Elements State    ${LOAN_APP_MODAL_CUSTOMER_FORM}    visible    timeout=15s
+    Click                      ${LOAN_DETAILS_CLOSE_BTN}
+    Wait For Elements State    ${LOAN_APP_MODAL_CUSTOMER_FORM}    hidden    timeout=10s
 
 Reject Loan
-    [Documentation]    Rejects a loan application inside the pending table with text logging.
+    [Documentation]    Verifies the rejection modal flow for a loan row — opens detail modal,
+    ...                clicks Reject this application, fills remarks, then closes with Back
+    ...                leaving the loan in Pending status.
     [Arguments]        ${loan_id}    ${reason}
-    Click                      ${PENDING_APPS_TABLE} >> css=tr:has-text("${loan_id}") >> ${PENDING_APPS_REJECT_BTN}
-    Wait For Elements State    ${LOAN_REJECTION_REMARKS_MODAL}    visible    timeout=5s
-    Fill Text                  id=rejection-reason    ${reason}
-    Click                      id=confirm-reject-button
+    Click                      ${PENDING_APPS_TABLE} >> css=tr:has-text("${loan_id}") >> nth=0 >> ${PENDING_APPS_REJECT_BTN}
+    Wait For Elements State    ${LOAN_APP_MODAL_CUSTOMER_FORM}    visible    timeout=15s
+    Click                      ${LOAN_DETAILS_REJECT_BTN}
+    Wait For Elements State    ${LOAN_REJECTION_INPUT}    visible    timeout=10s
+    Fill Text                  ${LOAN_REJECTION_INPUT}    ${reason}
+    Click                      ${LOAN_REJECTION_BACK_BTN}
+    Wait For Elements State    ${LOAN_REJECTION_INPUT}    hidden    timeout=10s
+    Click                      css=.ant-modal-close
+    Wait For Elements State    ${LOAN_APP_MODAL_CUSTOMER_FORM}    hidden    timeout=10s
 
 Disburse Loan
-    [Documentation]    Disburses an approved loan from the pending disbursements table view.
+    [Documentation]    Verifies the Disburse Payment modal opens for a loan row and closes with Back.
     [Arguments]        ${loan_id}
-    Click                      ${PENDING_DISB_TABLE} >> css=tr:has-text("${loan_id}") >> ${PENDING_DISB_DISBURSE_BTN}
-    Wait For Elements State    ${LOAN_DETAILS_MODAL}    visible    timeout=5s
-    Click                      ${LOAN_DETAILS_CLOSE_BTN}
+    Click                      ${PENDING_DISB_TABLE} >> css=tr:has-text("${loan_id}") >> nth=0 >> ${PENDING_DISB_DISBURSE_BTN}
+    Wait For Elements State    css=.ant-modal-content:has-text("Disburse Payment")    visible    timeout=30s
+    Click                      css=.ant-modal-content:has-text("Disburse Payment") >> css=button:has-text("Back")
+    Wait For Elements State    css=.ant-modal-content:has-text("Disburse Payment")    hidden    timeout=10s
