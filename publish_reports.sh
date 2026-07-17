@@ -170,6 +170,17 @@ HTML
     echo "  <div class=\"latest-banner\">Latest run: <strong>${LATEST_TS}</strong> &nbsp;·&nbsp; <a href=\"reports/latest/\">Jump to latest reports &rarr;</a></div>"
   fi
 
+  # Scope note — render REGRESSION_SCOPE.md (if present) as a collapsible section so viewers
+  # see what each regression covered and what was intentionally excluded (and why).
+  if [[ -f "${REPO_ROOT}/REGRESSION_SCOPE.md" ]]; then
+    echo "  <details open style=\"background:#fff;border-radius:8px;margin-bottom:24px;padding:14px 20px;box-shadow:0 1px 4px rgba(0,0,0,.08);\">"
+    echo "    <summary style=\"cursor:pointer;font-weight:600;color:#16213e;\">Regression scope &amp; exclusions</summary>"
+    echo "    <pre style=\"white-space:pre-wrap;font-size:0.85rem;line-height:1.5;margin:12px 0 0;font-family:inherit;\">"
+    sed -e 's/&/\&amp;/g' -e 's/</\&lt;/g' -e 's/>/\&gt;/g' "${REPO_ROOT}/REGRESSION_SCOPE.md"
+    echo "    </pre>"
+    echo "  </details>"
+  fi
+
   for ts in "${RUN_DIRS[@]}"; do
     # Use custom title for the newly published run; raw ts for all others
     if [[ "$ts" == "$TIMESTAMP" && -n "$DISPLAY_TITLE" && "$DISPLAY_TITLE" != "$TIMESTAMP" ]]; then

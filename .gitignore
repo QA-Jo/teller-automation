@@ -43,3 +43,10 @@ Thumbs.db
 # Generated Report CSV Exports
 # ============================================================
 *.csv
+
+# ============================================================
+# Ad-hoc per-TC rerun / remaining helper scripts (throwaway)
+# Keeps run_all.sh, run_july_regression.sh, publish_reports.sh tracked.
+# ============================================================
+rerun_*.sh
+run_t*.sh
