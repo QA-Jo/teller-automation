@@ -6,21 +6,35 @@ Resource    ../locators/accounts_locators.resource
 
 *** Keywords ***
 Navigate To Accounts
-    [Documentation]    Navigates to the Accounts module via the sidebar and ensures clean state
+    [Documentation]    Navigates to the Accounts module via the sidebar.
+    ...                The sidebar click already loads the accounts list, so we do NOT reload
+    ...                here — an extra reload doubles the /bank/v1/accounts request rate and
+    ...                helps trip the backend's 429 rate limit during a full suite run.
     Click                      ${ACCOUNTS_MENU}
     Wait For Elements State    ${ACCOUNTS_SEARCH_FIELD}    visible
     Get Url                    contains    /accounts
-    Reload
-    Wait For Elements State    ${ACCOUNTS_SEARCH_FIELD}    visible
+    # Wait for the accounts data to finish loading so tests don't race the transient
+    # empty state and read a "No data" placeholder before rows render.
+    Wait For Load Spinner To Disappear
 
 Navigate To Account Transactions
     [Documentation]    Navigates to the Transaction History page for a specific account
     ...                by searching for it in the Accounts module and clicking View Transactions.
     [Arguments]        ${account_number}
     Navigate To Accounts
-    Fill Text                  ${ACCOUNTS_SEARCH_FIELD}    ${account_number}
-    Click                      ${ACCOUNTS_SEARCH_BUTTON}
-    Wait For Load Spinner To Disappear
+    # Search for the account and wait for its row. The ITG accounts list intermittently
+    # renders an empty "No data" table even though the API returns the account, so retry
+    # the search (with a reload) a few times to ride out the flaky empty render.
+    FOR    ${attempt}    IN RANGE    3
+        Fill Text                  ${ACCOUNTS_SEARCH_FIELD}    ${account_number}
+        Click                      ${ACCOUNTS_SEARCH_BUTTON}
+        Wait For Load Spinner To Disappear
+        ${row_found}=    Run Keyword And Return Status
+        ...    Wait For Elements State    css=tr.ant-table-row:has-text("${account_number}")    visible    timeout=8s
+        IF    ${row_found}    BREAK
+        Reload
+        Wait For Load Spinner To Disappear
+    END
     Click                      css=tr:has-text("${account_number}") >> ${VIEW_ACCOUNT_TRANSACTIONS_LINK}
     Wait For Load Spinner To Disappear
     Wait For Elements State    ${ACCT_TXN_SEARCH_FIELD}    visible
@@ -38,8 +52,25 @@ Filter Accounts Results Should Contain Only Status
     ELSE
         ${page}=    Set Variable    1
         WHILE    ${page} <= 100    # Safety limit to prevent infinite loop
-            ${total_rows}=      Get Element Count    css=.ant-table-body table tbody tr:not([aria-hidden="true"]):not(:empty)
-            ${matching_rows}=   Get Element Count    css=.ant-table-body table tbody tr:not([aria-hidden="true"]):has-text("${expected_status}")
+            # Wait out any loading spinner before reading rows / clicking pagination —
+            # the ant-spin blur overlay intercepts pointer events and detaches rows mid-click.
+            Wait For Load Spinner To Disappear
+            # After a Next click the table flashes AntD's empty-state placeholder row
+            # (<tr class="ant-table-placeholder">…No data…</tr>) in the window between the
+            # spinner clearing and the next page painting. Wait for a real data row
+            # (.ant-table-row) to settle so we don't read that placeholder — it would be
+            # counted as a non-matching row and fail the assertion spuriously.
+            ${has_rows}=    Run Keyword And Return Status
+            ...    Wait For Elements State    css=.ant-table-body table tbody tr.ant-table-row >> nth=0    visible    timeout=15s
+            IF    not ${has_rows}
+                # No data rows settled — confirm it is the genuine empty state, then stop.
+                Wait For Elements State    ${NO_DATA_MESSAGE}    visible    timeout=3s
+                Log    Page ${page}: No data on this page — ending pagination.
+                BREAK
+            END
+            # Count only real AntD data rows; the placeholder row is excluded by the class.
+            ${total_rows}=      Get Element Count    css=.ant-table-body table tbody tr.ant-table-row
+            ${matching_rows}=   Get Element Count    css=.ant-table-body table tbody tr.ant-table-row:has-text("${expected_status}")
             Should Be Equal    ${total_rows}    ${matching_rows}
             ...    Page ${page}: Expected all ${total_rows} rows to have status "${expected_status}", but only ${matching_rows} matched
             Log    Page ${page}: All ${total_rows} rows contain status "${expected_status}"
@@ -50,7 +81,7 @@ Filter Accounts Results Should Contain Only Status
                 BREAK
             END
             Click    css=.ant-pagination-next button
-            Sleep    0.5s    # Wait for page to load
+            Wait For Load Spinner To Disappear    # Wait for the next page to finish loading
             ${page}=    Evaluate    ${page} + 1
         END
     END
@@ -199,7 +230,14 @@ Select Date Range From AntD Picker
         ${right_year}=     Get Text    css=.ant-picker-dropdown:not(.ant-picker-dropdown-hidden) .ant-picker-panel:last-of-type .ant-picker-year-btn
         ${found}=    Evaluate    '${month_from}' in '${left_month} ${left_year}' or '${month_from}' in '${right_month} ${right_year}'
         IF    ${found}    BREAK
-        Click    css=.ant-picker-dropdown:not(.ant-picker-dropdown-hidden) .ant-picker-header-super-next-btn >> nth=0
+        # Navigate backward if the target month is before the current panel, else forward.
+        # (Forward-only navigation hits the disabled next button for past date ranges.)
+        ${go_back}=    Evaluate    __import__('datetime').datetime.strptime('${month_from}', '%b %Y') < __import__('datetime').datetime.strptime('${left_month} ${left_year}', '%b %Y')
+        IF    ${go_back}
+            Click    css=.ant-picker-dropdown:not(.ant-picker-dropdown-hidden) .ant-picker-header-prev-btn >> nth=0
+        ELSE
+            Click    css=.ant-picker-dropdown:not(.ant-picker-dropdown-hidden) .ant-picker-header-super-next-btn >> nth=0
+        END
         Sleep    0.3s
     END
     # Click start date in the correct panel
@@ -220,7 +258,13 @@ Select Date Range From AntD Picker
         ${right_year}=     Get Text    css=.ant-picker-dropdown:not(.ant-picker-dropdown-hidden) .ant-picker-panel:last-of-type .ant-picker-year-btn
         ${found}=    Evaluate    '${month_to}' in '${left_month} ${left_year}' or '${month_to}' in '${right_month} ${right_year}'
         IF    ${found}    BREAK
-        Click    css=.ant-picker-dropdown:not(.ant-picker-dropdown-hidden) .ant-picker-header-super-next-btn >> nth=0
+        # Navigate backward if the target month is before the current panel, else forward.
+        ${go_back}=    Evaluate    __import__('datetime').datetime.strptime('${month_to}', '%b %Y') < __import__('datetime').datetime.strptime('${left_month} ${left_year}', '%b %Y')
+        IF    ${go_back}
+            Click    css=.ant-picker-dropdown:not(.ant-picker-dropdown-hidden) .ant-picker-header-prev-btn >> nth=0
+        ELSE
+            Click    css=.ant-picker-dropdown:not(.ant-picker-dropdown-hidden) .ant-picker-header-super-next-btn >> nth=0
+        END
         Sleep    0.3s
     END
     # Click end date in the correct panel (picker is still open)

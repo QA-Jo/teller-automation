@@ -103,7 +103,7 @@ ${CREATE_TXN_WITHDRAWAL_BTN}            css=button.btn-outline:has-text("Withdra
 # Step 2 — Transaction Form Fields (shared by Deposit and Withdrawal)
 ${CREATE_TXN_TYPE_SELECT}               css=.ant-select-selector
 ${CREATE_TXN_AMOUNT_INPUT}              css=.ant-input-number-input
-${CREATE_TXN_NOTES_INPUT}               css=textarea[name="transactionNotes"]
+${CREATE_TXN_NOTES_INPUT}               css=textarea[placeholder="Add any relevant notes"]
 ${CREATE_TXN_CANCEL_BTN}                css=button:has-text("Cancel")
 ${CREATE_TXN_PROCESS_DEPOSIT_BTN}       css=button:has-text("Process Deposit")
 ${CREATE_TXN_PROCESS_WITHDRAWAL_BTN}    css=button:has-text("Process Withdrawal")

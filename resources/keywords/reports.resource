@@ -57,7 +57,7 @@ Select Report Date Range From AntD Picker
     Click    ${DATE_RANGE_START_INPUT}
     Sleep    0.5s
     Wait For Elements State    css=.ant-picker-dropdown:not(.ant-picker-dropdown-hidden)    visible
-    # Navigate to the start month
+    # Navigate to the start month (backward or forward as needed)
     FOR    ${i}    IN RANGE    24
         ${left_month}=     Get Text    css=.ant-picker-dropdown:not(.ant-picker-dropdown-hidden) .ant-picker-panel:first-of-type .ant-picker-month-btn
         ${left_year}=      Get Text    css=.ant-picker-dropdown:not(.ant-picker-dropdown-hidden) .ant-picker-panel:first-of-type .ant-picker-year-btn
@@ -65,7 +65,14 @@ Select Report Date Range From AntD Picker
         ${right_year}=     Get Text    css=.ant-picker-dropdown:not(.ant-picker-dropdown-hidden) .ant-picker-panel:last-of-type .ant-picker-year-btn
         ${found}=    Evaluate    '${month_from}' in '${left_month} ${left_year}' or '${month_from}' in '${right_month} ${right_year}'
         IF    ${found}    BREAK
-        Click    css=.ant-picker-dropdown:not(.ant-picker-dropdown-hidden) .ant-picker-header-super-next-btn >> nth=0
+        # Navigate backward if target is before current left panel, else forward
+        ${target_dt}=    Evaluate    __import__('datetime').datetime.strptime('${month_from}', '%b %Y')
+        ${cur_dt}=       Evaluate    __import__('datetime').datetime.strptime('${left_month} ${left_year}', '%b %Y')
+        IF    ${target_dt} < ${cur_dt}
+            Click    css=.ant-picker-dropdown:not(.ant-picker-dropdown-hidden) .ant-picker-header-prev-btn >> nth=0
+        ELSE
+            Click    css=.ant-picker-dropdown:not(.ant-picker-dropdown-hidden) .ant-picker-header-super-next-btn >> nth=0
+        END
         Sleep    0.3s
     END
     # Click the start date in the correct panel
@@ -78,7 +85,7 @@ Select Report Date Range From AntD Picker
         Click    css=.ant-picker-dropdown:not(.ant-picker-dropdown-hidden) .ant-picker-panel:last-of-type .ant-picker-cell-in-view:not(.ant-picker-cell-disabled) .ant-picker-cell-inner:text-is("${day_from}")
     END
     Sleep    0.3s
-    # Navigate to the end month
+    # Navigate to the end month (backward or forward as needed)
     FOR    ${i}    IN RANGE    24
         ${left_month}=     Get Text    css=.ant-picker-dropdown:not(.ant-picker-dropdown-hidden) .ant-picker-panel:first-of-type .ant-picker-month-btn
         ${left_year}=      Get Text    css=.ant-picker-dropdown:not(.ant-picker-dropdown-hidden) .ant-picker-panel:first-of-type .ant-picker-year-btn
@@ -86,7 +93,13 @@ Select Report Date Range From AntD Picker
         ${right_year}=     Get Text    css=.ant-picker-dropdown:not(.ant-picker-dropdown-hidden) .ant-picker-panel:last-of-type .ant-picker-year-btn
         ${found}=    Evaluate    '${month_to}' in '${left_month} ${left_year}' or '${month_to}' in '${right_month} ${right_year}'
         IF    ${found}    BREAK
-        Click    css=.ant-picker-dropdown:not(.ant-picker-dropdown-hidden) .ant-picker-header-super-next-btn >> nth=0
+        ${target_dt}=    Evaluate    __import__('datetime').datetime.strptime('${month_to}', '%b %Y')
+        ${cur_dt}=       Evaluate    __import__('datetime').datetime.strptime('${left_month} ${left_year}', '%b %Y')
+        IF    ${target_dt} < ${cur_dt}
+            Click    css=.ant-picker-dropdown:not(.ant-picker-dropdown-hidden) .ant-picker-header-prev-btn >> nth=0
+        ELSE
+            Click    css=.ant-picker-dropdown:not(.ant-picker-dropdown-hidden) .ant-picker-header-super-next-btn >> nth=0
+        END
         Sleep    0.3s
     END
     # Click the end date in the correct panel
@@ -105,7 +118,19 @@ Download Report CSV
     ...                Saves the file to the given path and returns the browser-suggested filename.
     ...                The Browser context must have acceptDownloads=True (set in Open Teller App).
     [Arguments]    ${save_path}
+    # The app builds the CSV client-side (Blob + createObjectURL) and revokes the blob URL
+    # ~100ms after triggering the download, which races Playwright's download capture and
+    # causes "waitForEvent download" to time out. Neutralize revokeObjectURL on this page so
+    # the blob stays alive long enough for Playwright to save the file.
+    Evaluate JavaScript    ${None}    () => { window.URL.revokeObjectURL = () => {}; }
     ${promise}=    Promise To Wait For Download    saveAs=${save_path}
     Click    ${DOWNLOAD_CSV_BTN}
+    # Fail fast with a clear message if the backend returns a "Failed to generate report"
+    # error toast, instead of blindly waiting out the full download timeout.
+    ${server_failed}=    Run Keyword And Return Status
+    ...    Wait For Elements State    text=Failed to generate report    visible    timeout=8s
+    IF    ${server_failed}
+        Fail    App returned "Failed to generate report" — the backend did not produce the report (server-side error, not a test issue).
+    END
     ${download}=    Wait For    ${promise}
     RETURN    ${download}[suggestedFilename]

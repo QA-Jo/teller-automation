@@ -13,7 +13,7 @@
 set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "$0")" && pwd)"
-PAGES_URL="https://pvillados-nmblr.github.io/teller-automation"
+PAGES_URL="https://qa-jo.github.io/teller-automation"
 WORKTREE_PATH="/tmp/gh-pages-work"
 
 RED='\033[0;31m'
@@ -28,9 +28,13 @@ err()     { echo -e "  ${RED}[ERROR]${NC}  $*" >&2; exit 1; }
 
 # ── Argument parsing ──────────────────────────────────────
 TIMESTAMP=""
+DISPLAY_TITLE=""
+REMOVE_TIMESTAMPS=()
 while [[ $# -gt 0 ]]; do
   case $1 in
     --timestamp) TIMESTAMP="$2"; shift 2 ;;
+    --title)     DISPLAY_TITLE="$2"; shift 2 ;;
+    --remove)    REMOVE_TIMESTAMPS+=("$2"); shift 2 ;;
     *) echo "Unknown option: $1"; exit 1 ;;
   esac
 done
@@ -48,19 +52,20 @@ RESULTS_DIR="${REPO_ROOT}/results/${TIMESTAMP}"
 REPORT_COUNT=$(find "$RESULTS_DIR" -name "report.html" | wc -l | tr -d ' ')
 [[ "$REPORT_COUNT" -gt 0 ]] || err "No report.html files found in ${RESULTS_DIR}"
 
-info "Publishing ${REPORT_COUNT} report(s) from run: ${TIMESTAMP}"
+[[ -z "$DISPLAY_TITLE" ]] && DISPLAY_TITLE="$TIMESTAMP"
+info "Publishing ${REPORT_COUNT} report(s) from run: ${TIMESTAMP} (\"${DISPLAY_TITLE}\")"
 
 # ── Ensure gh-pages branch exists ────────────────────────
 cd "$REPO_ROOT"
 
-if ! git ls-remote --heads origin gh-pages | grep -q gh-pages; then
+if ! git ls-remote --heads pages gh-pages | grep -q gh-pages; then
   info "Creating gh-pages branch..."
   git checkout --orphan gh-pages
   git reset --hard
   echo "# Teller Automation — Test Reports" > index.html
   git add index.html
   git commit -m "init: gh-pages branch"
-  git push origin gh-pages
+  git push pages gh-pages
   git checkout -
 fi
 
@@ -78,11 +83,11 @@ if git worktree list | grep -q "$WORKTREE_PATH"; then
   git worktree remove --force "$WORKTREE_PATH" 2>/dev/null || true
 fi
 rm -rf "$WORKTREE_PATH"
-git fetch origin gh-pages
+git fetch pages gh-pages
 # Update local gh-pages to match remote before adding worktree
-git branch -f gh-pages origin/gh-pages 2>/dev/null || true
+git branch -f gh-pages pages/gh-pages 2>/dev/null || true
 git worktree add "$WORKTREE_PATH" gh-pages 2>/dev/null \
-  || git worktree add "$WORKTREE_PATH" --track -b gh-pages origin/gh-pages 2>/dev/null \
+  || git worktree add "$WORKTREE_PATH" --track -b gh-pages pages/gh-pages 2>/dev/null \
   || { cleanup; git worktree add "$WORKTREE_PATH" gh-pages; }
 
 # ── Copy reports ──────────────────────────────────────────
@@ -101,6 +106,14 @@ rm -rf "$DEST_LATEST"
 mkdir -p "$DEST_LATEST"
 cp -R "${RESULTS_DIR}/." "$DEST_LATEST/"
 find "$DEST_LATEST" -name "output.xml" -delete
+
+# ── Remove old entries if requested ──────────────────────
+for old_ts in "${REMOVE_TIMESTAMPS[@]+"${REMOVE_TIMESTAMPS[@]}"}"; do
+  if [[ -d "${WORKTREE_PATH}/reports/${old_ts}" ]]; then
+    info "Removing old entry: ${old_ts}"
+    rm -rf "${WORKTREE_PATH}/reports/${old_ts}"
+  fi
+done
 
 # ── Regenerate index.html ─────────────────────────────────
 info "Regenerating index..."
@@ -158,11 +171,17 @@ HTML
   fi
 
   for ts in "${RUN_DIRS[@]}"; do
+    # Use custom title for the newly published run; raw ts for all others
+    if [[ "$ts" == "$TIMESTAMP" && -n "$DISPLAY_TITLE" && "$DISPLAY_TITLE" != "$TIMESTAMP" ]]; then
+      label="$DISPLAY_TITLE"
+    else
+      label="$ts"
+    fi
     echo "  <div class=\"run-card\">"
     if [[ "$ts" == "${RUN_DIRS[0]}" ]]; then
-      echo "    <div class=\"run-header\"><span class=\"ts\">${ts}</span><span class=\"badge latest\">latest</span></div>"
+      echo "    <div class=\"run-header\"><span class=\"ts\">${label}</span><span class=\"badge latest\">latest</span></div>"
     else
-      echo "    <div class=\"run-header\"><span class=\"ts\">${ts}</span></div>"
+      echo "    <div class=\"run-header\"><span class=\"ts\">${label}</span></div>"
     fi
     echo "    <div class=\"reports-grid\">"
 
@@ -224,7 +243,7 @@ info "Committing and pushing to gh-pages..."
 git -C "$WORKTREE_PATH" add -A
 git -C "$WORKTREE_PATH" commit -m "reports: ${TIMESTAMP} (${REPORT_COUNT} report(s))" \
   || { info "Nothing new to commit."; exit 0; }
-git -C "$WORKTREE_PATH" push origin gh-pages
+git -C "$WORKTREE_PATH" push pages gh-pages
 
 echo ""
 echo "  ╔══════════════════════════════════════════════════════════╗"

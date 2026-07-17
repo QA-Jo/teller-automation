@@ -79,8 +79,8 @@ t3.1.3 Search for Account by Number (Valid)
     Fill Text                  ${ACCOUNTS_SEARCH_FIELD}    ${VALID_ACCOUNT_NUMBER}
     Click                      ${ACCOUNTS_SEARCH_BUTTON}
     Wait For Load Spinner To Disappear
-    Wait For Elements State    css=table tbody tr:not([aria-hidden="true"])    visible
-    Get Element Count          css=table tbody tr:not([aria-hidden="true"])    ==    1
+    Wait For Elements State    css=table tbody tr.ant-table-row    visible
+    Get Element Count          css=table tbody tr.ant-table-row    ==    1
     # Verify all fields — continue on failure so ALL mismatches are reported
     # Verify required columns are visible
     Run Keyword And Continue On Failure
@@ -122,10 +122,10 @@ t3.1.4 Search for Account by Name (Valid)
     Click                      ${ACCOUNTS_SEARCH_BUTTON}
     Wait For Load Spinner To Disappear
     # Verify at least one result row is visible
-    Wait For Elements State    css=.ant-table-body table tbody tr:not([aria-hidden="true"]) >> nth=0    visible
+    Wait For Elements State    css=.ant-table-body table tbody tr.ant-table-row >> nth=0    visible
     # Verify all visible rows contain the searched name
-    ${total_rows}=             Get Element Count    css=.ant-table-body table tbody tr:not([aria-hidden="true"])
-    ${matching_rows}=          Get Element Count    css=.ant-table-body table tbody tr:not([aria-hidden="true"]):has-text("${VALID_ACCOUNT_NAME}")
+    ${total_rows}=             Get Element Count    css=.ant-table-body table tbody tr.ant-table-row
+    ${matching_rows}=          Get Element Count    css=.ant-table-body table tbody tr.ant-table-row:has-text("${VALID_ACCOUNT_NAME}")
     Should Be Equal            ${total_rows}    ${matching_rows}
     ...    msg=Expected all ${total_rows} rows to contain "${VALID_ACCOUNT_NAME}", but only ${matching_rows} matched
     # Verify all fields — continue on failure so ALL mismatches are reported
@@ -204,4 +204,26 @@ t3.1.9 Filter Accounts List by Status: Closed
     Click                      ${FILTER_APPLY_BTN}
     Wait For Elements State    ${ACCOUNTS_TABLE}           visible
     Filter Accounts Results Should Contain Only Status    Closed
+
+t3.1.10 Filter Accounts List by Status: Deceased
+    [Documentation]    Verify that filtering by Deceased status shows only Deceased accounts.
+    ...                If no Deceased accounts exist, a "No Data" message is shown.
+    [Tags]             accounts    smoke    mvp    type1
+    Navigate To Accounts
+    Click                      ${ACCOUNT_STATUS_FILTER}
+    Click                      ${FILTER_OPTION_DECEASED}
+    Click                      ${FILTER_APPLY_BTN}
+    Wait For Elements State    ${ACCOUNTS_TABLE}           visible
+    Filter Accounts Results Should Contain Only Status    Deceased
+
+t3.1.11 Filter Accounts List by Status: Blocked
+    [Documentation]    Verify that filtering by Blocked status shows only Blocked accounts.
+    ...                If no Blocked accounts exist, a "No Data" message is shown.
+    [Tags]             accounts    smoke    mvp    type1
+    Navigate To Accounts
+    Click                      ${ACCOUNT_STATUS_FILTER}
+    Click                      ${FILTER_OPTION_BLOCKED}
+    Click                      ${FILTER_APPLY_BTN}
+    Wait For Elements State    ${ACCOUNTS_TABLE}           visible
+    Filter Accounts Results Should Contain Only Status    Blocked
 

@@ -28,6 +28,9 @@ Open Customer Profile And Cache URL
 
 Return To Customer Profile Page
     [Documentation]    Navigates directly to the cached customer profile URL before each test.
+    ...                Longer pace here than other suites: the loan availment flow makes more
+    ...                requests per test, so a bigger gap keeps it under the backend rate limit.
+    Sleep                      20s
     Go To                      ${CUSTOMER_PROFILE_URL}
     Wait For Load Spinner To Disappear
     Wait For Elements State    ${CUSTOMERS_PROFILE_PAGE}    visible    timeout=15s
@@ -51,8 +54,12 @@ Navigate To Avail Loan Product Page
     Fill Text                    ${PRODUCT_SEARCH_INPUT}    ${T26_LOANS_PRODUCT}
     Click                        ${PRODUCT_SEARCH_BTN}
     Wait For Load Spinner To Disappear
-    Wait For Elements State      css=.ant-table-body tr:has-text("${T26_LOANS_PRODUCT}")    visible    timeout=10s
-    Click                        css=.ant-table-body tr:has-text("${T26_LOANS_PRODUCT}") >> ${AVAIL_PRODUCT_BTN}
+    # Two eligible products share the name "Regular Home Loan" but have different custom
+    # fields — the first (nth=0) has no custom field, the second (nth=1) has one. Target
+    # nth=1 so the availment form includes a custom field for the tests to fill/verify.
+    # (Ideally the duplicate product would be renamed/removed on the app side.)
+    Wait For Elements State      css=.ant-table-body tr:has-text("${T26_LOANS_PRODUCT}") >> nth=1    visible    timeout=10s
+    Click                        css=.ant-table-body tr:has-text("${T26_LOANS_PRODUCT}") >> nth=1 >> ${AVAIL_PRODUCT_BTN}
     Wait For Elements State      ${AVAIL_PRODUCT_PAGE}    visible
     Wait For Load Spinner To Disappear
 
@@ -68,9 +75,18 @@ Fill Loan Details
     Click                        css=.ant-select-dropdown .ant-select-item-option:has-text("${T26_DISBURSEMENT_MODE}")
 
 Fill Employer Name
-    [Documentation]    Fills the required Employer Name custom field.
-    Wait For Elements State      ${AVAIL_LOAN_EMPLOYER_NAME_INPUT}    visible
-    Fill Text                    ${AVAIL_LOAN_EMPLOYER_NAME_INPUT}    ${T26_EMPLOYER_NAME}
+    [Documentation]    Fills the loan product's custom text field. The custom field NAME varies
+    ...                per product (e.g. employerName, tellUsSomethingAboutYourself), so target
+    ...                any field that is not one of the standard loan-detail inputs rather than a
+    ...                hardcoded name. Fills every such custom input with ${T26_EMPLOYER_NAME} so
+    ...                the downstream value checks still work.
+    ${custom}=    Set Variable
+    ...    css=[data-field]:not([data-field="loanAmount"]):not([data-field="interestRate"]):not([data-field="termLength"]):not([data-field="disbursementMode"]) input
+    Wait For Elements State      ${custom} >> nth=0    visible    timeout=10s
+    ${count}=    Get Element Count    ${custom}
+    FOR    ${i}    IN RANGE    ${count}
+        Fill Text    ${custom} >> nth=${i}    ${T26_EMPLOYER_NAME}
+    END
 
 Select Disbursement Mode
     [Documentation]    Opens the Mode of Disbursement dropdown and picks the configured value.
@@ -178,8 +194,7 @@ t2.6.2 Verify Loan Details Fields Are Editable During Availment (Customer Inform
     ...                custom fields) are filled.
     [Tags]             customers    products    loans    smoke    mvp    type2
 
-    Go To    ${AVAIL_PAGE_URL}
-    Wait For Load Spinner To Disappear
+    Navigate To Avail Loan Product Page
 
     # All Loan Details inputs are enabled
     Run Keyword And Continue On Failure
@@ -224,8 +239,7 @@ t2.6.3 See Details of Loans Product During Availment (Customer Information Step)
     ...                fields unaffected.
     [Tags]             customers    products    loans    smoke    mvp    type2
 
-    Go To    ${AVAIL_PAGE_URL}
-    Wait For Load Spinner To Disappear
+    Navigate To Avail Loan Product Page
 
     Click                        ${AVAIL_PRODUCT_SEE_DETAILS_BTN}
     Wait For Elements State      ${AVAIL_PRODUCT_DETAILS_DRAWER}    visible
@@ -282,8 +296,7 @@ t2.6.4 Fill Loan Details and Custom Fields for Loans Product and Continue
     ...                to the Review Application step with an accurate summary.
     [Tags]             customers    products    loans    smoke    mvp    type2
 
-    Go To    ${AVAIL_PAGE_URL}
-    Wait For Load Spinner To Disappear
+    Navigate To Avail Loan Product Page
 
     # Continue disabled before filling
     Run Keyword And Continue On Failure
@@ -308,8 +321,9 @@ t2.6.4 Fill Loan Details and Custom Fields for Loans Product and Continue
     # Verify review summary reflects all entered Loan Details and custom field values
     Run Keyword And Continue On Failure
     ...    Wait For Elements State    ${AVAIL_PRODUCT_PAGE} >> text=Loan Details                visible
-    Run Keyword And Continue On Failure
-    ...    Wait For Elements State    ${AVAIL_PRODUCT_PAGE} >> text=Employment Information      visible
+    # NOTE: the custom-field section header varies per product (it was "Employment Information"
+    # for the old employerName field), so we verify the custom field VALUE below instead of a
+    # hardcoded section-header label.
     Run Keyword And Continue On Failure
     ...    Wait For Elements State    ${AVAIL_PRODUCT_PAGE} >> text=${T26_EMPLOYER_NAME}        visible
     Run Keyword And Continue On Failure

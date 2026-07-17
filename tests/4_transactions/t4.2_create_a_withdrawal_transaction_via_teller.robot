@@ -718,12 +718,18 @@ t4.2.30 Validate Withdrawal Notes Character Limit
     ...                being at most 300 characters (field truncates or rejects excess input).
     [Tags]             transactions    withdrawal    validation    regression    type2
     Navigate To Withdrawal Step    ${T42_ACCOUNT_NUMBER}
-    ${long_text}=    Evaluate    'a' * 301
-    Fill Text                  ${CREATE_TXN_NOTES_INPUT}    ${long_text}
-    ${notes_value}=    Get Property    ${CREATE_TXN_NOTES_INPUT}    value
-    ${notes_length}=   Get Length    ${notes_value}
-    Should Be True    ${notes_length} <= 300
-    ...    msg=Notes field should not accept more than 300 characters, but accepted ${notes_length}
+    Click                      ${CREATE_TXN_TYPE_SELECT}
+    Wait For Elements State    css=.ant-select-dropdown:not(.ant-select-dropdown-hidden)    visible
+    Click
+    ...    css=.ant-select-dropdown:not(.ant-select-dropdown-hidden) .ant-select-item-option-content:has-text("${T42_WITHDRAWAL_TYPE}")
+    Wait For Load Spinner To Disappear
+    Wait For Elements State    ${CREATE_TXN_NOTES_INPUT}    visible
+    ${over_limit}=             Evaluate    "A" * 301
+    Fill Text                  ${CREATE_TXN_NOTES_INPUT}    ${over_limit}
+    ${entered_value}=          Get Property    ${CREATE_TXN_NOTES_INPUT}    value
+    ${char_count}=             Get Length    ${entered_value}
+    Should Be True             ${char_count} <= 300
+    ...    msg=Notes field should enforce 300-char max, but got ${char_count} characters
 
 t4.2.31 Validate Process Withdrawal Button Activation
     [Documentation]    Verify the Process Withdrawal button is only enabled after ALL required

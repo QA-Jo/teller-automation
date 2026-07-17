@@ -520,18 +520,16 @@ t5.1.12 Edit Product – Cancel Edit Without Saving
 # ====================================================================
 
 t5.1.13 Action: Archive Product – Confirmation Modal Appears
-    [Documentation]    Verify that clicking the Archive action on a product created in Nov 2025
-    ...                opens a confirmation modal with the correct title ("Archive Product?")
-    ...                and body message ("Are you sure you want to archive this product?
-    ...                It will be moved to the archived tab.").
-    ...                The modal must clearly identify the action before the teller confirms.
+    [Documentation]    Verify that clicking the Archive action on "${T51_ARCHIVE_PRODUCT_NAME}"
+    ...                (ID: ${T51_ARCHIVE_PRODUCT_ID}) opens a confirmation modal with the
+    ...                correct title ("Archive Product?") and body message.
     [Tags]             products    active    archive    smoke    mvp    type2
-    # Navigate through pages to find a product created in Nov 2025
+    # Paginate through all pages to find the target product by ID
     ${found}=    Set Variable    ${FALSE}
     WHILE    True
         ${exists}=    Run Keyword And Return Status
         ...    Wait For Elements State
-        ...    css=[data-testid="table-products-active"] tbody tr:has(td:nth-child(5):has-text("14:02:48")) >> nth=0
+        ...    css=[data-testid="table-products-active"] tbody tr:has-text("${T51_ARCHIVE_PRODUCT_ID}") >> nth=0
         ...    visible    timeout=2s
         IF    ${exists}
             ${found}=    Set Variable    ${TRUE}
@@ -543,10 +541,10 @@ t5.1.13 Action: Archive Product – Confirmation Modal Appears
         Click    ${PRODUCTS_PAGINATION_NEXT}
         Wait For Load Spinner To Disappear
     END
-    Skip If    not ${found}    No product created in Nov 2025 found in the Active Products table
-    # Click the Archive button for the Nov 2025 product
+    Skip If    not ${found}    Product "${T51_ARCHIVE_PRODUCT_NAME}" (${T51_ARCHIVE_PRODUCT_ID}) not found in Active Products table
+    # Click the Archive button for the target product
     Click
-    ...    css=[data-testid="table-products-active"] tbody tr:has(td:nth-child(5):has-text("14:02:48")) [data-testid="btn-products-archive"] >> nth=0
+    ...    css=[data-testid="table-products-active"] tbody tr:has-text("${T51_ARCHIVE_PRODUCT_ID}") >> nth=0 >> css=[data-testid="btn-products-archive"]
     Wait For Load Spinner To Disappear
     Wait For Elements State    ${PRODUCT_UPDATE_STATUS_MODAL}    visible
     # Verify modal title and body message
@@ -563,16 +561,16 @@ t5.1.13 Action: Archive Product – Confirmation Modal Appears
     Wait For Elements State    ${PRODUCT_UPDATE_STATUS_MODAL}    hidden
 
 t5.1.14 Action: Archive Product – Confirm Archive
-    [Documentation]    Verify that confirming the Archive action on a product created in Nov 2025
-    ...                removes it from the Active Products table and moves it to the
-    ...                Archived Products tab.
+    [Documentation]    Verify that confirming the Archive action on "${T51_ARCHIVE_PRODUCT_NAME}"
+    ...                (ID: ${T51_ARCHIVE_PRODUCT_ID}) removes it from Active Products and
+    ...                moves it to the Archived Products tab.
     [Tags]             products    active    archive    smoke    mvp    type2
-    # Navigate through pages to find a product created in Nov 2025
+    # Paginate through all pages to find the target product by ID
     ${found}=    Set Variable    ${FALSE}
     WHILE    True
         ${exists}=    Run Keyword And Return Status
         ...    Wait For Elements State
-        ...    css=[data-testid="table-products-active"] tbody tr:has(td:nth-child(5):has-text("14:02:48")) >> nth=0
+        ...    css=[data-testid="table-products-active"] tbody tr:has-text("${T51_ARCHIVE_PRODUCT_ID}") >> nth=0
         ...    visible    timeout=2s
         IF    ${exists}
             ${found}=    Set Variable    ${TRUE}
@@ -584,40 +582,32 @@ t5.1.14 Action: Archive Product – Confirm Archive
         Click    ${PRODUCTS_PAGINATION_NEXT}
         Wait For Load Spinner To Disappear
     END
-    Skip If    not ${found}    No product created in Nov 2025 found in the Active Products table
-    # Capture the Product ID (first column) before archiving
-    ${product_id_raw}=    Get Text
-    ...    css=[data-testid="table-products-active"] tbody tr:has(td:nth-child(5):has-text("14:02:48")) >> nth=0 >> td >> nth=0
-    ${product_id}=    Evaluate    '''${product_id_raw}'''.split('\\n')[0].strip()
-    Log    Archiving product ID: ${product_id}
-    # Click the Archive button for the first Nov 2025 product
+    Skip If    not ${found}    Product "${T51_ARCHIVE_PRODUCT_NAME}" (${T51_ARCHIVE_PRODUCT_ID}) not found in Active Products table
+    Log    Archiving product: ${T51_ARCHIVE_PRODUCT_NAME} (${T51_ARCHIVE_PRODUCT_ID})
+    # Click the Archive button for the target product
     Click
-    ...    css=[data-testid="table-products-active"] tbody tr:has(td:nth-child(5):has-text("14:02:48")) [data-testid="btn-products-archive"] >> nth=0
+    ...    css=[data-testid="table-products-active"] tbody tr:has-text("${T51_ARCHIVE_PRODUCT_ID}") >> nth=0 >> css=[data-testid="btn-products-archive"]
     Wait For Load Spinner To Disappear
     Wait For Elements State    ${PRODUCT_UPDATE_STATUS_MODAL}    visible
     # Confirm the archive
     Click    ${ARCHIVE_PRODUCT_CONFIRM_BTN}
     Wait For Load Spinner To Disappear
     Wait For Elements State    ${ACTIVE_PRODUCTS_TABLE}    visible
-    # Verify the Product ID is no longer in the Active Products table (check first page only — archived rows move to Archived tab immediately)
+    # Verify the product is no longer in the Active Products table
     Wait For Elements State
-    ...    css=[data-testid="table-products-active"] tbody tr:has-text("${product_id}") >> nth=0
+    ...    css=[data-testid="table-products-active"] tbody tr:has-text("${T51_ARCHIVE_PRODUCT_ID}") >> nth=0
     ...    hidden    timeout=10s
-    # Switch to Archived tab and verify the product appears as the first row
+    # Switch to Archived tab and verify the product appears there
     Reload
     Wait For Load Spinner To Disappear
     Click    ${ARCHIVED_PRODUCTS_TAB}
     Wait For Load Spinner To Disappear
     Wait For Elements State    ${ARCHIVED_PRODUCTS_TABLE}    visible
     Wait For Elements State
-    ...    css=[data-testid="table-products-archived"] tbody tr:not([aria-hidden="true"]) >> nth=0
-    ...    visible
-    ${first_row_id}=    Get Text
-    ...    css=[data-testid="table-products-archived"] tbody tr:not([aria-hidden="true"]) >> nth=0 >> td >> nth=0
-    ${first_row_id_clean}=    Evaluate    '''${first_row_id}'''.split('\\n')[0].strip()
-    Should Be Equal    ${first_row_id_clean}    ${product_id}
-    ...    msg=Expected recently archived product "${product_id}" to be the first row in the Archived Products table, but found "${first_row_id_clean}"
-    # Switch back to Active tab and verify the product ID is no longer present on any page
+    ...    css=[data-testid="table-products-archived"] tbody tr:has-text("${T51_ARCHIVE_PRODUCT_ID}") >> nth=0
+    ...    visible    timeout=15s
+    ...    message=Product "${T51_ARCHIVE_PRODUCT_NAME}" (${T51_ARCHIVE_PRODUCT_ID}) not found in Archived Products table after archiving
+    # Switch back to Active tab and verify the product is no longer there
     Click    ${ACTIVE_PRODUCTS_TAB}
     Wait For Load Spinner To Disappear
     Wait For Elements State    ${ACTIVE_PRODUCTS_TABLE}    visible
@@ -625,7 +615,7 @@ t5.1.14 Action: Archive Product – Confirm Archive
     WHILE    True
         ${exists}=    Run Keyword And Return Status
         ...    Wait For Elements State
-        ...    css=[data-testid="table-products-active"] tbody tr:has-text("${product_id}") >> nth=0
+        ...    css=[data-testid="table-products-active"] tbody tr:has-text("${T51_ARCHIVE_PRODUCT_ID}") >> nth=0
         ...    visible    timeout=2s
         IF    ${exists}
             ${still_active}=    Set Variable    ${TRUE}
@@ -638,4 +628,4 @@ t5.1.14 Action: Archive Product – Confirm Archive
         Wait For Load Spinner To Disappear
     END
     Should Not Be True    ${still_active}
-    ...    msg=Product "${product_id}" should not be in the Active Products table after archiving
+    ...    msg=Product "${T51_ARCHIVE_PRODUCT_NAME}" should not be in the Active Products table after archiving

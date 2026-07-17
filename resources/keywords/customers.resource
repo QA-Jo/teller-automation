@@ -6,12 +6,15 @@ Resource    ../locators/customers_locators.resource
 
 *** Keywords ***
 Navigate To Customers
-    [Documentation]    Navigates to the Customers module via the sidebar and ensures clean state
+    [Documentation]    Navigates to the Customers module via the sidebar.
+    ...                Paces between tests to stay under the backend request rate limit
+    ...                (bursts of ~13 requests return HTTP 429 for ~1 hour). The sidebar click
+    ...                already loads the list, so we don't reload (that doubled the requests).
+    Sleep                      12s
     Click                      ${CUSTOMERS_MENU}
     Wait For Elements State    ${CUSTOMER_SEARCH_FIELD}    visible
     Get Url                    contains    /customers
-    Reload
-    Wait For Elements State    ${CUSTOMER_SEARCH_FIELD}    visible
+    Wait For Load Spinner To Disappear
 
 View Customer List
     [Documentation]    Verifies the customer list page is loaded and visible
@@ -61,6 +64,9 @@ View Customer Accounts
 View Customer Account Transactions
     [Documentation]    Clicks View Account Transactions for a specific account row
     [Arguments]        ${account_number}
+    Fill Text          ${ACCOUNT_SEARCH_FIELD}    ${account_number}
+    Click              ${ACCOUNT_SEARCH_BUTTON}
+    Wait For Load Spinner To Disappear
     Click              css=tr:has-text("${account_number}") >> ${VIEW_ACCOUNT_TRANSACTIONS_LINK}
     Wait For Elements State    ${TRANSACTION_SEARCH_FIELD}    visible
 
@@ -122,10 +128,21 @@ Filter Results Should Contain Only Status
     ELSE
         ${page}=    Set Variable    1
         WHILE    ${page} <= 100    # Safety limit to prevent infinite loop
-            # Count total visible rows (exclude hidden/empty rows) and rows with expected status
-            ${total_rows}=      Get Element Count    css=.ant-table-body table tbody tr:not([aria-hidden="true"]):not(:empty)
-            ${matching_rows}=   Get Element Count    css=.ant-table-body table tbody tr:not([aria-hidden="true"]):has-text("${expected_status}")
-            # Verify all rows match the expected status
+            # Wait out any loading spinner before reading rows / clicking pagination —
+            # the ant-spin blur overlay intercepts pointer events and detaches rows mid-click.
+            Wait For Load Spinner To Disappear
+            # After a Next click the table briefly shows AntD's empty-state placeholder row;
+            # wait for a real data row (.ant-table-row) to settle so we don't read it.
+            ${has_rows}=    Run Keyword And Return Status
+            ...    Wait For Elements State    css=.ant-table-body table tbody tr.ant-table-row >> nth=0    visible    timeout=15s
+            IF    not ${has_rows}
+                Wait For Elements State    css=.ant-empty-description    visible    timeout=3s
+                Log    Page ${page}: No data on this page — ending pagination.
+                BREAK
+            END
+            # Count only real AntD data rows; the placeholder row is excluded by the class.
+            ${total_rows}=      Get Element Count    css=.ant-table-body table tbody tr.ant-table-row
+            ${matching_rows}=   Get Element Count    css=.ant-table-body table tbody tr.ant-table-row:has-text("${expected_status}")
             Should Be Equal    ${total_rows}    ${matching_rows}
             ...    Page ${page}: Expected all ${total_rows} rows to have status "${expected_status}", but only ${matching_rows} matched
             Log    Page ${page}: All ${total_rows} rows contain status "${expected_status}"
@@ -136,9 +153,8 @@ Filter Results Should Contain Only Status
                 Log    Reached last page (page ${page})
                 BREAK
             END
-            # Click next page
             Click    css=.ant-pagination-next button
-            Sleep    0.5s    # Wait for page to load
+            Wait For Load Spinner To Disappear    # Wait for the next page to finish loading
             ${page}=    Evaluate    ${page} + 1
         END
     END

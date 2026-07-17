@@ -74,7 +74,7 @@ t2.2.3 Search for Valid Account ID
     Wait For Elements State    text=Account No        visible
     Wait For Elements State    text=Account Name      visible
     Wait For Elements State    text=Balance           visible
-    Wait For Elements State    text=Account Status    visible
+    Wait For Elements State    css=th:has-text("Account Status")    visible
     Wait For Elements State    text=Created on        visible
     Wait For Elements State    text="Action"          visible
     # Verify all column values in the matching row
@@ -97,7 +97,7 @@ t2.2.4 Search for Valid Account Name
     Wait For Elements State    text=Account No        visible
     Wait For Elements State    text=Account Name      visible
     Wait For Elements State    text=Balance           visible
-    Wait For Elements State    text=Account Status    visible
+    Wait For Elements State    css=th:has-text("Account Status")    visible
     Wait For Elements State    text=Created on        visible
     Wait For Elements State    text="Action"          visible
     # Verify all column values in the target account row
@@ -158,12 +158,12 @@ t2.2.9 Filter Account List by Status - Closed
 
 
 t2.2.10 Change Account Status to Dormant
-    [Documentation]    Verify that a teller can change an account's status to Dormant.
-    ...                Searches for a specific account, clicks the status badge, selects
-    ...                Dormant, fills remarks, confirms, verifies the success toast, then
-    ...                searches again and verifies the status badge shows Dormant.
-    [Tags]             customers    accounts    status-change    smoke    type1
+    [Documentation]    INVALID: "Dormant" is a system-set status (applied automatically after
+    ...                inactivity) — a teller cannot manually set it, so it is not offered in the
+    ...                status-change dropdown. Marked skip; kept for reference/history.
+    [Tags]             customers    accounts    status-change    smoke    type1    skip
     [Setup]            Navigate To Customer Accounts Page    ${T22_STATUS_CHANGE_CUSTOMER_ID}
+    Skip               Invalid transition — teller cannot manually set an account to Dormant (system-set status)
     Wait For Elements State    ${ACCOUNT_TABLE}    visible
     Fill Text    ${ACCOUNT_SEARCH_FIELD}    ${T22_STATUS_CHANGE_ACCOUNT_NO}
     Click    ${ACCOUNT_SEARCH_BUTTON}
@@ -220,12 +220,13 @@ t2.2.11 Change Account Status to Frozen
     ...    visible
 
 t2.2.12 Change Account Status to Closed
-    [Documentation]    Verify that a teller can change an account's status to Closed.
-    ...                Searches for a specific account, clicks the status badge, selects
-    ...                Closed, fills remarks, confirms, verifies the success toast, then
-    ...                searches again and verifies the status badge shows Closed.
-    [Tags]             customers    accounts    status-change    smoke    type1
+    [Documentation]    INVALID for a repeatable suite: "Closed" is a terminal status — once set,
+    ...                the account cannot be reverted, so this permanently burns the test account
+    ...                on every run. Marked skip; the Frozen<->Active transitions (t2.2.11/t2.2.13)
+    ...                provide repeatable status-change coverage. Kept for reference/history.
+    [Tags]             customers    accounts    status-change    smoke    type1    skip
     [Setup]            Navigate To Customer Accounts Page    ${T22_STATUS_CHANGE_CUSTOMER_ID}
+    Skip               Terminal status — closing the account is not reversible and would burn the test account each run
     Wait For Elements State    ${ACCOUNT_TABLE}    visible
     Fill Text    ${ACCOUNT_SEARCH_FIELD}    ${T22_STATUS_CHANGE_ACCOUNT_NO}
     Click    ${ACCOUNT_SEARCH_BUTTON}
@@ -251,10 +252,10 @@ t2.2.12 Change Account Status to Closed
     ...    visible
 
 t2.2.13 Change Account Status to Active
-    [Documentation]    Verify that a teller can restore an account's status back to Active.
-    ...                Searches for a specific account, clicks the status badge, selects
-    ...                Active, fills remarks, confirms, verifies the success toast, then
-    ...                searches again and verifies the status badge shows Active.
+    [Documentation]    Verify that a teller can restore an account from Frozen back to Active.
+    ...                Runs after t2.2.11 (which sets the account Frozen); Frozen->Active is a
+    ...                valid transition, so this restores the account to its starting state and
+    ...                keeps the status-change chain repeatable.
     [Tags]             customers    accounts    status-change    smoke    type1
     [Setup]            Navigate To Customer Accounts Page    ${T22_STATUS_CHANGE_CUSTOMER_ID}
     Wait For Elements State    ${ACCOUNT_TABLE}    visible

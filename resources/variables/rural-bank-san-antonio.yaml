@@ -3,11 +3,11 @@
 # ============================================================
 
 BANK_NAME: "Rural Bank of San Antonio"
-BASE_URL: "https://alegre-dashboard.pub.itg.higala.ph/rural-bank-san-antonio/login"
+BASE_URL: "https://alegre-dashboard.int.itg.higala.ph/rural-bank-san-antonio/login"
 
 # Teller Credentials
-TELLER_EMAIL: "pvillados+u1@agsx.net"
-TELLER_PASSWORD: "Password123!"
+TELLER_EMAIL: "jjavier+1@nmblr.ai"
+TELLER_PASSWORD: "Password!2"
 
 # Invalid Credentials (for negative test cases)
 INVALID_EMAIL: "invalid@email.com"
@@ -23,12 +23,12 @@ TIMEOUT: "30s"
 # Auth — Reset Password via Temp Password (t1.1)
 # ============================================================
 
-RTP_NEW_USER_EMAIL: "pvillados+429@nmblr.ai" #needs to be changed every run
-RTP_TEMP_PASSWORD: "HoV1yiQR1KSf" #needs to be changed every run
-RTP_NEW_USER_EMAIL_2: "pvillados+apr24@agsx.net" #needs to be changed every run
-RTP_TEMP_PASSWORD_2: "EBj8wXGKj9yq" #needs to be changed every run
-RTP_MIXED_CASE_EMAIL: "Pvillados+429@NmBlR.aI" #needs to be changed every run
-RTP_MIXED_CASE_EMAIL_PASSWORD: "HoV1yiQR1KSf" #needs to be changed every run
+RTP_NEW_USER_EMAIL: "jjavier+14@nmblr.ai" #needs to be changed every run
+RTP_TEMP_PASSWORD: "0WiTYlHEipUh" #needs to be changed every run
+RTP_NEW_USER_EMAIL_2: "jjavier+15@nmblr.ai" #needs to be changed every run
+RTP_TEMP_PASSWORD_2: "AZqPhaevvXXa" #needs to be changed every run
+RTP_MIXED_CASE_EMAIL: "Jjavier+14@NmBlR.aI" #needs to be changed every run
+RTP_MIXED_CASE_EMAIL_PASSWORD: "0WiTYlHEipUh" #needs to be changed every run
 RTP_EXPIRED_USER_EMAIL: "pvillados+feb3@agsx.net"
 EXPIRED_TEMP_PASSWORD: "g9EUrGq0ttVQ"
 RTP_WRONG_CONFIRM_PASSWORD: "Password1234!"
@@ -38,9 +38,9 @@ RTP_WRONG_CONFIRM_PASSWORD: "Password1234!"
 # Auth — Test Suite Specific (t1.2, t1.3, t1.4)
 # ============================================================
 
-MIXED_CASE_EMAIL: "Pvillados@Agsx.Net"
+MIXED_CASE_EMAIL: "JJavier+1@NmBlR.aI"    # mixed-case of TELLER_EMAIL (paired with TELLER_PASSWORD)
 FP_MIXED_CASE_EMAIL: "Pvillados+U1@Agsx.Net"
-CP_USER_EMAIL: "pvillados+u2@agsx.net"
+CP_USER_EMAIL: "pvillados+u1@agsx.net"
 CP_USER_PASSWORD: "Password123!"
 
 
@@ -52,10 +52,10 @@ VALID_CUSTOMER_ID: "89055149d8e64865958c489651b59015"
 VALID_CUSTOMER_NAME: "Peach Villados"
 CUSTOMER_DATE_OF_BIRTH: "01 Dec 1999"
 CUSTOMER_CREATED_ON: "25 Jun 2025"
-T21_STATUS_CHANGE_CUSTOMER_NAME: "Test Automation User"
+T21_STATUS_CHANGE_CUSTOMER_NAME: "Warren Giltendez"
 T21_STATUS_CHANGE_REMARKS: "Automated test — status change verification"
-T22_STATUS_CHANGE_CUSTOMER_ID: "89055149d8e64865958c489651b59015"
-T22_STATUS_CHANGE_ACCOUNT_NO: "7710378114398002"
+T22_STATUS_CHANGE_CUSTOMER_ID: "f558b4d555044709b6738f98cb46deab"    # Joe Test Regression One
+T22_STATUS_CHANGE_ACCOUNT_NO: "7710390428949851"                     # was 7710378114398002 (stuck Closed)
 T22_STATUS_CHANGE_REMARKS: "Automated test — account status change verification"
 
 
@@ -82,20 +82,25 @@ EXPECTED_CREATED_ON: "07 Jul 2025"
 # Transaction Data — Customers & Accounts modules (t2.3, t3.2)
 # ============================================================
 
-VALID_TXN_ID: "0fbb394edde64d9d83bf945291919df0"
+VALID_TXN_ID: "547fa043e7424b6c956926466daa91df"
 TXN_TYPE: "Fund Transfer"
-TXN_AMOUNT: "50,000.00"
+TXN_AMOUNT: "88.00"
 TXN_SERVICE_FEE: "0.00"
 TXN_REMARKS: "N/A"
 TXN_STATUS: "Success"
-TXN_DEBIT_ACCT_NAME: "Chai Villados"
+TXN_DEBIT_ACCT_NAME: "Shia Nadela"
 TXN_CREDIT_ACCT_NAME: "Peach Villados"
-TXN_DEBIT_ACCT_NO: "7710455410784261"
+TXN_DEBIT_ACCT_NO: "7710458497847416"
 TXN_CREDIT_ACCT_NO: "7710458152114857"
-TXN_CREATED_ON: "01 Oct 2025 15:06:28"
-TXN_UPDATED_ON: "01 Oct 2025 15:06:28"
+TXN_CREATED_ON: "02 Dec 2025 15:28:57"
+TXN_UPDATED_ON: "02 Dec 2025 15:28:57"
 DATE_FROM: "2026-04-23"
 DATE_TO: "2026-04-24"
+
+# t3.2.5 — Date Range Filter (Camille Reyes Mendoza)
+T325_ACCOUNT_ID: "7710332470539251"
+T325_DATE_FROM: "2026-05-01"
+T325_DATE_TO: "2026-06-02"
 
 
 # ============================================================
@@ -117,8 +122,11 @@ T4_TXN_CREDIT_ACCT_NO: "7710527851369522"
 T4_TXN_CREDIT_BANK_CODE: "RCBCPHMMXXX"
 T4_TXN_CREDIT_BANK_NAME: "Banco Abucay"
 T4_TXN_CREATED_ON: "22 Apr 2026 16:46:11"
-T4_DATE_FROM: "2026-04-23"
-T4_DATE_TO: "2026-04-24"
+T4_DATE_FROM: "2026-06-01"
+T4_DATE_TO: "2026-06-03"
+T4_DATE_FILTER_CUSTOMER_NAME: "Camille Reyes Mendoza"
+T4_DATE_FILTER_CUSTOMER_ID: "33b795c475db4eef8f26abb4c09b0b0a"
+T4_DATE_FILTER_ACCOUNT_NO: "7710332470539251"
 
 
 # ============================================================
@@ -137,9 +145,9 @@ T24_ARCHIVED_PRODUCT: "Loan 13C"
 # Reports Data (t6.1)
 # ============================================================
 
-VALID_CLOSING_DATE: "2026-04-23"
-VALID_DATE_FROM: "2026-04-23"
-VALID_DATE_TO: "2026-04-24"
+VALID_CLOSING_DATE: "2026-06-05"
+VALID_DATE_FROM: "2026-06-01"
+VALID_DATE_TO: "2026-06-05"
 
 
 # ============================================================
@@ -206,6 +214,10 @@ T43_HIGH_DEPOSIT_AMOUNT_3: "1000000"
 # T5.1
 T51_SAVINGS_PRODUCT_NAME: "Savings With All Optional"
 T51_LOANS_PRODUCT_NAME: "Loans Edit 1"
+T51_ARCHIVE_PRODUCT_NAME: "PREMIUM SAVINGS"
+T51_ARCHIVE_PRODUCT_ID: "PROD_5a5e7c28a49544629c7c888de35ff196_000"
+T51_RESTORE_PRODUCT_NAME: "New Savings"
+T51_RESTORE_PRODUCT_ID: "PROD_f9934ea636d7438482f12a430bc90bc0_000"
 
 # ---------------------------------------------------------------
 # t5.3 — Create New Savings Product
@@ -249,9 +261,9 @@ T53_LOANS_FIELD_PLACEHOLDER: "Enter employer name"
 # ---------------------------------------------------------------
 # t2.5 — Avail Savings Product
 # ---------------------------------------------------------------
-T25_CUSTOMER_ID: "f5e913c405554cd9bedd3045613a4567"
-T25_CUSTOMER_NAME: "Test Automation User"
-T25_SAVINGS_PRODUCT: "t5.3 Savings 0413093202"
+T25_CUSTOMER_ID: "a11c5d77c5184a8692d36545eb19dbd6"
+T25_CUSTOMER_NAME: "John Deep"
+T25_SAVINGS_PRODUCT: "Savings 0602041715"
 T25_SAVINGS_PRODUCT_2: "Savings 421"
 T25_CUSTOM_FULL_NAME: "Automation Test Applicant"
 T25_MODIFIED_FULL_NAME: "Automation Modified Name"
@@ -275,9 +287,9 @@ T71_REJECTED_LOAN_SEARCH: "Jace Amban"
 # ---------------------------------------------------------------
 # t2.6 — Avail Loans Product
 # ---------------------------------------------------------------
-T26_CUSTOMER_ID: "Eb29daaa15e9468aacb75bbd98befb5e"
-T26_CUSTOMER_NAME: "Luis Ramos"
-T26_LOANS_PRODUCT: "Loan 0513151340"
+T26_CUSTOMER_ID: "f3c32b8d4d4f47d89de0701590c018df"
+T26_CUSTOMER_NAME: "Warren Giltendez"
+T26_LOANS_PRODUCT: "Regular Home Loan"
 T26_LOAN_AMOUNT: "10000.00"
 T26_INTEREST_RATE: "2.00"
 T26_LOAN_TERM_LENGTH: "10"
@@ -298,11 +310,16 @@ T26_MODIFIED_EMPLOYER_NAME: "Nmblr Updated"
 # Approver and creator must be different users (separation of duties).
 # Reuses T26_CUSTOMER_NAME / T26_CUSTOMER_ID / T26_LOANS_PRODUCT.
 # ---------------------------------------------------------------
-T72_APPROVER_EMAIL: "pvillados+u2@agsx.net"
+T72_APPROVER_EMAIL: "pvillados@agsx.net"
 T72_APPROVER_PASSWORD: "Password123!"
-T72_CREATOR_EMAIL: "pvillados@agsx.net"
-T72_CREATOR_PASSWORD: "Password123!"
+T72_CREATOR_EMAIL: "jjavier+1@nmblr.ai"
+T72_CREATOR_PASSWORD: "Password!2"
 T72_REJECTION_REMARKS: "Insufficient documentation provided"
+T72_REJECT_CUSTOMER_NAME: "Camille Reyes Mendoza"
+T72_REJECT_CUSTOMER_ID: "33b795c475db4eef8f26abb4c09b0b0a"
+T72_SOD_CUSTOMER_NAME: "Michell Dee"
+T72_SOD_CUSTOMER_ID: "389ead942f0c4856a35fa5a315325f22"
+T72_SOD_LOANS_PRODUCT: "Loan 0603172028"
 
 # Target the Ant Design error popups using clean, normalized substring locators
 # Wrap the entire text block in single quotes so the colon doesn't break the parser
@@ -313,31 +330,31 @@ T72_REJECT_SAME_USER_ERROR: "css=.ant-message-notice-error >> text=Error rejecti
 # Loans — t7.2 Approval/Rejection success toast messages. Name should be changed depending on T26_CUSTOMER_NAME value
 
 # Target the Ant Design message content using substring matching to ignore non-breaking spaces
-SUCCESS_TOAST_APPROVED: css=.ant-message-custom-content.ant-message-success span:has-text("Luis Ramos")
-SUCCESS_TOAST_REJECTED: css=.ant-message-custom-content.ant-message-success span:has-text("Luis Ramos")
+SUCCESS_TOAST_APPROVED: css=.ant-message-custom-content.ant-message-success span:has-text("Warren Giltendez")
+SUCCESS_TOAST_REJECTED: css=.ant-message-custom-content.ant-message-success span:has-text("Camille Reyes Mendoza")
 
 # ---------------------------------------------------------------
 # t7.3 — Loan Disbursement
 # ---------------------------------------------------------------
 
-SUCCESS_TOAST_DISBURSED: css=.ant-message-custom-content.ant-message-success span:has-text("Luis Ramos")
+SUCCESS_TOAST_DISBURSED: css=.ant-message-custom-content.ant-message-success span:has-text("Warren Giltendez")
 
 
 # ---------------------------------------------------------------
 # t7.4 — Loan Schedule View
 # Target data for validating the repayment schedule dashboard.
 # ---------------------------------------------------------------
-T74_TARGET_CUSTOMER_NAME: "Luis Ramos"
+T74_TARGET_CUSTOMER_NAME: "Warren Giltendez"
 T74_EXPECTED_AMORTIZATION: "1,009.19"
 T74_EXPECTED_INTEREST: "2%"
-T74_EXPECTED_DISBURSER: "Peach Villados"
+T74_EXPECTED_DISBURSER: "Jo DFSP3"    # loan is disbursed by the automation teller in t7.3
 T74_EXPECTED_REPAYMENT_TOTAL: "10,091.91"
 
 
 # ---------------------------------------------------------------
 # t7.5 — Loan Repayment Processing
 # ---------------------------------------------------------------
-T75_TARGET_CUSTOMER_NAME: "Luis Ramos"
+T75_TARGET_CUSTOMER_NAME: "Warren Giltendez"
 T75_EXPECTED_AMORTIZATION: "1,009.19"
 T75_TOTAL_DENOMINATOR: "10,091.91"
 T75_SAVINGS_ACCOUNT_MATCH: "7710"
@@ -354,3 +371,44 @@ T76_STATIC_EXPECTED_AMORT: "1,010.88"
 
 # Target freshly disbursed loan account that has 0 payments recorded yet
 T76_STATIC_EMPTY_LOAN: "7710361059757626"
+# ============================================================
+# t8.1 — Interest Crediting
+# ============================================================
+
+# Product A (2% rate) — standard savings product
+T81_PRODUCT_A_RATE: "2"
+T81_PRODUCT_A_CUSTOMER_NAME: ""        # TODO: customer under Product A with ₱50,000 balance
+T81_PRODUCT_A_ACCOUNT_NO: ""           # TODO: account number under Product A
+T81_PRODUCT_A_EXPECTED_INTEREST: "2.74"  # 50,000 × (2/100/365)
+
+# Product B (5% rate) — premium savings product
+T81_PRODUCT_B_RATE: "5"
+T81_PRODUCT_B_CUSTOMER_NAME: ""        # TODO: customer under Product B with ₱50,000 balance
+T81_PRODUCT_B_ACCOUNT_NO: ""           # TODO: account number under Product B
+T81_PRODUCT_B_EXPECTED_INTEREST: "6.85"  # 50,000 × (5/100/365)
+
+# High-balance account (₱1,000,000.00 under Product B, 5%)
+T81_HIGH_BAL_CUSTOMER_NAME: ""         # TODO: customer with ₱1,000,000 balance under Product B
+T81_HIGH_BAL_ACCOUNT_NO: ""            # TODO: account number
+T81_HIGH_BAL_EXPECTED_INTEREST: "136.99"  # 1,000,000 × (5/100/365)
+
+# Minimum-threshold account (₱73.00 under Product B, 5%)
+T81_MIN_BAL_CUSTOMER_NAME: ""          # TODO: customer with ₱73.00 balance under Product B
+T81_MIN_BAL_ACCOUNT_NO: ""             # TODO: account number
+T81_MIN_BAL_EXPECTED_INTEREST: "0.01"  # 73 × (5/100/365) = 0.00999... → ₱0.01
+
+# Below-threshold account (₱72.99 under Product B, 5%) — no interest expected
+T81_BELOW_MIN_CUSTOMER_NAME: ""        # TODO: customer with ₱72.99 balance under Product B
+T81_BELOW_MIN_ACCOUNT_NO: ""           # TODO: account number
+
+# Zero-balance account — no interest expected
+T81_ZERO_BAL_CUSTOMER_NAME: ""         # TODO: customer with ₱0.00 balance
+T81_ZERO_BAL_ACCOUNT_NO: ""            # TODO: account number
+
+# Closed/inactive account — no interest expected
+T81_CLOSED_CUSTOMER_NAME: ""           # TODO: closed or inactive savings account owner
+T81_CLOSED_ACCOUNT_NO: ""              # TODO: account number
+
+# Zero-rate product account (0% rate) — no interest expected
+T81_ZERO_RATE_CUSTOMER_NAME: ""        # TODO: customer under 0% savings product
+T81_ZERO_RATE_ACCOUNT_NO: ""           # TODO: account number

@@ -180,12 +180,15 @@ t4.1.5 Search Transaction by ID and View Details
 
 t4.1.6 Search Transactions Using Date Range
     [Documentation]    Verify the date range filter shows only transactions within the selected range.
+    ...                Uses account ${T4_DATE_FILTER_ACCOUNT_NO} (${T4_DATE_FILTER_CUSTOMER_NAME}).
     [Tags]             transactions    regression    mvp    type1
-    skip
     Click                      ${TXN_DATE_TIME_FILTER}
     Wait For Elements State    ${TXN_DATE_START_INPUT}    visible
     Select Txn Date Range From AntD Picker    ${T4_DATE_FROM}    ${T4_DATE_TO}
     Click                      ${TXN_DATE_FILTER_SEARCH_BTN}
+    # Wait for the filtered results to load — the table keeps the previous (unfiltered)
+    # rows visible during the request, so verify only after the spinner clears.
+    Wait For Load Spinner To Disappear
     Wait For Elements State    ${TXN_TABLE}    visible
     Wait For Elements State    css=.ant-table-body table tbody tr:not([aria-hidden="true"]) >> nth=0    visible
     Verify Txn Dates Within Range    ${T4_DATE_FROM}    ${T4_DATE_TO}
