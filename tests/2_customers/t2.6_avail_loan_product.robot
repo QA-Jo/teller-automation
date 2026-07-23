@@ -54,12 +54,14 @@ Navigate To Avail Loan Product Page
     Fill Text                    ${PRODUCT_SEARCH_INPUT}    ${T26_LOANS_PRODUCT}
     Click                        ${PRODUCT_SEARCH_BTN}
     Wait For Load Spinner To Disappear
-    # Two eligible products share the name "Regular Home Loan" but have different custom
-    # fields — the first (nth=0) has no custom field, the second (nth=1) has one. Target
-    # nth=1 so the availment form includes a custom field for the tests to fill/verify.
-    # (Ideally the duplicate product would be renamed/removed on the app side.)
-    Wait For Elements State      css=.ant-table-body tr:has-text("${T26_LOANS_PRODUCT}") >> nth=1    visible    timeout=10s
-    Click                        css=.ant-table-body tr:has-text("${T26_LOANS_PRODUCT}") >> nth=1 >> ${AVAIL_PRODUCT_BTN}
+    # Prefer the 2nd match (nth=1) when a duplicate-named product exists — e.g. San Antonio
+    # has two "Regular Home Loan"s and the 2nd carries the custom field the tests verify.
+    # Fall back to the single match (nth=0) when there's only one eligible product with that
+    # name — e.g. SNR-SIT's single custom-field "Loan 0722160721".
+    ${match_count}=    Get Element Count    css=.ant-table-body tr:has-text("${T26_LOANS_PRODUCT}")
+    ${idx}=            Set Variable If    ${match_count} > 1    1    0
+    Wait For Elements State      css=.ant-table-body tr:has-text("${T26_LOANS_PRODUCT}") >> nth=${idx}    visible    timeout=10s
+    Click                        css=.ant-table-body tr:has-text("${T26_LOANS_PRODUCT}") >> nth=${idx} >> ${AVAIL_PRODUCT_BTN}
     Wait For Elements State      ${AVAIL_PRODUCT_PAGE}    visible
     Wait For Load Spinner To Disappear
 

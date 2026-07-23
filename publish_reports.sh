@@ -152,6 +152,7 @@ done < <(ls -1 "$RUNS_DIR" 2>/dev/null | grep -v '^latest$' | sort -r)
   .report-link .bank { font-weight: 600; color: #222; font-size: 0.82rem; }
   .report-link .module { color: #555; }
   .no-reports { padding: 12px 20px; color: #888; font-size: 0.9rem; }
+  .bank-subhead { padding: 8px 20px; background: #eef2f7; color: #16213e; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.02em; border-top: 1px solid #dfe6ee; }
   .latest-banner { background: #fff8e1; border-left: 4px solid #f9a825; padding: 12px 20px; margin-bottom: 24px; border-radius: 4px; font-size: 0.9rem; }
   .latest-banner a { color: #1565c0; }
   .run-note { display: flex; gap: 10px; align-items: flex-start; margin: 12px 16px; padding: 10px 14px; background: #e3f2fd; border-left: 4px solid #1976d2; border-radius: 4px; font-size: 0.82rem; color: #0d47a1; line-height: 1.5; }
@@ -198,12 +199,14 @@ HTML
       echo "    <div class=\"run-header\"><span class=\"ts\">${label}</span></div>"
     fi
 
-    # Per-run out-of-scope notice for the current regression run
-    if [[ "$ts" == "$TIMESTAMP" ]]; then
-      echo "    <div class=\"run-note\"><span class=\"i\">i</span><span><strong>Out of scope:</strong> <code>t1.x</code> (auth) and <code>t8.1</code> (interest) were excluded from this run &mdash; no recent changes to these areas on the current deployment. Regression for them was done last June 2026 (see the <code>2026-06-02_regression-post-deployment</code> results).</span></div>"
-    fi
-
-    echo "    <div class=\"reports-grid\">"
+    # Per-run out-of-scope notice — shown only on the runs that actually
+    # excluded auth (t1.x) and interest (t8.1): the July pre-deploy regression
+    # and the July SBX smoke run. Add other run names here if the same applies.
+    case "$ts" in
+      2026-07_regression-pre-deployment-to-sbx|Teller_SBX_and_SIT_July2026_Smoke_Testing)
+        echo "    <div class=\"run-note\"><span class=\"i\">i</span><span><strong>Out of scope:</strong> <code>t1.x</code> (auth) and <code>t8.1</code> (interest) were excluded from this run &mdash; no recent changes to these areas on the current deployment. Regression for them was done last June 2026 (see the <code>2026-06-02_regression-post-deployment</code> results).</span></div>"
+        ;;
+    esac
 
     # Find all report.html files in this run
     REPORTS=()
@@ -212,23 +215,56 @@ HTML
     done < <(find "${RUNS_DIR}/${ts}" -name "report.html" | sort)
 
     if [[ ${#REPORTS[@]} -eq 0 ]]; then
+      echo "    <div class=\"reports-grid\">"
       echo "      <div class=\"no-reports\">No reports found.</div>"
+      echo "    </div>"
     else
+      # Detect layout: nested runs have <bank>/<tc>/report.html (3+ path segments);
+      # flat runs have <tc>/report.html (2 segments).
+      nested=0
       for report in "${REPORTS[@]}"; do
-        # Get relative path from the run dir
         rel="${report#${RUNS_DIR}/${ts}/}"
-        # Extract bank and module from path (bank/module/report.html)
-        bank=$(echo "$rel" | cut -d'/' -f1)
-        module=$(echo "$rel" | cut -d'/' -f2)
-        link="reports/${ts}/${rel}"
-        echo "      <a class=\"report-link\" href=\"${link}\">"
-        echo "        <span class=\"bank\">${bank}</span>"
-        echo "        <span class=\"module\">${module}</span>"
-        echo "      </a>"
+        [[ "$(awk -F/ '{print NF}' <<<"$rel")" -ge 3 ]] && { nested=1; break; }
       done
+
+      if [[ "$nested" -eq 1 ]]; then
+        # Group by first path segment (bank): one sub-header + grid per bank.
+        # REPORTS is sorted, so each bank's entries are contiguous.
+        current_bank=""
+        for report in "${REPORTS[@]}"; do
+          rel="${report#${RUNS_DIR}/${ts}/}"
+          bank=$(echo "$rel" | cut -d'/' -f1)
+          tc=$(echo "$rel" | cut -d'/' -f2)
+          link="reports/${ts}/${rel}"
+          if [[ "$bank" != "$current_bank" ]]; then
+            [[ -n "$current_bank" ]] && echo "    </div>"
+            echo "    <div class=\"bank-subhead\">${bank}</div>"
+            echo "    <div class=\"reports-grid\">"
+            current_bank="$bank"
+          fi
+          echo "      <a class=\"report-link\" href=\"${link}\">"
+          echo "        <span class=\"bank\">${tc}</span>"
+          echo "        <span class=\"module\">report.html</span>"
+          echo "      </a>"
+        done
+        echo "    </div>"
+      else
+        # Flat run (original behavior): single grid, label = <segment1> / <segment2>.
+        echo "    <div class=\"reports-grid\">"
+        for report in "${REPORTS[@]}"; do
+          rel="${report#${RUNS_DIR}/${ts}/}"
+          bank=$(echo "$rel" | cut -d'/' -f1)
+          module=$(echo "$rel" | cut -d'/' -f2)
+          link="reports/${ts}/${rel}"
+          echo "      <a class=\"report-link\" href=\"${link}\">"
+          echo "        <span class=\"bank\">${bank}</span>"
+          echo "        <span class=\"module\">${module}</span>"
+          echo "      </a>"
+        done
+        echo "    </div>"
+      fi
     fi
 
-    echo "    </div>"
     echo "  </div>"
   done
 

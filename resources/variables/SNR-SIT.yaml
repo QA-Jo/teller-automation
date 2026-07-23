@@ -103,7 +103,7 @@ DATE_TO: "2026-05-15"
 # Prefixed T4_ to avoid conflicts with t2.3/t3.2 txn variables
 # ============================================================
 
-T4_VALID_TXN_ID: "20327d2dec2046b1bf2c3353c94c0fcf"
+T4_VALID_TXN_ID: "33b02e8bd1034ddd9bdebe977bd6a83d"
 T4_TXN_TYPE: "External Transfer"
 T4_TXN_AMOUNT: "10.00"
 T4_TXN_SERVICE_FEE: "15.00"
@@ -206,6 +206,10 @@ T43_HIGH_DEPOSIT_AMOUNT_3: "1000000"
 # T5.1
 T51_SAVINGS_PRODUCT_NAME: "Savings 0515141208"
 T51_LOANS_PRODUCT_NAME: "Loan 0515140429"
+# Archive target (t5.1.13/14). Latest savings product created during this run's t5.3.
+# NOTE: the test matches the row by T51_ARCHIVE_PRODUCT_ID, not by name.
+T51_ARCHIVE_PRODUCT_NAME: "Savings 0722160343"
+T51_ARCHIVE_PRODUCT_ID: "PROD_8388be23f79c43ce9201b6a3ff77bf3c_000"
 
 # ---------------------------------------------------------------
 # t5.3 — Create New Savings Product
@@ -267,18 +271,19 @@ T25_INVALID_STATUS_CUSTOMER: "Yuki Santos"    # Inactive customer ID: 1326171c8c
 # Loans — Search Values (t7.1.9–t7.1.12)
 # ============================================================
 
-T71_ACTIVE_LOAN_SEARCH: "7710378177805086"
-T71_PENDING_APP_SEARCH: "Ollie Bearman"
-T71_PENDING_DISB_SEARCH: "Albert Camus"
-T71_REJECTED_LOAN_SEARCH: "Jace Amban"
+# Pulled live from the loan tabs (2026-07-22).
+T71_ACTIVE_LOAN_SEARCH: "7711350088410162"    # John Ocho — active loan account
+T71_PENDING_APP_SEARCH: "John Ocho"           # only pending application in the tenant
+T71_PENDING_DISB_SEARCH: "Sharone Lupit Cunitas"   # pending disbursement for customer 075e3164... (Sharone)
+T71_REJECTED_LOAN_SEARCH: "John Ocho"         # rejected application
 
 
 # ---------------------------------------------------------------
 # t2.6 — Avail Loans Product
 # ---------------------------------------------------------------
-T26_CUSTOMER_ID: "Eb29daaa15e9468aacb75bbd98befb5e"
-T26_CUSTOMER_NAME: "Luis Ramos"
-T26_LOANS_PRODUCT: "Loan 0513151340"
+T26_CUSTOMER_ID: "075e31646262467290dedc9a17a57e89"
+T26_CUSTOMER_NAME: "Sharone Lupit Cunitas"
+T26_LOANS_PRODUCT: "Loan 0722160721"   # eligible for Sharone; created with a custom field
 T26_LOAN_AMOUNT: "10000.00"
 T26_INTEREST_RATE: "2.00"
 T26_LOAN_TERM_LENGTH: "10"
@@ -299,11 +304,18 @@ T26_MODIFIED_EMPLOYER_NAME: "Nmblr Updated"
 # Approver and creator must be different users (separation of duties).
 # Reuses T26_CUSTOMER_NAME / T26_CUSTOMER_ID / T26_LOANS_PRODUCT.
 # ---------------------------------------------------------------
-T72_APPROVER_EMAIL: "pvillados+u2@agsx.net"
-T72_APPROVER_PASSWORD: "Password123!"
+T72_APPROVER_EMAIL: "jjavier+1@nmblr.ai"
+T72_APPROVER_PASSWORD: "Password!1"
 T72_CREATOR_EMAIL: "pvillados@agsx.net"
 T72_CREATOR_PASSWORD: "Password123!"
 T72_REJECTION_REMARKS: "Insufficient documentation provided"
+# Customers for the reject and separation-of-duties scenarios (t7.2).
+T72_REJECT_CUSTOMER_NAME: "Sharone Lupit Cunitas"
+T72_SOD_CUSTOMER_NAME: "Sharone Lupit Cunitas"
+
+# t7.3 — top pending-disbursement row is Sharone's approved loan (075e3164...).
+# Overrides the suite's hardcoded ${TARGET_CUSTOMER_NAME} default via -V.
+TARGET_CUSTOMER_NAME: "Sharone Lupit Cunitas"
 
 # Target the Ant Design error popups using clean, normalized substring locators
 # Wrap the entire text block in single quotes so the colon doesn't break the parser
@@ -321,15 +333,35 @@ SUCCESS_TOAST_REJECTED: css=.ant-message-custom-content.ant-message-success span
 # t7.3 — Loan Disbursement
 # ---------------------------------------------------------------
 
-SUCCESS_TOAST_DISBURSED: css=.ant-message-custom-content.ant-message-success span:has-text("Luis Ramos")
+SUCCESS_TOAST_DISBURSED: css=.ant-message-custom-content.ant-message-success span:has-text("Sharone Lupit Cunitas")
 
 
 # ---------------------------------------------------------------
 # t7.4 — Loan Schedule View
 # Target data for validating the repayment schedule dashboard.
 # ---------------------------------------------------------------
-T74_TARGET_CUSTOMER_NAME: "Luis Ramos"
-T74_EXPECTED_AMORTIZATION: "1,009.19"
-T74_EXPECTED_INTEREST: "2%"
+# Values below read live from the app (loan 7711360327819171, Sharone's active loan).
+T74_TARGET_CUSTOMER_NAME: "Sharone Lupit Cunitas"
+T74_EXPECTED_AMORTIZATION: "5,006.25"
+T74_EXPECTED_INTEREST: "1%"
 T74_EXPECTED_DISBURSER: "Peach Villados"
-T74_EXPECTED_REPAYMENT_TOTAL: "10,091.91"
+T74_EXPECTED_REPAYMENT_TOTAL: "10,012.50"
+
+
+# ---------------------------------------------------------------
+# t7.5 — Loan Repayment Processing
+# ---------------------------------------------------------------
+T75_TARGET_CUSTOMER_NAME: "Sharone Lupit Cunitas"
+T75_SAVINGS_ACCOUNT_MATCH: "7711347261521586"   # Sharone's digital savings (source of funds)
+T75_TOTAL_DENOMINATOR: "10,012.50"               # total repayment for the loan (inferred; confirm)
+
+
+# ---------------------------------------------------------------
+# t7.6 — Loan Payment History (View Schedule)
+# Active loan = John Ocho's fully-paid loan (has payment history, for the
+# view-transaction-details tests). Empty loan = Sharone's (no history).
+# ---------------------------------------------------------------
+T76_TARGET_CUSTOMER_NAME: "John Ocho"
+T76_STATIC_ACTIVE_LOAN: "7711350088410162"
+T76_STATIC_EMPTY_LOAN: "7711360327819171"
+T76_STATIC_EXPECTED_AMORT: "—"                # fully-paid loan displays a dash for amortization

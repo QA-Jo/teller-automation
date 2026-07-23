@@ -68,7 +68,9 @@ Select Report Date Range From AntD Picker
         # Navigate backward if target is before current left panel, else forward
         ${target_dt}=    Evaluate    __import__('datetime').datetime.strptime('${month_from}', '%b %Y')
         ${cur_dt}=       Evaluate    __import__('datetime').datetime.strptime('${left_month} ${left_year}', '%b %Y')
-        IF    ${target_dt} < ${cur_dt}
+        # Use $var (object) not ${var} (string) — inlining the datetime's str form
+        # produces an unparseable expression (e.g. 2026-05-01 00:00:00 → leading-zero int).
+        IF    $target_dt < $cur_dt
             Click    css=.ant-picker-dropdown:not(.ant-picker-dropdown-hidden) .ant-picker-header-prev-btn >> nth=0
         ELSE
             Click    css=.ant-picker-dropdown:not(.ant-picker-dropdown-hidden) .ant-picker-header-super-next-btn >> nth=0
@@ -95,7 +97,8 @@ Select Report Date Range From AntD Picker
         IF    ${found}    BREAK
         ${target_dt}=    Evaluate    __import__('datetime').datetime.strptime('${month_to}', '%b %Y')
         ${cur_dt}=       Evaluate    __import__('datetime').datetime.strptime('${left_month} ${left_year}', '%b %Y')
-        IF    ${target_dt} < ${cur_dt}
+        # Use $var (object) not ${var} (string) — see note above.
+        IF    $target_dt < $cur_dt
             Click    css=.ant-picker-dropdown:not(.ant-picker-dropdown-hidden) .ant-picker-header-prev-btn >> nth=0
         ELSE
             Click    css=.ant-picker-dropdown:not(.ant-picker-dropdown-hidden) .ant-picker-header-super-next-btn >> nth=0

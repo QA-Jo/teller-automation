@@ -42,14 +42,24 @@ ONLY_TCS=()
 # so default to the same set the manual commands use. Override with --tag (repeatable).
 INCLUDE_TAGS=("smoke" "type1")
 TAG_OVERRIDE=()
+# When true, nest output under a per-bank sub-folder: results/<run>/<bank>/<tc>/
+# Lets several banks share one run folder (multi-bank smoke). Off by default so
+# the single-bank regression layout (results/<run>/<tc>/) is unchanged.
+NEST_BANK=false
+# Seconds to pause between TC-file executions (rate-limit protection for
+# throttled envs like ITG/SIT). 0 = no gap. Matches the pacing used for the
+# San Antonio ITG runs. Intra-suite pacing already lives in the resource files.
+SLEEP_BETWEEN=0
 
 while [[ $# -gt 0 ]]; do
   case $1 in
-    --bank)    BANK_ID="$2"; shift 2 ;;
-    --run)     RUN_NAME="$2"; shift 2 ;;
-    --exclude) EXCLUDES+=("$2"); shift 2 ;;
-    --tag)     TAG_OVERRIDE+=("$2"); shift 2 ;;
-    t[0-9]*)   ONLY_TCS+=("$1"); shift ;;
+    --bank)      BANK_ID="$2"; shift 2 ;;
+    --run)       RUN_NAME="$2"; shift 2 ;;
+    --exclude)   EXCLUDES+=("$2"); shift 2 ;;
+    --tag)       TAG_OVERRIDE+=("$2"); shift 2 ;;
+    --nest-bank) NEST_BANK=true; shift ;;
+    --sleep)     SLEEP_BETWEEN="$2"; shift 2 ;;
+    t[0-9]*)     ONLY_TCS+=("$1"); shift ;;
     *) echo "Unknown option: $1"; exit 1 ;;
   esac
 done
@@ -101,16 +111,30 @@ while IFS= read -r file; do
     SKIP_TCS+=("$tc"); continue
   fi
 
+  # Pacing gap between executions (skipped before the first run)
+  if [[ "$SLEEP_BETWEEN" -gt 0 && "${RAN_ONCE:-false}" == true ]]; then
+    echo -e "  ${CYAN}[pace]${NC}   sleeping ${SLEEP_BETWEEN}s before next TC (rate-limit protection)..."
+    sleep "$SLEEP_BETWEEN"
+  fi
+  RAN_ONCE=true
+
+  # Output dir — optionally nested under the bank for multi-bank runs
+  if [[ "$NEST_BANK" == true ]]; then
+    TC_OUT="${OUT_ROOT}/${BANK_ID}/${tc}"
+  else
+    TC_OUT="${OUT_ROOT}/${tc}"
+  fi
+
   echo ""
   echo -e "  ${BOLD}[run]${NC}    ${tc}  (${base})"
-  if robot -V "$VAR_FILE" "${INCLUDE_FLAGS[@]}" --exclude skip -d "${OUT_ROOT}/${tc}" "$file"; then
+  if robot -V "$VAR_FILE" "${INCLUDE_FLAGS[@]}" --exclude skip -d "${TC_OUT}" "$file"; then
     PASS_TCS+=("$tc")
   else
     code=$?
     # robot exit 252 = no tests matched the tag; treat as skipped, not failed
     if [[ $code -eq 252 ]]; then
       echo -e "  ${CYAN}[skip]${NC}   ${tc} (no tests matching tags: ${INCLUDE_TAGS[*]})"
-      rm -rf "${OUT_ROOT}/${tc}"
+      rm -rf "${TC_OUT}"
       SKIP_TCS+=("$tc")
     else
       FAIL_TCS+=("$tc")
