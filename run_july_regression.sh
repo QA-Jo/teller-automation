@@ -50,16 +50,21 @@ NEST_BANK=false
 # throttled envs like ITG/SIT). 0 = no gap. Matches the pacing used for the
 # San Antonio ITG runs. Intra-suite pacing already lives in the resource files.
 SLEEP_BETWEEN=0
+# Robot tags to exclude at run time (repeatable), e.g. --exclude-tag status-change.
+# Out-of-scope tests are then never EXECUTED (not just hidden) — important for
+# mutating tests (status change) that would otherwise corrupt shared test data.
+EXCLUDE_TAGS=()
 
 while [[ $# -gt 0 ]]; do
   case $1 in
-    --bank)      BANK_ID="$2"; shift 2 ;;
-    --run)       RUN_NAME="$2"; shift 2 ;;
-    --exclude)   EXCLUDES+=("$2"); shift 2 ;;
-    --tag)       TAG_OVERRIDE+=("$2"); shift 2 ;;
-    --nest-bank) NEST_BANK=true; shift ;;
-    --sleep)     SLEEP_BETWEEN="$2"; shift 2 ;;
-    t[0-9]*)     ONLY_TCS+=("$1"); shift ;;
+    --bank)        BANK_ID="$2"; shift 2 ;;
+    --run)         RUN_NAME="$2"; shift 2 ;;
+    --exclude)     EXCLUDES+=("$2"); shift 2 ;;
+    --tag)         TAG_OVERRIDE+=("$2"); shift 2 ;;
+    --exclude-tag) EXCLUDE_TAGS+=("$2"); shift 2 ;;
+    --nest-bank)   NEST_BANK=true; shift ;;
+    --sleep)       SLEEP_BETWEEN="$2"; shift 2 ;;
+    t[0-9]*)       ONLY_TCS+=("$1"); shift ;;
     *) echo "Unknown option: $1"; exit 1 ;;
   esac
 done
@@ -70,6 +75,10 @@ done
 # Build --include flags
 INCLUDE_FLAGS=()
 for t in "${INCLUDE_TAGS[@]}"; do INCLUDE_FLAGS+=(--include "$t"); done
+
+# Build --exclude flags (robot tags). 'skip' is always excluded; add any --exclude-tag values.
+EXCLUDE_TAG_FLAGS=(--exclude skip)
+for t in "${EXCLUDE_TAGS[@]+"${EXCLUDE_TAGS[@]}"}"; do EXCLUDE_TAG_FLAGS+=(--exclude "$t"); done
 
 VAR_FILE="${SCRIPT_DIR}/resources/variables/${BANK_ID}.yaml"
 [[ -f "$VAR_FILE" ]] || { echo -e "${RED}Variable file not found: ${VAR_FILE}${NC}"; exit 1; }
@@ -127,7 +136,7 @@ while IFS= read -r file; do
 
   echo ""
   echo -e "  ${BOLD}[run]${NC}    ${tc}  (${base})"
-  if robot -V "$VAR_FILE" "${INCLUDE_FLAGS[@]}" --exclude skip -d "${TC_OUT}" "$file"; then
+  if robot -V "$VAR_FILE" "${INCLUDE_FLAGS[@]}" "${EXCLUDE_TAG_FLAGS[@]}" -d "${TC_OUT}" "$file"; then
     PASS_TCS+=("$tc")
   else
     code=$?
