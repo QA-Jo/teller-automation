@@ -62,6 +62,61 @@ Regression testing for them was done last **June 2026** (see the `2026-06-02_reg
 |--------|-----------|-------|
 | 1_auth | t1.1–t1.4 | Excluded — no recent changes; last regressed June 2026 (`2026-06-02_regression-post-deployment`). |
 | 8_interest | t8.1 | Excluded — no recent changes; additionally pending dedicated interest-test accounts to be provisioned. |
+
+---
+
+# Teller SBX + SIT July 2026 Smoke Testing
+
+Published results: https://qa-jo.github.io/teller-automation/
+(run: `Teller_SBX_and_SIT_July2026_Smoke_Testing`, one sub-folder per bank)
+
+Per-bank smoke run across SBX/SIT environments. Auth (t1.2–t1.4) is included;
+`t1.1` reset-password (one-time temp passwords) and `t8.1` interest (accounts
+not provisioned) are excluded for all banks.
+
+## SNR-SBX (limited-module) smoke scope
+
+The SNR-SBX teller account exposes **only Customers, Accounts, Transactions and
+Reports** — there are **no Products or Loans modules**, and the tenant has no
+cash deposit/withdrawal, external-transfer, or loan/interest transaction data.
+Running the full suite yields ~140 not-applicable failures, so SNR-SBX is run
+through a dedicated scoped wrapper: **`run_snr_sbx_smoke.sh`**.
+
+**In scope (run + reported):**
+| Module | Test cases |
+|--------|-----------|
+| Auth | t1.2, t1.3, t1.4 |
+| Customers | t2.1, t2.2, t2.3 |
+| Accounts | t3.1, t3.2 |
+| Transactions | t4.1 (view/list) |
+| Reports | t6.1 |
+
+**Out of scope — whole TC files not run:** t2.4/t2.5/t2.6 (product &amp; loan
+availment), t4.2/t4.3 (cash withdrawal/deposit), t5.* (products), t7.* (loans),
+t1.1 (reset-password), t8.1 (interest).
+
+**Out of scope — status-change sub-tests, excluded at RUN time** (never executed).
+These are mutating and share the account other tests verify as Active, so running
+them corrupts test data. They carry a `status-change` tag; the wrapper passes
+`--exclude-tag status-change` to `run_july_regression.sh`.
+| Sub-tests | Reason |
+|-----------|--------|
+| t2.1.13, t2.1.14, t2.2.10–t2.2.13 | Change customer/account status (excluded on request; mutating) |
+
+**Out of scope — read-only sub-tests filtered from the report** (feature/data not
+present in SNR-SBX; safe to run, then removed via `rebot`):
+| Sub-tests | Reason |
+|-----------|--------|
+| t2.3.10–14, t3.2.9–13, t4.1.9–13 | Filter by Cash Withdrawal/Deposit, Savings Interest, Loan Disbursement/Payment — those transaction types don't exist in the tenant |
+| t4.1.5 | Search by ID targets an External Transfer — no external-transfer data (no partner account code set up) |
+| t2.1.12 | Profile detail verification checks the Eligible Products tab, which requires the Products module |
+
+Run + publish:
+```
+bash run_snr_sbx_smoke.sh
+bash publish_reports.sh --timestamp Teller_SBX_and_SIT_July2026_Smoke_Testing \
+  --title "Teller SBX and SIT July 2026 Smoke Testing"
+```
     </pre>
   </details>
   <div class="run-card">
@@ -501,6 +556,49 @@ Regression testing for them was done last **June 2026** (see the `2026-06-02_reg
   <div class="run-card">
     <div class="run-header"><span class="ts">Teller SBX and SIT July 2026 Smoke Testing</span></div>
     <div class="run-note"><span class="i">i</span><span><strong>Out of scope:</strong> <code>t1.x</code> (auth) and <code>t8.1</code> (interest) were excluded from this run &mdash; no recent changes to these areas on the current deployment. Regression for them was done last June 2026 (see the <code>2026-06-02_regression-post-deployment</code> results).</span></div>
+    <div class="bank-subhead">Guagua-SBX</div>
+    <div class="reports-grid">
+      <a class="report-link" href="reports/Teller_SBX_and_SIT_July2026_Smoke_Testing/Guagua-SBX/t1.2/report.html">
+        <span class="bank">t1.2</span>
+        <span class="module">report.html</span>
+      </a>
+      <a class="report-link" href="reports/Teller_SBX_and_SIT_July2026_Smoke_Testing/Guagua-SBX/t1.3/report.html">
+        <span class="bank">t1.3</span>
+        <span class="module">report.html</span>
+      </a>
+      <a class="report-link" href="reports/Teller_SBX_and_SIT_July2026_Smoke_Testing/Guagua-SBX/t1.4/report.html">
+        <span class="bank">t1.4</span>
+        <span class="module">report.html</span>
+      </a>
+      <a class="report-link" href="reports/Teller_SBX_and_SIT_July2026_Smoke_Testing/Guagua-SBX/t2.1/report.html">
+        <span class="bank">t2.1</span>
+        <span class="module">report.html</span>
+      </a>
+      <a class="report-link" href="reports/Teller_SBX_and_SIT_July2026_Smoke_Testing/Guagua-SBX/t2.2/report.html">
+        <span class="bank">t2.2</span>
+        <span class="module">report.html</span>
+      </a>
+      <a class="report-link" href="reports/Teller_SBX_and_SIT_July2026_Smoke_Testing/Guagua-SBX/t2.3/report.html">
+        <span class="bank">t2.3</span>
+        <span class="module">report.html</span>
+      </a>
+      <a class="report-link" href="reports/Teller_SBX_and_SIT_July2026_Smoke_Testing/Guagua-SBX/t3.1/report.html">
+        <span class="bank">t3.1</span>
+        <span class="module">report.html</span>
+      </a>
+      <a class="report-link" href="reports/Teller_SBX_and_SIT_July2026_Smoke_Testing/Guagua-SBX/t3.2/report.html">
+        <span class="bank">t3.2</span>
+        <span class="module">report.html</span>
+      </a>
+      <a class="report-link" href="reports/Teller_SBX_and_SIT_July2026_Smoke_Testing/Guagua-SBX/t4.1/report.html">
+        <span class="bank">t4.1</span>
+        <span class="module">report.html</span>
+      </a>
+      <a class="report-link" href="reports/Teller_SBX_and_SIT_July2026_Smoke_Testing/Guagua-SBX/t6.1/report.html">
+        <span class="bank">t6.1</span>
+        <span class="module">report.html</span>
+      </a>
+    </div>
     <div class="bank-subhead">SNR-SBX</div>
     <div class="reports-grid">
       <a class="report-link" href="reports/Teller_SBX_and_SIT_July2026_Smoke_Testing/SNR-SBX/t1.2/report.html">
