@@ -82,7 +82,7 @@ deposit/withdrawal, external-transfer, or loan/interest transaction data.
 Running the full suite yields ~140 not-applicable failures, so these banks are
 run through the scoped wrapper **`run_limited_smoke.sh &lt;bank&gt;`**
 (`run_snr_sbx_smoke.sh` is a thin wrapper for SNR-SBX). Confirmed limited-module
-banks so far: **SNR-SBX**, **Guagua-SBX**.
+banks so far: **SNR-SBX**, **Guagua-SBX**, **Hermosa-SBX**.
 
 **In scope (run + reported):**
 | Module | Test cases |
@@ -121,6 +121,10 @@ present in these tenants; safe to run, then removed via `rebot`):
   (t2.2.3/.4), so the dataset was switched to Jocelyn. `VALID_ACCOUNT_NUMBER` (the
   module-level account search, t3.1.3) points at Myka Feliciano Quiambao's Active
   account. Result: **54/54**.
+- **Hermosa-SBX** — `VALID_CUSTOMER`/account = **Lena Moretti** (Active). Only
+  `VALID_ACCOUNT_NUMBER`/`EXPECTED_*` (t3.1.3) needed fixing — pointed at Lena's own
+  Active account `7710744278473292` (was Warren Test Hermosa's Deceased account).
+  Result: **54/54**.
 
 Run + publish (per bank):
 ```
@@ -750,6 +754,49 @@ bash publish_reports.sh --timestamp Teller_SBX_and_SIT_July2026_Smoke_Testing \
       </a>
       <a class="report-link" href="reports/Teller_SBX_and_SIT_July2026_Smoke_Testing/SNR-SIT/t7.6/report.html">
         <span class="bank">t7.6</span>
+        <span class="module">report.html</span>
+      </a>
+    </div>
+    <div class="bank-subhead">abucay-SBX</div>
+    <div class="reports-grid">
+      <a class="report-link" href="reports/Teller_SBX_and_SIT_July2026_Smoke_Testing/abucay-SBX/t1.2/report.html">
+        <span class="bank">t1.2</span>
+        <span class="module">report.html</span>
+      </a>
+      <a class="report-link" href="reports/Teller_SBX_and_SIT_July2026_Smoke_Testing/abucay-SBX/t1.3/report.html">
+        <span class="bank">t1.3</span>
+        <span class="module">report.html</span>
+      </a>
+      <a class="report-link" href="reports/Teller_SBX_and_SIT_July2026_Smoke_Testing/abucay-SBX/t1.4/report.html">
+        <span class="bank">t1.4</span>
+        <span class="module">report.html</span>
+      </a>
+      <a class="report-link" href="reports/Teller_SBX_and_SIT_July2026_Smoke_Testing/abucay-SBX/t2.1/report.html">
+        <span class="bank">t2.1</span>
+        <span class="module">report.html</span>
+      </a>
+      <a class="report-link" href="reports/Teller_SBX_and_SIT_July2026_Smoke_Testing/abucay-SBX/t2.2/report.html">
+        <span class="bank">t2.2</span>
+        <span class="module">report.html</span>
+      </a>
+      <a class="report-link" href="reports/Teller_SBX_and_SIT_July2026_Smoke_Testing/abucay-SBX/t2.3/report.html">
+        <span class="bank">t2.3</span>
+        <span class="module">report.html</span>
+      </a>
+      <a class="report-link" href="reports/Teller_SBX_and_SIT_July2026_Smoke_Testing/abucay-SBX/t3.1/report.html">
+        <span class="bank">t3.1</span>
+        <span class="module">report.html</span>
+      </a>
+      <a class="report-link" href="reports/Teller_SBX_and_SIT_July2026_Smoke_Testing/abucay-SBX/t3.2/report.html">
+        <span class="bank">t3.2</span>
+        <span class="module">report.html</span>
+      </a>
+      <a class="report-link" href="reports/Teller_SBX_and_SIT_July2026_Smoke_Testing/abucay-SBX/t4.1/report.html">
+        <span class="bank">t4.1</span>
+        <span class="module">report.html</span>
+      </a>
+      <a class="report-link" href="reports/Teller_SBX_and_SIT_July2026_Smoke_Testing/abucay-SBX/t6.1/report.html">
+        <span class="bank">t6.1</span>
         <span class="module">report.html</span>
       </a>
     </div>
