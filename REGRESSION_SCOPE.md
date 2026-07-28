@@ -41,7 +41,7 @@ deposit/withdrawal, external-transfer, or loan/interest transaction data.
 Running the full suite yields ~140 not-applicable failures, so these banks are
 run through the scoped wrapper **`run_limited_smoke.sh <bank>`**
 (`run_snr_sbx_smoke.sh` is a thin wrapper for SNR-SBX). Confirmed limited-module
-banks so far: **SNR-SBX**, **Guagua-SBX**, **Hermosa-SBX**.
+banks so far: **SNR-SBX**, **Guagua-SBX**, **Hermosa-SBX**, **abucay-SBX**.
 
 **In scope (run + reported):**
 | Module | Test cases |
@@ -84,6 +84,8 @@ present in these tenants; safe to run, then removed via `rebot`):
   `VALID_ACCOUNT_NUMBER`/`EXPECTED_*` (t3.1.3) needed fixing — pointed at Lena's own
   Active account `7710744278473292` (was Warren Test Hermosa's Deceased account).
   Result: **54/54**.
+- **abucay-SBX** (Banco Abucay) — `VALID_CUSTOMER`/account = **Peach Marie Villados**
+  (Active). No config changes needed — clean on the first scoped run. Result: **54/54**.
 
 Run + publish (per bank):
 ```
