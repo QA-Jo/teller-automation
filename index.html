@@ -74,13 +74,15 @@ Per-bank smoke run across SBX/SIT environments. Auth (t1.2–t1.4) is included;
 `t1.1` reset-password (one-time temp passwords) and `t8.1` interest (accounts
 not provisioned) are excluded for all banks.
 
-## SNR-SBX (limited-module) smoke scope
+## Limited-module banks (SNR-SBX, Guagua-SBX) smoke scope
 
-The SNR-SBX teller account exposes **only Customers, Accounts, Transactions and
-Reports** — there are **no Products or Loans modules**, and the tenant has no
-cash deposit/withdrawal, external-transfer, or loan/interest transaction data.
-Running the full suite yields ~140 not-applicable failures, so SNR-SBX is run
-through a dedicated scoped wrapper: **`run_snr_sbx_smoke.sh`**.
+Some SBX tenants expose **only Customers, Accounts, Transactions and Reports** —
+there are **no Products or Loans modules**, and the tenant has no cash
+deposit/withdrawal, external-transfer, or loan/interest transaction data.
+Running the full suite yields ~140 not-applicable failures, so these banks are
+run through the scoped wrapper **`run_limited_smoke.sh &lt;bank&gt;`**
+(`run_snr_sbx_smoke.sh` is a thin wrapper for SNR-SBX). Confirmed limited-module
+banks so far: **SNR-SBX**, **Guagua-SBX**.
 
 **In scope (run + reported):**
 | Module | Test cases |
@@ -104,16 +106,26 @@ them corrupts test data. They carry a `status-change` tag; the wrapper passes
 | t2.1.13, t2.1.14, t2.2.10–t2.2.13 | Change customer/account status (excluded on request; mutating) |
 
 **Out of scope — read-only sub-tests filtered from the report** (feature/data not
-present in SNR-SBX; safe to run, then removed via `rebot`):
+present in these tenants; safe to run, then removed via `rebot`):
 | Sub-tests | Reason |
 |-----------|--------|
 | t2.3.10–14, t3.2.9–13, t4.1.9–13 | Filter by Cash Withdrawal/Deposit, Savings Interest, Loan Disbursement/Payment — those transaction types don't exist in the tenant |
 | t4.1.5 | Search by ID targets an External Transfer — no external-transfer data (no partner account code set up) |
 | t2.1.12 | Profile detail verification checks the Eligible Products tab, which requires the Products module |
 
-Run + publish:
+**Per-bank data notes** (each tenant needs its own valid customer/account data):
+- **SNR-SBX** — `VALID_CUSTOMER` = Louisa May (Active customer with an Active account).
+- **Guagua-SBX** — `VALID_CUSTOMER`/account = **Jocelyn Javier Amban** (`7711031228974342`,
+  Active). The originally-configured Josephine Santos only has a **Closed** account
+  (terminal status, cannot be reactivated), which failed the Active-account checks
+  (t2.2.3/.4), so the dataset was switched to Jocelyn. `VALID_ACCOUNT_NUMBER` (the
+  module-level account search, t3.1.3) points at Myka Feliciano Quiambao's Active
+  account. Result: **54/54**.
+
+Run + publish (per bank):
 ```
-bash run_snr_sbx_smoke.sh
+bash run_limited_smoke.sh SNR-SBX        # or: bash run_snr_sbx_smoke.sh
+bash run_limited_smoke.sh Guagua-SBX
 bash publish_reports.sh --timestamp Teller_SBX_and_SIT_July2026_Smoke_Testing \
   --title "Teller SBX and SIT July 2026 Smoke Testing"
 ```
@@ -837,6 +849,49 @@ bash publish_reports.sh --timestamp Teller_SBX_and_SIT_July2026_Smoke_Testing \
       </a>
       <a class="report-link" href="reports/Teller_SBX_and_SIT_July2026_Smoke_Testing/alegre-SBX/t7.6/report.html">
         <span class="bank">t7.6</span>
+        <span class="module">report.html</span>
+      </a>
+    </div>
+    <div class="bank-subhead">hermosa-SBX</div>
+    <div class="reports-grid">
+      <a class="report-link" href="reports/Teller_SBX_and_SIT_July2026_Smoke_Testing/hermosa-SBX/t1.2/report.html">
+        <span class="bank">t1.2</span>
+        <span class="module">report.html</span>
+      </a>
+      <a class="report-link" href="reports/Teller_SBX_and_SIT_July2026_Smoke_Testing/hermosa-SBX/t1.3/report.html">
+        <span class="bank">t1.3</span>
+        <span class="module">report.html</span>
+      </a>
+      <a class="report-link" href="reports/Teller_SBX_and_SIT_July2026_Smoke_Testing/hermosa-SBX/t1.4/report.html">
+        <span class="bank">t1.4</span>
+        <span class="module">report.html</span>
+      </a>
+      <a class="report-link" href="reports/Teller_SBX_and_SIT_July2026_Smoke_Testing/hermosa-SBX/t2.1/report.html">
+        <span class="bank">t2.1</span>
+        <span class="module">report.html</span>
+      </a>
+      <a class="report-link" href="reports/Teller_SBX_and_SIT_July2026_Smoke_Testing/hermosa-SBX/t2.2/report.html">
+        <span class="bank">t2.2</span>
+        <span class="module">report.html</span>
+      </a>
+      <a class="report-link" href="reports/Teller_SBX_and_SIT_July2026_Smoke_Testing/hermosa-SBX/t2.3/report.html">
+        <span class="bank">t2.3</span>
+        <span class="module">report.html</span>
+      </a>
+      <a class="report-link" href="reports/Teller_SBX_and_SIT_July2026_Smoke_Testing/hermosa-SBX/t3.1/report.html">
+        <span class="bank">t3.1</span>
+        <span class="module">report.html</span>
+      </a>
+      <a class="report-link" href="reports/Teller_SBX_and_SIT_July2026_Smoke_Testing/hermosa-SBX/t3.2/report.html">
+        <span class="bank">t3.2</span>
+        <span class="module">report.html</span>
+      </a>
+      <a class="report-link" href="reports/Teller_SBX_and_SIT_July2026_Smoke_Testing/hermosa-SBX/t4.1/report.html">
+        <span class="bank">t4.1</span>
+        <span class="module">report.html</span>
+      </a>
+      <a class="report-link" href="reports/Teller_SBX_and_SIT_July2026_Smoke_Testing/hermosa-SBX/t6.1/report.html">
+        <span class="bank">t6.1</span>
         <span class="module">report.html</span>
       </a>
     </div>
