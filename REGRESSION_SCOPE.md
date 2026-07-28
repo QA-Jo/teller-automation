@@ -41,7 +41,7 @@ deposit/withdrawal, external-transfer, or loan/interest transaction data.
 Running the full suite yields ~140 not-applicable failures, so these banks are
 run through the scoped wrapper **`run_limited_smoke.sh <bank>`**
 (`run_snr_sbx_smoke.sh` is a thin wrapper for SNR-SBX). Confirmed limited-module
-banks so far: **SNR-SBX**, **Guagua-SBX**.
+banks so far: **SNR-SBX**, **Guagua-SBX**, **Hermosa-SBX**.
 
 **In scope (run + reported):**
 | Module | Test cases |
@@ -80,6 +80,10 @@ present in these tenants; safe to run, then removed via `rebot`):
   (t2.2.3/.4), so the dataset was switched to Jocelyn. `VALID_ACCOUNT_NUMBER` (the
   module-level account search, t3.1.3) points at Myka Feliciano Quiambao's Active
   account. Result: **54/54**.
+- **Hermosa-SBX** — `VALID_CUSTOMER`/account = **Lena Moretti** (Active). Only
+  `VALID_ACCOUNT_NUMBER`/`EXPECTED_*` (t3.1.3) needed fixing — pointed at Lena's own
+  Active account `7710744278473292` (was Warren Test Hermosa's Deceased account).
+  Result: **54/54**.
 
 Run + publish (per bank):
 ```
