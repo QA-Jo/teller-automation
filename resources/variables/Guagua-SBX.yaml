@@ -48,10 +48,10 @@ CP_USER_PASSWORD: "Password123!"
 # Customer Data (t2.1, t2.2, t2.3)
 # ============================================================
 
-VALID_CUSTOMER_ID: "a9da01bcd70947de9c271039cd90646b"
-VALID_CUSTOMER_NAME: "Josephine Santos"
-CUSTOMER_DATE_OF_BIRTH: "06 Apr 2008"
-CUSTOMER_CREATED_ON: "06 Apr 2026"
+VALID_CUSTOMER_ID: "caa17ed394fe43eaa255a69149041f7c"
+VALID_CUSTOMER_NAME: "Jocelyn Javier Amban"
+CUSTOMER_DATE_OF_BIRTH: "01 Apr 2008"
+CUSTOMER_CREATED_ON: "01 Apr 2026"
 T21_STATUS_CHANGE_CUSTOMER_NAME: "Warren Test Guagua"
 T21_STATUS_CHANGE_REMARKS: "Automated test — status change verification"
 T22_STATUS_CHANGE_CUSTOMER_ID: "c03140d65d5f475da49cda9a78e67ad4"
@@ -60,22 +60,22 @@ T22_STATUS_CHANGE_REMARKS: "Automated test — account status change verificatio
 
 
 # Aliases used in t2.2 and t2.3
-CUSTOMER_ID: "a9da01bcd70947de9c271039cd90646b"
-CUSTOMER_NAME: "Josephine Santos"
+CUSTOMER_ID: "caa17ed394fe43eaa255a69149041f7c"
+CUSTOMER_NAME: "Jocelyn Javier Amban"
 
 
 # ============================================================
 # Account Data (t2.2, t3.1)
 # ============================================================
 
-VALID_ACCOUNT_ID: "7711047708401688"
-VALID_ACCOUNT_NAME: "Josephine Santos"
-ACCOUNT_CREATED_ON: "06 Apr 2026"
+VALID_ACCOUNT_ID: "7711031228974342"
+VALID_ACCOUNT_NAME: "Jocelyn Javier Amban"
+ACCOUNT_CREATED_ON: "01 Apr 2026"
 
-VALID_ACCOUNT_NUMBER: "7711011229703085"
-EXPECTED_ACCOUNT_NAME: "Warren Test One"
-EXPECTED_BALANCE: "₱0.00"
-EXPECTED_CREATED_ON: "06 Apr 2026"
+VALID_ACCOUNT_NUMBER: "7711078193078973"
+EXPECTED_ACCOUNT_NAME: "Myka Feliciano Quiambao"
+EXPECTED_BALANCE: "₱7,000.00"
+EXPECTED_CREATED_ON: "29 May 2026"
 
 
 # ============================================================
