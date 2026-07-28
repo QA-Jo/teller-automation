@@ -6,8 +6,8 @@ BANK_NAME: "Alegre"
 BASE_URL: "https://alegre-dashboard.pub.sbx.higala.ph/alegre/login"
 
 # Teller Credentials
-TELLER_EMAIL: "pvillados+u1@agsx.net"
-TELLER_PASSWORD: "Password123!"
+TELLER_EMAIL: "jjavier@nmblr.ai"
+TELLER_PASSWORD: "Password!1"
 
 # Invalid Credentials (for negative test cases)
 INVALID_EMAIL: "invalid@email.com"
